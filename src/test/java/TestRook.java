@@ -35,32 +35,74 @@ public class TestRook {
     }
 
     @Test
+    // TODO: check results of args
     public void instantiateRookGoodParams() {
-        new Rook(1,5,_board_length,_board_width);
+        new Rook(1,5,_board_width, _board_length);
     }
 
-    // TODO
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void moveRookBelowBoundsLength() {
+        // arrange
+        int x_coord = 0;
+        int y_coord = _board_length - 1;
+        Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
+        // act
+        rook.move(x_coord, -1);
+
+        // assert - none, move() should throw an exception
     }
 
-    // TODO
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void moveRookAboveBoundsLength() {
+        // arrange
+        int x_coord = 0;
+        int y_coord = _board_length - 1;
+        Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
+        // act
+        rook.move(x_coord, _board_length);
+
+        // assert - none, move() should throw an exception
     }
 
-    // TODO
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void moveRookBelowBoundsWidth() {
+         // arrange
+        int x_coord = 0;
+        int y_coord = _board_length - 1;
+        Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
+        // act
+        rook.move(-1, y_coord);
+
+        // assert - none, move() should throw an exception
     }
 
-    // TODO
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void moveRookAboveBoundsWidth() {
+         // arrange
+        int x_coord = 0;
+        int y_coord = _board_length - 1;
+        Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
+        // act
+        rook.move(_board_width, y_coord);
+
+        // assert - none, move() should throw an exception
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void moveRookDiagonally() {
+        // arrange
+        int x_coord = 0;
+        int y_coord = _board_length - 1;
+        Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
+
+        // act
+        rook.move(x_coord + 1, y_coord - 1);
+
+        // assert - none, move() should throw an exception
     }
 
     // TODO
