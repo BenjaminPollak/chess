@@ -17,5 +17,5 @@ abstract public class Piece {
         yet_to_move = true;
     }
 
-    abstract boolean move();
+    abstract boolean move(int new_x_coord, int new_y_coord);
 }
