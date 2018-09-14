@@ -1,12 +1,25 @@
 import org.junit.Test;
 import org.junit.Assert;
 
+import static org.hamcrest.core.Is.is;
+
 public class TestBoard {
-    // nonsense test
     @Test
-    public void exampleTest() {
-        Board board = new Board();
-        boolean boardIsTrue = board.returnsTrue();
-        Assert.assertTrue(boardIsTrue);
+    public void badBoardLength() {
+        try {
+            Board board = new Board(8, -2);
+            Assert.assertTrue(false);
+        } catch(IllegalArgumentException e) {
+            Assert.assertThat(e.getMessage(), is("Cannot have length < 5"));
+        }
+    }
+    @Test
+    public void badBoardWidth() {
+        try {
+            Board board = new Board(3, 8);
+            Assert.assertTrue(false);
+        } catch(IllegalArgumentException e) {
+            Assert.assertThat(e.getMessage(), is("Cannot have width < 8"));
+        }
     }
 }
