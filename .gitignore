@@ -1,5 +1,6 @@
 # GRADLE
 .gradle
 /build/
+/out/
 
 # GENERAL JAVA
