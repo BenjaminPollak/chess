@@ -48,7 +48,7 @@ public class TestRook {
         Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
         // act
-        rook.move(x_coord, -1);
+        rook.move(x_coord, -1, _board_width, _board_length);
 
         // assert - none, move() should throw an exception
     }
@@ -61,7 +61,7 @@ public class TestRook {
         Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
         // act
-        rook.move(x_coord, _board_length);
+        rook.move(x_coord, _board_length, _board_width, _board_length);
 
         // assert - none, move() should throw an exception
     }
@@ -74,7 +74,7 @@ public class TestRook {
         Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
         // act
-        rook.move(-1, y_coord);
+        rook.move(-1, y_coord, _board_width, _board_length);
 
         // assert - none, move() should throw an exception
     }
@@ -87,7 +87,7 @@ public class TestRook {
         Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
         // act
-        rook.move(_board_width, y_coord);
+        rook.move(_board_width, y_coord, _board_width, _board_length);
 
         // assert - none, move() should throw an exception
     }
@@ -100,7 +100,7 @@ public class TestRook {
         Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
 
         // act
-        rook.move(x_coord + 1, y_coord - 1);
+        rook.move(x_coord + 1, y_coord - 1, _board_width, _board_length);
 
         // assert - none, move() should throw an exception
     }
