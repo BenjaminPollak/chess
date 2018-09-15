@@ -20,6 +20,13 @@ abstract public class Piece {
     }
 
     public Piece(int x_coord, int y_coord, int board_length, int board_width) {
+        checkCoordinates(x_coord, y_coord, board_width, board_length);
+        _x_coord = x_coord;
+        _y_coord = y_coord;
+    }
+
+
+    public void checkCoordinates(int x_coord, int y_coord, int board_width, int board_length) {
         if((x_coord < 0) || (y_coord < 0)) {
             throw new IllegalArgumentException();
         }
@@ -28,9 +35,7 @@ abstract public class Piece {
             throw new IllegalArgumentException();
         }
 
-        _x_coord = x_coord;
-        _y_coord = y_coord;
     }
 
-    abstract move_type move(int x_coord, int y_coord, int board_width, int board_length);
+    abstract move_type move(int x_coord, int y_coord, Board board);
 }
