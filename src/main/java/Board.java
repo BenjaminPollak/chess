@@ -17,7 +17,7 @@ public class Board extends JFrame{
     private HashMap<PieceType, Vector<Piece>> _whitePieces;
     private HashMap<PieceType, Vector<Piece>> _blackPieces;
 
-    public Board(int boardWidth, int boardLength) throws IllegalArgumentException {
+    public Board(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[], Pair<PieceType, Location[]> blackPieces[]) throws IllegalArgumentException {
         if(boardWidth < 8) {
             throw new IllegalArgumentException("Cannot have board width < 8");
         }
@@ -28,8 +28,8 @@ public class Board extends JFrame{
         _boardWidth = boardWidth;
         _boardLength = boardLength;
         _field = new Piece[_boardWidth][_boardLength];
-        _whitePieces = createAndPlacePiecesOnBoard(null);
-        _blackPieces = createAndPlacePiecesOnBoard(null);
+        _whitePieces = createAndPlacePiecesOnBoard(whitePieces);
+        _blackPieces = createAndPlacePiecesOnBoard(blackPieces);
     }
 
     /*

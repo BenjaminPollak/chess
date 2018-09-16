@@ -10,7 +10,7 @@ public class TestBoard {
     public void testHappyInstantiatePieces() {
         // arrange
         int boardWidth = 8; int boardLength = 8;
-        Board board = new Board(boardWidth, boardLength);
+        Board board = new Board(boardWidth, boardLength, null, null);
 
         Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
 
@@ -39,7 +39,7 @@ public class TestBoard {
     public void testSadInstantiatePieces() {
         // arrange
         int boardWidth = 8; int boardLength = 8;
-        Board board = new Board(boardWidth, boardLength);
+        Board board = new Board(boardWidth, boardLength, null, null);
 
         Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
 
@@ -57,19 +57,19 @@ public class TestBoard {
 
     @Test(expected = IllegalArgumentException.class)
     public void instantiateBoardWithBadWidth() {
-        new Board(3, 8);
+        new Board(3, 8, null, null);
         Assert.fail();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void instantiateBoardWithBadLength() {
-        new Board(8, -2);
+        new Board(8, -2, null, null);
         Assert.fail();
     }
 
     @Test
     public void instantiateBoardWithGoodArgs() {
-        new Board(8, 8);
+        new Board(8, 8, null, null);
         Assert.assertTrue(true);
     }
 }

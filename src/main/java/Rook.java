@@ -14,7 +14,7 @@ public class Rook extends Piece {
         super(xCoord, yCoord, boardWidth, boardLength);
         super.setLocation(new Location(xCoord, yCoord));
         _yetToMove = true;
-        _location = new Location(xCoord, yCoord);
+        _location = super.getLocation();
     }
 
     /*
