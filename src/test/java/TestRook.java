@@ -1,5 +1,6 @@
 import javafx.util.Pair;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -10,39 +11,46 @@ public class TestRook {
     private static Board _board;
     private static int _boardLength;
     private static int _boardWidth;
+    private static Location _boardParams;
 
     @BeforeClass
     public static void setUp() {
         _boardLength = 8; _boardWidth = 8;
         _board = new Board(_boardWidth, _boardLength, null, null);
+        _boardParams = new Location(_boardWidth, _boardLength);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookXCoordTooSmall() {
-        new Rook(-1,0,_boardWidth,_boardLength);
+        Location pieceLocatoin = new Location(-1, 0);
+        new Rook(pieceLocatoin,_boardParams);
         Assert.fail();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookXCoordTooBig() {
-        new Rook(_boardWidth,0,_boardWidth,_boardLength);
+        Location pieceLocation = new Location(_boardWidth, 0);
+        new Rook(pieceLocation,_boardParams);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookYCoordTooSmall() {
-        new Rook(3,-2,_boardWidth,_boardLength);
+        Location pieceLocation = new Location(3, -2);
+        new Rook(pieceLocation, _boardParams);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookYCoordTooBig() {
-        new Rook(7,9,_boardWidth,_boardLength);
+        Location pieceLocation = new Location(7,9);
+        new Rook(pieceLocation, _boardParams);
     }
 
     @Test
     public void testInstantiateRookGoodParams() {
         // arrange & act
-
-        Rook rook = new Rook(1,5,_boardWidth, _boardLength);
+        Location pieceLocation = new Location(1,5);
+        new Rook(pieceLocation, _boardParams);
+        Assert.assertTrue(true);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -50,7 +58,8 @@ public class TestRook {
          // arrange
         int xCoord = 0;
         int yCoord = _boardLength - 1;
-        Rook rook = new Rook(xCoord, yCoord, _boardWidth, _boardLength);
+        Location pieceLocation = new Location(xCoord, yCoord);
+        Rook rook = new Rook(pieceLocation, _boardParams);
 
         // act
         rook.move(_boardWidth, yCoord, _board);
@@ -63,7 +72,8 @@ public class TestRook {
         // arrange
         int xCoord = 0;
         int yCoord = _boardLength - 1;
-        Rook rook = new Rook(xCoord, yCoord, _boardWidth, _boardLength);
+        Location pieceLocation = new Location(xCoord, yCoord);
+        Rook rook = new Rook(pieceLocation, _boardParams);
 
         // act
         rook.move(xCoord + 1, yCoord - 1, _board);
@@ -71,6 +81,7 @@ public class TestRook {
         // assert - none, move() should throw an exception
     }
 
+    @Ignore
     @Test
     public void testCheckValidMoveHappyPath() {
         // TODO: write this NOW
@@ -91,6 +102,7 @@ public class TestRook {
         Assert.assertFalse(attackMove);
     }
 
+    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testCheckValidMoveSadPath() {
         // TODO: write this NOW
@@ -116,12 +128,13 @@ public class TestRook {
     public void testMoveRookVerticallyValid() {
         // arrange
         Board board = new Board(8,8,null,null);
-        int x_coord = 0;
-        int y_coord = _boardLength - 1;
-        Rook rook = new Rook(x_coord, y_coord, _boardWidth, _boardLength);
+        int xCoord = 0;
+        int yCoord = _boardLength - 1;
+        Location pieceLocation = new Location(xCoord, yCoord);
+        Rook rook = new Rook(pieceLocation, _boardParams);
 
         // act
-        MoveType moveType = rook.move(x_coord, (_boardLength - 2), _board);
+        MoveType moveType = rook.move(xCoord, (_boardLength - 2), _board);
 
         // assert
         Assert.assertEquals(moveType, MoveType.MOVE);

@@ -4,7 +4,13 @@ abstract public class Piece {
 
     private PieceType _pieceType;
 
-    public Piece(int xCoord, int yCoord, int boardLength, int boardWidth, PieceType pieceType) {
+    public Piece(Location pieceLocation, Location boardParameters, PieceType pieceType) {
+        int xCoord = pieceLocation.getKey();
+        int yCoord = pieceLocation.getValue();
+
+        int boardWidth = boardParameters.getKey();
+        int boardLength = boardParameters.getValue();
+
         checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
         _location = new Location(xCoord, yCoord);
         _pieceType = pieceType;

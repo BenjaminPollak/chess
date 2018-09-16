@@ -70,7 +70,7 @@ public class Board extends JFrame{
                     if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException("Position already taken");
 
                     if(type == PieceType.ROOK) {
-                        Rook newPiece = new Rook(xCoord, yCoord, _boardWidth, _boardLength);
+                        Rook newPiece = new Rook(loc, new Location(_boardWidth, _boardLength));
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }
