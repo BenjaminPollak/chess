@@ -20,7 +20,7 @@ public class Location extends Pair<Integer, Integer> {
         if (getClass() != object.getClass())
             return false;
 
-        Pair<Integer, Integer> outsidePair = (Location) object;
+        Location outsidePair = (Location) object;
 
         if(outsidePair.getKey() != this.getKey()) return false;
         if(outsidePair.getValue() != this.getValue()) return false;

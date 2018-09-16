@@ -4,7 +4,7 @@ abstract public class Piece {
 
     private PieceType _pieceType;
 
-    public Piece(Location pieceLocation, Location boardParameters, PieceType pieceType) {
+    public Piece(Location pieceLocation, Location boardParameters, PieceType pieceType, Color color) {
         int xCoord = pieceLocation.getKey();
         int yCoord = pieceLocation.getValue();
 

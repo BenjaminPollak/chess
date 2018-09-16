@@ -23,33 +23,33 @@ public class TestRook {
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookXCoordTooSmall() {
         Location pieceLocatoin = new Location(-1, 0);
-        new Rook(pieceLocatoin,_boardParams);
+        new Rook(pieceLocatoin, _boardParams, Color.WHITE);
         Assert.fail();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookXCoordTooBig() {
         Location pieceLocation = new Location(_boardWidth, 0);
-        new Rook(pieceLocation,_boardParams);
+        new Rook(pieceLocation, _boardParams, Color.WHITE);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookYCoordTooSmall() {
         Location pieceLocation = new Location(3, -2);
-        new Rook(pieceLocation, _boardParams);
+        new Rook(pieceLocation, _boardParams, Color.WHITE);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInstantiateRookYCoordTooBig() {
         Location pieceLocation = new Location(7,9);
-        new Rook(pieceLocation, _boardParams);
+        new Rook(pieceLocation, _boardParams, Color.WHITE);
     }
 
     @Test
     public void testInstantiateRookGoodParams() {
         // arrange & act
         Location pieceLocation = new Location(1,5);
-        new Rook(pieceLocation, _boardParams);
+        new Rook(pieceLocation, _boardParams, Color.WHITE);
         Assert.assertTrue(true);
     }
 
@@ -59,7 +59,7 @@ public class TestRook {
         int xCoord = 0;
         int yCoord = _boardLength - 1;
         Location pieceLocation = new Location(xCoord, yCoord);
-        Rook rook = new Rook(pieceLocation, _boardParams);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
 
         // act
         rook.move(_boardWidth, yCoord, _board);
@@ -73,7 +73,7 @@ public class TestRook {
         int xCoord = 0;
         int yCoord = _boardLength - 1;
         Location pieceLocation = new Location(xCoord, yCoord);
-        Rook rook = new Rook(pieceLocation, _boardParams);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
 
         // act
         rook.move(xCoord + 1, yCoord - 1, _board);
@@ -131,7 +131,7 @@ public class TestRook {
         int xCoord = 0;
         int yCoord = _boardLength - 1;
         Location pieceLocation = new Location(xCoord, yCoord);
-        Rook rook = new Rook(pieceLocation, _boardParams);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
 
         // act
         MoveType moveType = rook.move(xCoord, (_boardLength - 2), _board);

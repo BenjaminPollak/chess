@@ -28,8 +28,8 @@ public class Board extends JFrame{
         _boardWidth = boardWidth;
         _boardLength = boardLength;
         _field = new Piece[_boardWidth][_boardLength];
-        _whitePieces = createAndPlacePiecesOnBoard(whitePieces);
-        _blackPieces = createAndPlacePiecesOnBoard(blackPieces);
+        _whitePieces = createAndPlacePiecesOnBoard(whitePieces, Color.WHITE);
+        _blackPieces = createAndPlacePiecesOnBoard(blackPieces, Color.BLACK);
     }
 
     /*
@@ -51,7 +51,7 @@ public class Board extends JFrame{
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
      * @returns a hash map containing all the pieces needed for a game of chess
      */
-        public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(Pair<PieceType, Location[]> unplacedPieces[]) {
+        public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(Pair<PieceType, Location[]> unplacedPieces[], Color color) {
             if((_field == null) || (unplacedPieces == null)) return new HashMap<>();
 
             HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();
@@ -70,7 +70,7 @@ public class Board extends JFrame{
                     if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException("Position already taken");
 
                     if(type == PieceType.ROOK) {
-                        Rook newPiece = new Rook(loc, new Location(_boardWidth, _boardLength));
+                        Rook newPiece = new Rook(loc, new Location(_boardWidth, _boardLength), color);
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }

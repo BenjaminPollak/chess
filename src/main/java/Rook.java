@@ -10,8 +10,8 @@ public class Rook extends Piece {
      * @param boardWidth: horizontal size of the board
      * @param boardLength: vertical size of the board
      */
-    public Rook(Location pieceLocation, Location boardParameters) throws IllegalArgumentException {
-        super(pieceLocation, boardParameters, PieceType.ROOK);
+    public Rook(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
+        super(pieceLocation, boardParameters, PieceType.ROOK, color);
         super.setLocation(pieceLocation);
         _yetToMove = true;
         _location = super.getLocation();

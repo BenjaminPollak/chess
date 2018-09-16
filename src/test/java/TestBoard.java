@@ -20,7 +20,7 @@ public class TestBoard {
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         // act
-        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces);
+        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, Color.WHITE);
 
         // TODO: check field state
         // assert
@@ -49,7 +49,7 @@ public class TestBoard {
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         // act
-        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces);
+        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, Color.WHITE);
 
         // assert
         Assert.fail();
