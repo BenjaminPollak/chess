@@ -1,29 +1,34 @@
 public class Rook extends Piece {
-    private int _x_coord;
-    private int _y_coord;
-    private boolean yet_to_move;
+    private int _xCoord;
+    private int _yCoord;
+    private boolean _yetToMove;
 
-    public Rook(int x_coord, int y_coord, int board_width, int board_length) throws IllegalArgumentException {
-        super(x_coord, y_coord, board_width, board_length);
-        _x_coord = x_coord;
-        _y_coord = y_coord;
-        yet_to_move = true;
+    public Rook(int xCoord, int yCoord, int boardWidth, int boardLength) throws IllegalArgumentException {
+        super(xCoord, yCoord, boardWidth, boardLength);
+        _xCoord = xCoord;
+        _yCoord = yCoord;
+        _yetToMove = true;
     }
 
-    move_type move(int x_coord, int y_coord, Board board) throws IllegalArgumentException {
-        int board_width = board.get_board_width();
-        int board_length = board.get_board_length();
+    MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
+        int boardWidth = board.getBoardWidth();
+        int boardLength = board.getBoardLength();
 
-        if((x_coord != board_width) && (y_coord != board_length)) throw new IllegalArgumentException();
-        checkCoordinates(x_coord, y_coord, board_width, board_length);
-        return move_type.MOVE;
+        if((xCoord != boardWidth) && (yCoord != boardLength)) throw new IllegalArgumentException();
+        checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
+        // TODO: check nothing in the way
+        return MoveType.MOVE;
     }
 
-    public int get_x_coord() {
-        return _x_coord;
+    public void checkValidMove(int xCoord, int yCoord, Piece[][] field) {
+        // TODO
     }
 
-    public int get_y_coord() {
-        return _y_coord;
+    public int getXCoord() {
+        return _xCoord;
+    }
+
+    public int getYCoord() {
+        return _yCoord;
     }
 }

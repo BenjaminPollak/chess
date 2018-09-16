@@ -9,15 +9,6 @@ abstract public class Piece {
      * Y - enum representing typical move, attack, en_passant, pawn_upgrade, castle, check, checkmate
      *                       0             1       2           3             4       5      6
      */
-    public static enum move_type {
-        MOVE,
-        ATTACK,
-        EN_PASSANT,
-        PAWN_UPGRADE,
-        CASTLE,
-        CHECK,
-        CHECKMATE
-    }
 
     public Piece(int x_coord, int y_coord, int board_length, int board_width) {
         checkCoordinates(x_coord, y_coord, board_width, board_length);
@@ -37,5 +28,5 @@ abstract public class Piece {
 
     }
 
-    abstract move_type move(int x_coord, int y_coord, Board board);
+    abstract MoveType move(int x_coord, int y_coord, Board board);
 }

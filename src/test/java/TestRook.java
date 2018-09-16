@@ -37,8 +37,8 @@ public class TestRook {
     @Test
     public void testInstantiateRookGoodParams() {
         Rook rook = new Rook(1,5,_board_width, _board_length);
-        Assert.assertEquals(1, rook.get_x_coord());
-        Assert.assertEquals(5, rook.get_y_coord());
+        Assert.assertEquals(1, rook.getXCoord());
+        Assert.assertEquals(5, rook.getYCoord());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -69,7 +69,19 @@ public class TestRook {
 
     // TODO
     @Test
-    public void testValidMoveRook() {
+    public void testMoveRookVerticallyValid() {
+        // arrange
+        int x_coord = 0;
+        int y_coord = _board_length - 1;
+        Rook rook = new Rook(x_coord, y_coord, _board_width, _board_length);
+
+        // act
+        //Piece.move_type move_type = rook.move(x_coord, (_board_length - 2), _board);
+        // assert
+    }
+
+    @Test
+    public void testMoveRookHorizontallyValid() {
 
     }
 }
