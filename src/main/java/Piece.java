@@ -1,8 +1,8 @@
 // TODO: refactor to use location
 abstract public class Piece {
     private Location _location;
-
     private PieceType _pieceType;
+    private Color _color;
 
     public Piece(Location pieceLocation, Location boardParameters, PieceType pieceType, Color color) {
         int xCoord = pieceLocation.getKey();
@@ -14,6 +14,7 @@ abstract public class Piece {
         checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
         _location = new Location(xCoord, yCoord);
         _pieceType = pieceType;
+        _color = color;
     }
 
     /*
@@ -38,6 +39,10 @@ abstract public class Piece {
     abstract MoveType move(int xCoord, int yCoord, Board board);
 
     // getters and setter
+
+    public Color getColor() {
+        return _color;
+    }
 
     public Location getLocation() {
         return _location;

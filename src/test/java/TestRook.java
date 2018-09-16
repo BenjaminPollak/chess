@@ -4,9 +4,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Assert;
 
-import java.util.HashMap;
-import java.util.Vector;
-
 public class TestRook {
     private static Board _board;
     private static int _boardLength;
@@ -81,19 +78,17 @@ public class TestRook {
         // assert - none, move() should throw an exception
     }
 
-    @Ignore
     @Test
     public void testCheckValidMoveHappyPath() {
-        // TODO: write this NOW
         // arrange
         int boardWidth = 8; int boardLength = 8;
         Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
-        Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
-        Location locations[] = {expectedFirstLoc};
+        Location RookLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location locations[] = {RookLoc};
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         Board board = new Board(boardWidth, boardLength, unplacedPieces, null);
-        Rook rook = (Rook) board.retrievePiece(expectedFirstLoc);
+        Rook rook = (Rook) board.retrievePiece(RookLoc);
 
         // act
         boolean attackMove = rook.checkValidMove((boardWidth - 1), 0, board.getField());
@@ -102,30 +97,28 @@ public class TestRook {
         Assert.assertFalse(attackMove);
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testCheckValidMoveSadPath() {
-        // TODO: write this NOW
         // arrange
         int boardWidth = 8; int boardLength = 8;
         Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
-        Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
-        Location expectedSecondLoc = new Location((boardWidth - 1), (boardLength - 2));
-        Location locations[] = {expectedFirstLoc};
+        Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 2));
+        Location expectedSecondLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location locations[] = {expectedFirstLoc, expectedSecondLoc};
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         Board board = new Board(boardWidth, boardLength, unplacedPieces, null);
         Rook rook = (Rook) board.retrievePiece(expectedFirstLoc);
 
         // act
-        boolean attackMove = rook.checkValidMove((boardWidth - 1), 0, board.getField());
+        boolean attackMove = rook.checkValidMove((boardWidth - 1), (boardLength - 1), board.getField());
 
         // assert - should throw an exception
         Assert.fail();
     }
 
     @Test
-    public void testMoveRookVerticallyValid() {
+    public void testMoveRookUpValid() {
         // arrange
         Board board = new Board(8,8,null,null);
         int xCoord = 0;
@@ -140,9 +133,176 @@ public class TestRook {
         Assert.assertEquals(moveType, MoveType.MOVE);
     }
 
-    // TODO
     @Test
-    public void testMoveRookHorizontallyValid() {
+    public void testMoveRookRightValid() {
+        // arrange
+        Board board = new Board(8,8,null,null);
+        int xCoord = 0;
+        int yCoord = _boardLength - 1;
+        Location pieceLocation = new Location(xCoord, yCoord);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+
+        // act
+        MoveType moveType = rook.move(_boardWidth - 1, yCoord, _board);
+
+        // assert
+        Assert.assertEquals(moveType, MoveType.MOVE);
+    }
+
+    @Test
+    public void testCheckDownwardHappy() {
+        // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(0, 0);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        field[0][0] = rook;
+
+        // act
+        boolean attacking = rook.checkDownwards(0, 0, 7, field);
+
+        // assert
+        Assert.assertFalse(attacking);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCheckDownwardSad() {
+         // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(0, 0);
+        Location obstacleLocation = new Location(0, 5);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        Rook obstacle = new Rook(obstacleLocation, _boardParams, Color.WHITE);
+        field[0][0] = rook;
+        field[0][5] = obstacle;
+
+        // act
+        boolean attacking = rook.checkDownwards(0, 0, 7, field);
+
+        // assert - should throw exception
+    }
+
+    @Test
+    public void testCheckUpwardHappy() {
+        // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(0, (_boardLength-1));
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        field[0][0] = rook;
+
+        // act
+        boolean attacking = rook.checkDownwards(0, (_boardLength-1), 3, field);
+
+        // assert
+        Assert.assertFalse(attacking);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCheckUpwardSad() {
+         // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(0, (_boardLength-1));
+        Location obstacleLocation = new Location(0, (_boardLength-2));
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        Rook obstacle = new Rook(obstacleLocation, _boardParams, Color.WHITE);
+        field[0][_boardLength-1] = rook;
+        field[0][_boardLength-2] = obstacle;
+
+        // act
+        boolean attacking = rook.checkDownwards(0, 0, 7, field);
+
+        // assert - should throw exception
+        Assert.fail();
+    }
+
+    @Test
+    public void testCheckRightHappy() {
+        // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(0, 0);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        field[0][0] = rook;
+
+        // act
+        boolean attacking = rook.checkRight(0, 0, 7, field);
+
+        // assert
+        Assert.assertFalse(attacking);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCheckRightSad() {
+        // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(0, (_boardLength-1));
+        Location obstacleLocation = new Location(1, (_boardLength-1));
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        Rook obstacle = new Rook(obstacleLocation, _boardParams, Color.WHITE);
+        field[0][_boardLength-1] = rook;
+        field[1][_boardLength-1] = obstacle;
+
+        // act
+        boolean attacking = rook.checkRight(0, _boardLength-1, 7, field);
+
+        // assert - should throw exception
+        Assert.fail();
+    }
+
+    @Test
+    public void testCheckLeftHappy() {
+        // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location(_boardWidth-1, 0);
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        field[_boardWidth-1][0] = rook;
+
+        // act
+        boolean attacking = rook.checkLeft((_boardWidth-1), 0, 0, field);
+
+        // assert
+        Assert.assertFalse(attacking);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCheckLeftSad() {
+        // arrange
+        Piece[][] field = new Piece[_boardWidth][_boardLength];
+        Location pieceLocation = new Location((_boardWidth-1), (_boardLength-1));
+        Location obstacleLocation = new Location(1, (_boardLength-1));
+        Rook rook = new Rook(pieceLocation, _boardParams, Color.WHITE);
+        Rook obstacle = new Rook(obstacleLocation, _boardParams, Color.WHITE);
+        field[0][_boardLength-1] = rook;
+        field[1][_boardLength-1] = obstacle;
+
+        // act
+        boolean attacking = rook.checkLeft(_boardWidth-1, _boardLength-1, 0, field);
+
+        // assert - should throw exception
+        Assert.fail("attacking is " + Boolean.toString(attacking));
+    }
+
+    @Test
+    public void testAttack() {
+        // arrange
+        int boardWidth = 8; int boardLength = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location((boardWidth - 1), (boardLength - 2));
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.ROOK, blackLocations);
+
+        Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
+        Rook whiteRook = (Rook) board.retrievePiece(whiteLoc);
+
+        // act
+        MoveType type = whiteRook.move((boardWidth - 1), (boardLength - 2), board);
+
+        // assert
+        Assert.assertEquals(MoveType.ATTACK, type);
 
     }
 }

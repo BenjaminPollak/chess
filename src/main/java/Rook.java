@@ -12,9 +12,8 @@ public class Rook extends Piece {
      */
     public Rook(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
         super(pieceLocation, boardParameters, PieceType.ROOK, color);
-        super.setLocation(pieceLocation);
+        _location = pieceLocation;
         _yetToMove = true;
-        _location = super.getLocation();
     }
 
     /*
@@ -31,7 +30,9 @@ public class Rook extends Piece {
         Piece[][] field = board.getField();
 
         checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
-        checkValidMove(xCoord, yCoord, field);
+        boolean isAnAttack = checkValidMove(xCoord, yCoord, field);
+
+        if(isAnAttack) return MoveType.ATTACK;
         return MoveType.MOVE;
     }
 
@@ -48,25 +49,76 @@ public class Rook extends Piece {
         if((oldX != newX) && (oldY != newY)) throw new IllegalArgumentException();
         checkCoordinates(newX, newY, field.length, field[0].length);
 
-        if((oldX == newX) && (oldY < newY)) {
-            // TODO: look along y-axis
-            for(int y = oldY; oldY < newY; ++y) {
-                if(field[oldX][y] != null)
-                    throw new IllegalArgumentException();
+        if((oldX == newX) && (oldY < newY)) { // if piece is moving down
+            return checkDownwards(oldX, oldY, newX, field);
+        }
+        else if((oldX == newX) && (oldY > newY)) { // if piece is moving up
+            return checkUpwards(oldX, oldY, newY, field);
+        }
+        else if((oldY == newY) && (oldX < newX)) { // if piece is moving right
+            return checkRight(oldX, oldY, newX, field);
+        }
+        else /*if((oldY == newY) && (oldX > newX))*/ { // if piece is moving left
+            return checkRight(oldX, oldY, newX, field);
+        }
+    }
+
+    public boolean checkDownwards(int oldX, int oldY, int newY, Piece[][] field) {
+        for(int yCoord = oldY+1; yCoord < newY; ++yCoord) {
+            if(field[oldX][yCoord] != null)
+                throw new IllegalArgumentException();
+        }
+        if(field[oldX][newY] != null) {
+            if (field[oldX][newY].getColor() == super.getColor())
+                throw new IllegalArgumentException();
+            else return true;
+        }
+        return false;
+    }
+
+    public boolean checkUpwards(int oldX, int oldY, int newY, Piece[][] field) {
+        for(int yCoord = oldY-1; yCoord > newY; --yCoord) {
+            if(field[oldX][yCoord] != null)
+                throw new IllegalArgumentException();
+        }
+        Piece pieceOfInterest = field[oldX][newY];
+        if(pieceOfInterest != null) {
+            if(pieceOfInterest.getColor() == super.getColor())
+                throw new IllegalArgumentException();
+            else return true;
+        }
+        return false;
+    }
+
+    public boolean checkRight(int oldX, int oldY, int newX, Piece[][] field) {
+        for(int xCoord = oldX+1; xCoord < newX; ++xCoord) {
+            Piece pieceInTheWay = field[xCoord][oldY];
+            if(pieceInTheWay != null) {
+                throw new IllegalArgumentException();
             }
-            return true;
         }
-        else if((oldX == newX) && (oldY > newY)) {
-            // TODO: look along y-axis
-            return true;
+        if(field[newX][oldY] != null) {
+            if (field[newX][oldY].getColor() == super.getColor())
+                throw new IllegalArgumentException();
+            else return true;
         }
-        else if((oldY == newY) && (oldX < newX)) {
-            // TODO: look along x-axis
-            return true;
+        return false;
+    }
+
+    public boolean checkLeft(int oldX, int oldY, int newX, Piece[][] field) {
+        for(int xCoord = oldX-1; xCoord > newX; --xCoord) {
+            Piece pieceInTheWay = field[xCoord][oldY];
+            if(pieceInTheWay != null) {
+                if(pieceInTheWay.getColor() == super.getColor())
+                    throw new IllegalArgumentException();
+                else return true;
+            }
         }
-        else { // if((oldY == newY) && (oldX > newX))
-            // TODO: look along x-axis
-            return true;
+        if(field[newX][oldY] != null) {
+            if (field[newX][oldY].getColor() == super.getColor())
+                throw new IllegalArgumentException();
+            else return true;
         }
+        return false;
     }
 }
