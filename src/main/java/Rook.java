@@ -21,7 +21,7 @@ public class Rook extends Piece {
      *  @param yCoord: vertical position where piece should be moved
      *  @param board: board that piece should be moved on
      *  @return: the type of move performed
-     *  @exception IllegalArgumentException
+     *  @exception IllegalArgumentException: Thrown if the coordinates given violate a rule of chess
      */
     MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         int boardWidth = board.getBoardWidth();
@@ -40,6 +40,6 @@ public class Rook extends Piece {
      * @param board: board on which piece is being moved
      */
     public void checkValidMove(int xCoord, int yCoord, Board board) {
-        // TODO: before writing this function, place pieces on the board
+        // TODO
     }
 }

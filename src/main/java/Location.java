@@ -9,6 +9,7 @@ public class Location extends Pair<Integer, Integer> {
      * Overrides equality operator for location
      * @param object: object being compared
      * @return: true if objects are "equal", false otherwise
+     * @citation: https://www.sitepoint.com/implement-javas-equals-method-correctly/
      */
     @Override
     public boolean equals (Object object) {

@@ -1,11 +1,8 @@
 import javafx.util.Pair;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Assert;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Vector;
 
 public class TestBoard {
@@ -23,7 +20,7 @@ public class TestBoard {
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         // act
-        HashMap<PieceType, Vector<Piece>> pieces = board.instantiatePieces(unplacedPieces, board);
+        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, board.getField());
 
         // TODO: check field state
         // assert
@@ -52,18 +49,10 @@ public class TestBoard {
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         // act
-        HashMap<PieceType, Vector<Piece>> pieces = board.instantiatePieces(unplacedPieces, board);
+        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, board.getField());
 
         // assert
-        Vector<Piece> rooks = pieces.get(PieceType.ROOK);
-
-        Assert.assertEquals(rooks.size(), locations.length);
-
-        Location actualFirstLoc = rooks.elementAt(0).getLocation();
-        Location actualSecondLoc = rooks.elementAt(1).getLocation();
-
-        Assert.assertEquals(actualFirstLoc, expectedFirstLoc);
-        Assert.assertEquals(actualSecondLoc, expectedSecondLoc);
+        Assert.fail();
     }
 
     @Test(expected = IllegalArgumentException.class)

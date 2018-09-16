@@ -1,6 +1,10 @@
+import javafx.util.Pair;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Assert;
+
+import java.util.HashMap;
+import java.util.Vector;
 
 public class TestRook {
     private static Board _board;
@@ -67,7 +71,26 @@ public class TestRook {
         // assert - none, move() should throw an exception
     }
 
-    // TODO
+    @Test
+    public void testCheckValidMoveHappyPath() {
+        int boardWidth = 8; int boardLength = 8;
+        Board board = new Board(boardWidth, boardLength);
+
+        Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
+
+        Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location locations[] = {expectedFirstLoc};
+        unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
+        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, board.getField());
+
+        // act
+    }
+
+    @Test
+    public void testCheckValidMoveSadPath() {
+
+    }
+
     @Test
     public void testMoveRookVerticallyValid() {
         // arrange
@@ -80,6 +103,7 @@ public class TestRook {
         // assert
     }
 
+    // TODO
     @Test
     public void testMoveRookHorizontallyValid() {
 

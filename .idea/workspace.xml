@@ -543,7 +543,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537074205859" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537059894029" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -586,6 +586,24 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="fa18-cs242-assignment1 [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="check" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -638,31 +656,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRook.instantiateRookGoodParams" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bwpolla2.chess_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestRook" />
-      <option name="METHOD_NAME" value="instantiateRookGoodParams" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Board" />
-      <item itemvalue="JUnit.TestRook.instantiateRookGoodParams" />
       <item itemvalue="JUnit.TestBoard.testPlacePieces" />
       <item itemvalue="Gradle.fa18-cs242-assignment1 [build]" />
       <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
       <item itemvalue="Gradle.fa18-cs242-assignment1 [clean]" />
+      <item itemvalue="Gradle.fa18-cs242-assignment1 [check]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.fa18-cs242-assignment1 [check]" />
         <item itemvalue="Gradle.fa18-cs242-assignment1 [clean]" />
         <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
         <item itemvalue="Gradle.fa18-cs242-assignment1 [build]" />
         <item itemvalue="JUnit.TestBoard.testPlacePieces" />
-        <item itemvalue="JUnit.TestRook.instantiateRookGoodParams" />
       </list>
     </recent_temporary>
   </component>
