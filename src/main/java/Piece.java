@@ -7,6 +7,14 @@ abstract public class Piece {
         _location = new Location(xCoord, yCoord);
     }
 
+    /*
+     *  Called by constructor to make sure coordinates are "in-bounds"
+     *  @param xCoord: desired horizontal location of piece
+     *  @param yCoord: desired vertical location of piece
+     *  @param boardWidth: Horizontal size of board
+     *  @param boardlength: Vertical size of board
+     */
+
     public void checkCoordinates(int xCoord, int yCoord, int boardWidth, int boardLength) {
         if((xCoord < 0) || (yCoord < 0)) {
             throw new IllegalArgumentException();
@@ -19,6 +27,8 @@ abstract public class Piece {
     }
 
     abstract MoveType move(int xCoord, int yCoord, Board board);
+
+    // getter and setter
 
     public Location getLocation() {
         return _location;

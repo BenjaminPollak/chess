@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2ed37b3-54a3-4bc0-8021-af1c9bbef81c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestBoard.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,26 +76,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="2" />
-          <entry key="java" value="30" />
+          <entry key="java" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="211" />
-          <entry key="java" value="27643" />
+          <entry key="java" value="31372" />
           <entry key="txt" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="211" />
-          <entry key="JAVA" value="27643" />
+          <entry key="JAVA" value="31372" />
           <entry key="PLAIN_TEXT" value="58" />
         </counts>
       </usages-collector>
@@ -123,11 +132,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestBoard.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="374">
+              <caret line="71" column="82" selection-start-line="71" selection-start-column="82" selection-end-line="71" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,19 +144,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+            <state relative-caret-position="129">
+              <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2777#2778#0" expanded="true" />
-                <element signature="e#2811#2812#0" expanded="true" />
-                <element signature="e#2846#2847#0" expanded="true" />
-                <element signature="e#2881#2882#0" expanded="true" />
-                <element signature="e#2916#2917#0" expanded="true" />
-                <element signature="e#2945#2946#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -468,8 +471,8 @@
         <option value="$PROJECT_DIR$/src/main/java/MoveType.java" />
         <option value="$PROJECT_DIR$/src/test/java/testLocation.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestRook.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/Piece.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestBoard.java" />
         <option value="$PROJECT_DIR$/src/main/java/Board.java" />
@@ -540,7 +543,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537065995971" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537074205859" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -570,6 +573,42 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="fa18-cs242-assignment1 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="fa18-cs242-assignment1 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
     </configuration>
     <configuration name="fa18-cs242-assignment1 [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -609,41 +648,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRook.moveRookAboveBoundsWidth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bwpolla2.chess_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestRook" />
-      <option name="METHOD_NAME" value="moveRookAboveBoundsWidth" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestRook.moveRookDiagonally" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bwpolla2.chess_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestRook" />
-      <option name="METHOD_NAME" value="moveRookDiagonally" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Board" />
-      <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
-      <item itemvalue="JUnit.TestRook.moveRookAboveBoundsWidth" />
-      <item itemvalue="JUnit.TestRook.moveRookDiagonally" />
       <item itemvalue="JUnit.TestRook.instantiateRookGoodParams" />
       <item itemvalue="JUnit.TestBoard.testPlacePieces" />
+      <item itemvalue="Gradle.fa18-cs242-assignment1 [build]" />
+      <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
+      <item itemvalue="Gradle.fa18-cs242-assignment1 [clean]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.fa18-cs242-assignment1 [clean]" />
+        <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
+        <item itemvalue="Gradle.fa18-cs242-assignment1 [build]" />
         <item itemvalue="JUnit.TestBoard.testPlacePieces" />
         <item itemvalue="JUnit.TestRook.instantiateRookGoodParams" />
-        <item itemvalue="JUnit.TestRook.moveRookAboveBoundsWidth" />
-        <item itemvalue="JUnit.TestRook.moveRookDiagonally" />
-        <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
       </list>
     </recent_temporary>
   </component>
@@ -661,21 +680,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 20h 57m 42s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 20h 58m 08s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 20h 58m 34s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 20h 58m 54s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 20h 59m 21s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 21h 35m 49s.xml">
       <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -689,6 +693,21 @@
       <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
     <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 21h 38m 23s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 21h 47m 57s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 21h 51m 43s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 21h 51m 52s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 21h 52m 14s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.15 at 23h 57m 59s.xml">
       <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
@@ -705,7 +724,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43516874" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.106571935" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5186501" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -720,7 +739,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" visible="true" weight="0.12064777" />
+      <window_info anchor="right" id="Gradle" order="5" visible="true" weight="0.05910931" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
@@ -794,17 +813,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/PieceType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        <state relative-caret-position="68">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -815,24 +827,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PieceType.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        <state>
+          <folding>
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Rook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        <state relative-caret-position="289">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="129">
+          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -841,16 +865,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+        <state relative-caret-position="374">
+          <caret line="71" column="82" selection-start-line="71" selection-start-column="82" selection-end-line="71" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2777#2778#0" expanded="true" />
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2846#2847#0" expanded="true" />
-            <element signature="e#2881#2882#0" expanded="true" />
-            <element signature="e#2916#2917#0" expanded="true" />
-            <element signature="e#2945#2946#0" expanded="true" />
           </folding>
         </state>
       </provider>

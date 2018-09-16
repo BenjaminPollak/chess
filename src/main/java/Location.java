@@ -5,6 +5,11 @@ public class Location extends Pair<Integer, Integer> {
         super(x, y);
     }
 
+    /*
+     * Overrides equality operator for location
+     * @param object: object being compared
+     * @return: true if objects are "equal", false otherwise
+     */
     @Override
     public boolean equals (Object object) {
         if (this == object)

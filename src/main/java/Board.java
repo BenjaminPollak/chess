@@ -1,9 +1,7 @@
 import javafx.util.Pair;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Vector;
 
 public class Board extends JFrame{
@@ -47,12 +45,13 @@ public class Board extends JFrame{
         return false;
     }
 
+    // TODO: i smell a bug
     /*
      * Instantiates all the pieces needed for chess
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
      * @returns a hash map containing all the pieces needed for a game of chess
      */
-        public HashMap<PieceType, Vector<Piece>> instantiatePieces(Pair<PieceType, Location[]> unplacedPieces[]) {
+        public HashMap<PieceType, Vector<Piece>> instantiatePieces(Pair<PieceType, Location[]> unplacedPieces[], Board board) {
             HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();
 
             for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
@@ -64,9 +63,15 @@ public class Board extends JFrame{
                 Location[] locations = unplacedPieceType.getValue();
                 Vector<Piece> pieces = placedPieces.get(type);
                 for(Location loc: locations) {
-                    switch(type) {
-                        case ROOK:
-                            pieces.add(new Rook(loc.getKey(), loc.getValue(), _boardWidth, _boardLength)); // baaad
+                    int xCoord = loc.getKey();
+                    int yCoord = loc.getValue();
+                    Piece[][] field = board.getField();
+                    if(field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException("Position already taken");
+
+                    if(type == PieceType.ROOK) {
+                        Rook newPiece = new Rook(xCoord, yCoord, _boardWidth, _boardLength);
+                        pieces.add(newPiece);
+                        field[xCoord][yCoord] = newPiece;
                     }
                 }
             }
@@ -85,5 +90,12 @@ public class Board extends JFrame{
 
     public Piece[][] getField() {
         return _field;
+    }
+
+    // custom exception
+    public class PositionAlreadyTakenException extends RuntimeException {
+            public PositionAlreadyTakenException(String message) {
+                super(message);
+            }
     }
 }
