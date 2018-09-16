@@ -80,8 +80,15 @@ public class Board extends JFrame{
             return placedPieces;
     }
 
+    /* TODO: test?
+     * Returns the piece found at a given location. Will return null if no piece found
+     * @param loc: Location from which to retrieve the piece from _field
+     * @returns piece at the position given
+     */
     public Piece retrievePiece(Location loc) {
-        return null;
+        int xCoord = loc.getKey();
+        int yCoord = loc.getValue();
+        return _field[xCoord][yCoord];
     }
 
     // getters

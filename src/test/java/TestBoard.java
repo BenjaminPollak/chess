@@ -90,6 +90,7 @@ public class TestBoard {
         Piece piece = board.retrievePiece(loc);
 
         // assert
+        Assert.assertEquals(PieceType.ROOK, piece.getPieceType());
     }
 
     @Test
