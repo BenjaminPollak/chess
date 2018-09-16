@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Board extends JFrame{
     // NOTE: top left corner is (0, 0).
-    //       bottom right corner is (_board_width - 1, _board_length - 1)
+    //       bottom right corner is (_boardWidth - 1, _boardLength - 1)
 
     // useful type
     // member variables
@@ -33,15 +33,32 @@ public class Board extends JFrame{
     }
 
     /*
+     * Checks if an array is needed for a dictionary
+     * @param
+     * @returns
+     */
+    public void checkIfNewArrayNeeded(Pair<PieceType, Location[]> unplacedPieceType, HashMap<PieceType, Piece[]> placedPieces) {
+        PieceType type = unplacedPieceType.getKey();
+        Location[] locations =  unplacedPieceType.getValue();
+        if(!placedPieces.containsKey(unplacedPieceType)) {
+            Piece[] pieces = new Piece[locations.length];
+            placedPieces.put(type, pieces);
+        }
+    }
+
+    /*
      * Instantiates all the pieces needed for chess
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
-     * @param create_white: indicates if white is being created
      * @returns a hash map containing all the pieces needed for a game of chess
      */
     public HashMap<PieceType, Piece[]> instantiatePieces(Pair<PieceType, Location[]> unplacedPieces[]) {
         HashMap<PieceType, Piece[]> placedPieces = new HashMap();
 
         // TODO: place pieces
+        for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
+            checkIfNewArrayNeeded(unplacedPieceType, placedPieces);
+        }
+
         return placedPieces;
     }
 

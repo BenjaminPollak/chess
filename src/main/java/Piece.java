@@ -2,23 +2,23 @@
 abstract public class Piece {
     private Location _location;
 
-    public Piece(int x_coord, int y_coord, int board_length, int board_width) {
-        checkCoordinates(x_coord, y_coord, board_width, board_length);
-        _location = new Location(x_coord, y_coord);
+    public Piece(int xCoord, int yCoord, int boardLength, int boardWidth) {
+        checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
+        _location = new Location(xCoord, yCoord);
     }
 
-    public void checkCoordinates(int x_coord, int y_coord, int board_width, int board_length) {
-        if((x_coord < 0) || (y_coord < 0)) {
+    public void checkCoordinates(int xCoord, int yCoord, int boardWidth, int boardLength) {
+        if((xCoord < 0) || (yCoord < 0)) {
             throw new IllegalArgumentException();
         }
 
-        if((x_coord >= board_width) || (y_coord >= board_length)) {
+        if((xCoord >= boardWidth) || (yCoord >= boardLength)) {
             throw new IllegalArgumentException();
         }
 
     }
 
-    abstract MoveType move(int x_coord, int y_coord, Board board);
+    abstract MoveType move(int xCoord, int yCoord, Board board);
 
     public Location getLocation() {
         return _location;
