@@ -31,6 +31,7 @@ public class Rook extends Piece {
         Piece[][] field = board.getField();
 
         if((xCoord != boardWidth) && (yCoord != boardLength)) throw new IllegalArgumentException();
+        checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
         checkValidMove(xCoord, yCoord, field);
         return MoveType.MOVE;
     }

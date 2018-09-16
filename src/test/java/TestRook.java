@@ -82,7 +82,7 @@ public class TestRook {
         Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
         Location locations[] = {expectedFirstLoc};
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
-        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, board.getField());
+        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces);
 
         // act
         // assert
