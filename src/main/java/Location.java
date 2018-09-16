@@ -21,5 +21,3 @@ public class Location extends Pair<Integer, Integer> {
         return true;
     }
 }
-// self check
-

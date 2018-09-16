@@ -36,9 +36,9 @@ public class TestRook {
 
     @Test
     public void testInstantiateRookGoodParams() {
+        // arrange & act
+
         Rook rook = new Rook(1,5,_board_width, _board_length);
-        Assert.assertEquals(1, rook.getXCoord());
-        Assert.assertEquals(5, rook.getYCoord());
     }
 
     @Test(expected = IllegalArgumentException.class)

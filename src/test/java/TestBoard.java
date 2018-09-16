@@ -26,14 +26,17 @@ public class TestBoard {
         HashMap<PieceType, Piece[]> pieces = board.placePieces(unplacedPieces);
 
         // assert
-        Piece rooks[] = pieces.get(PieceType.ROOK);
+        Rook rooks[] = (Rook[]) pieces.get(PieceType.ROOK);
 
         // TODO: check location of rooks
-        for(Piece rook: rooks) {
-
-            for(Location location: locations) {
-
+        for(Rook rook:  rooks) {
+            Location actualLocation = rook.getLocation();
+            boolean foundMatch = false;
+            for(Location potentialLocation: locations) {
+                if(actualLocation == potentialLocation)
+                    foundMatch = true;
             }
+            if(!foundMatch) Assert.fail();
         }
     }
 

@@ -1,12 +1,10 @@
+// TODO: refactor to use location
 public class Rook extends Piece {
-    private int _xCoord;
-    private int _yCoord;
     private boolean _yetToMove;
 
     public Rook(int xCoord, int yCoord, int boardWidth, int boardLength) throws IllegalArgumentException {
         super(xCoord, yCoord, boardWidth, boardLength);
-        _xCoord = xCoord;
-        _yCoord = yCoord;
+         super.setLocation(new Location(xCoord, yCoord));
         _yetToMove = true;
     }
 
@@ -22,13 +20,5 @@ public class Rook extends Piece {
 
     public void checkValidMove(int xCoord, int yCoord, Piece[][] field) {
         // TODO
-    }
-
-    public int getXCoord() {
-        return _xCoord;
-    }
-
-    public int getYCoord() {
-        return _yCoord;
     }
 }
