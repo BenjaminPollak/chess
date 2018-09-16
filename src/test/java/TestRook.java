@@ -73,6 +73,7 @@ public class TestRook {
 
     @Test
     public void testCheckValidMoveHappyPath() {
+        // arrange
         int boardWidth = 8; int boardLength = 8;
         Board board = new Board(boardWidth, boardLength);
 
@@ -84,6 +85,7 @@ public class TestRook {
         HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, board.getField());
 
         // act
+        // assert
     }
 
     @Test

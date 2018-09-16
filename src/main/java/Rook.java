@@ -1,6 +1,7 @@
 // TODO: refactor to use class Location?
 public class Rook extends Piece {
     private boolean _yetToMove;
+    private Location _location;
 
     /*
      * Rook constructor
@@ -11,8 +12,9 @@ public class Rook extends Piece {
      */
     public Rook(int xCoord, int yCoord, int boardWidth, int boardLength) throws IllegalArgumentException {
         super(xCoord, yCoord, boardWidth, boardLength);
-         super.setLocation(new Location(xCoord, yCoord));
+        super.setLocation(new Location(xCoord, yCoord));
         _yetToMove = true;
+        _location = new Location(xCoord, yCoord);
     }
 
     /*
@@ -26,10 +28,10 @@ public class Rook extends Piece {
     MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         int boardWidth = board.getBoardWidth();
         int boardLength = board.getBoardLength();
+        Piece[][] field = board.getField();
 
         if((xCoord != boardWidth) && (yCoord != boardLength)) throw new IllegalArgumentException();
-        checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
-        // TODO: check nothing in the way
+        checkValidMove(xCoord, yCoord, field);
         return MoveType.MOVE;
     }
 
@@ -39,7 +41,14 @@ public class Rook extends Piece {
      * @param yCoord: vertical position where piece is being moved
      * @param board: board on which piece is being moved
      */
-    public void checkValidMove(int xCoord, int yCoord, Board board) {
-        // TODO
+    public void checkValidMove(int newX, int newY, Piece[][] field) {
+        int oldX = _location.getKey();
+        int oldY = _location.getValue();
+        if(oldX == newX) {
+            // TODO: look along y-axis
+        }
+        else { // oldY == newY
+            // TODO: look along x-axis
+        }
     }
 }
