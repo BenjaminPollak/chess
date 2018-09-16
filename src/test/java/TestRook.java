@@ -72,19 +72,19 @@ public class TestRook {
     }
 
     @Test
-    public void testCheckValidMoveHappyPath() {
+    public void testCheckMoveHappyPath() {
+        // TODO: write this NOW
         // arrange
         int boardWidth = 8; int boardLength = 8;
-        Board board = new Board(boardWidth, boardLength, null, null);
-
         Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
-
         Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
         Location locations[] = {expectedFirstLoc};
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
-        HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces);
+
+        Board board = new Board(boardWidth, boardLength, unplacedPieces, null);
 
         // act
+
         // assert
     }
 
@@ -95,14 +95,17 @@ public class TestRook {
 
     @Test
     public void testMoveRookVerticallyValid() {
+        // TODO: make another board?
         // arrange
         int x_coord = 0;
         int y_coord = _board_length - 1;
         Rook rook = new Rook(x_coord, y_coord, _boardWidth, _board_length);
 
         // act
-        //Piece.move_type move_type = rook.move(x_coord, (_board_length - 2), _board);
+        MoveType moveType = rook.move(x_coord, (_board_length - 2), _board);
+
         // assert
+        Assert.assertEquals(moveType, MoveType.MOVE);
     }
 
     // TODO

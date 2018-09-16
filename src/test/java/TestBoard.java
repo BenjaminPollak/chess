@@ -72,4 +72,28 @@ public class TestBoard {
         new Board(8, 8, null, null);
         Assert.assertTrue(true);
     }
+
+    @Test
+    public void testRetrievePieceThatExists() {
+        // arrange
+        int boardWidth = 8; int boardLength = 8;
+
+        Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
+        Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location locations[] = {expectedFirstLoc};
+        unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
+
+        Board board = new Board(boardWidth, boardLength, unplacedPieces, null);
+
+        // act
+        Location loc = new Location((boardWidth - 1), (boardLength - 1));
+        Piece piece = board.retrievePiece(loc);
+
+        // assert
+    }
+
+    @Test
+    public void testRetrievePieceThatDoesntExists() {
+        //
+    }
 }

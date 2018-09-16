@@ -80,6 +80,10 @@ public class Board extends JFrame{
             return placedPieces;
     }
 
+    public Piece retrievePiece(Location loc) {
+        return null;
+    }
+
     // getters
     public int getBoardWidth() {
         return _boardWidth;
