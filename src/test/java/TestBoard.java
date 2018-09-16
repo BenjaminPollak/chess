@@ -6,6 +6,7 @@ import org.junit.Assert;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 public class TestBoard {
     @Test
@@ -22,15 +23,15 @@ public class TestBoard {
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         // act
-        HashMap<PieceType, Piece[]> pieces = board.instantiatePieces(unplacedPieces);
+        HashMap<PieceType, Vector<Piece>> pieces = board.instantiatePieces(unplacedPieces);
 
         // assert
-        Piece[] rooks = pieces.get(PieceType.ROOK);
+        Vector<Piece> rooks = pieces.get(PieceType.ROOK);
 
-        Assert.assertEquals(rooks.length, locations.length);
+        Assert.assertEquals(rooks.size(), locations.length);
 
-        Location actualFirstLoc = rooks[0].getLocation();
-        Location actualSecondLoc = rooks[1].getLocation();
+        Location actualFirstLoc = rooks.elementAt(0).getLocation();
+        Location actualSecondLoc = rooks.elementAt(1).getLocation();
 
         Assert.assertEquals(actualFirstLoc, expectedFirstLoc);
         Assert.assertEquals(actualSecondLoc, expectedSecondLoc);

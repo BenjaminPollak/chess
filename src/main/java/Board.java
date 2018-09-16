@@ -1,8 +1,10 @@
 import javafx.util.Pair;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 public class Board extends JFrame{
     // NOTE: top left corner is (0, 0).
@@ -14,8 +16,8 @@ public class Board extends JFrame{
     private int _boardLength;
     private Piece[][] _field;
 
-    private HashMap<PieceType, Piece[]> _whitePieces;
-    private HashMap<PieceType, Piece[]> _blackPieces;
+    private HashMap<PieceType, Vector<Piece>> _whitePieces;
+    private HashMap<PieceType, Vector<Piece>> _blackPieces;
 
     public Board(int boardWidth, int boardLength) throws IllegalArgumentException {
         if(boardWidth < 8) {
@@ -28,22 +30,21 @@ public class Board extends JFrame{
         _boardWidth = boardWidth;
         _boardLength = boardLength;
         _field = new Piece[_boardWidth][_boardLength];
-        _whitePieces = instantiatePieces(null);
-        _blackPieces = instantiatePieces(null);
+        //_whitePieces = instantiatePieces(null);
+        //_blackPieces = instantiatePieces(null);
     }
 
     /*
      * Checks if an array is needed for a dictionary
-     * @param
-     * @returns
+     * @param unplacedPieceType: all unplaced pieces of the same type
+     * @param placedPieces: all placed pieces
+     * @returns: true if a new array is needed, false otherwise
      */
-    public void checkIfNewArrayNeeded(Pair<PieceType, Location[]> unplacedPieceType, HashMap<PieceType, Piece[]> placedPieces) {
+    public boolean checkIfNewArrayNeeded(Pair<PieceType, Location[]> unplacedPieceType, HashMap<PieceType, Vector<Piece>> placedPieces) {
         PieceType type = unplacedPieceType.getKey();
         Location[] locations =  unplacedPieceType.getValue();
-        if(!placedPieces.containsKey(unplacedPieceType)) {
-            Piece[] pieces = new Piece[locations.length];
-            placedPieces.put(type, pieces);
-        }
+        if(!placedPieces.containsKey(unplacedPieceType)) return true;
+        return false;
     }
 
     /*
@@ -51,15 +52,26 @@ public class Board extends JFrame{
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
      * @returns a hash map containing all the pieces needed for a game of chess
      */
-    public HashMap<PieceType, Piece[]> instantiatePieces(Pair<PieceType, Location[]> unplacedPieces[]) {
-        HashMap<PieceType, Piece[]> placedPieces = new HashMap();
+        public HashMap<PieceType, Vector<Piece>> instantiatePieces(Pair<PieceType, Location[]> unplacedPieces[]) {
+            HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();
 
-        // TODO: place pieces
-        for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
-            checkIfNewArrayNeeded(unplacedPieceType, placedPieces);
-        }
+            for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
+                PieceType type = unplacedPieceType.getKey();
+                boolean newArrayNeeded = checkIfNewArrayNeeded(unplacedPieceType, placedPieces);
+                if(newArrayNeeded) {
+                    placedPieces.put(type, new Vector<Piece>());
+                }
+                Location[] locations = unplacedPieceType.getValue();
+                Vector<Piece> pieces = placedPieces.get(type);
+                for(Location loc: locations) {
+                    switch(type) {
+                        case ROOK:
+                            pieces.add(new Rook(loc.getKey(), loc.getValue(), _boardWidth, _boardLength)); // baaad
+                    }
+                }
+            }
 
-        return placedPieces;
+            return placedPieces;
     }
 
     // getters
