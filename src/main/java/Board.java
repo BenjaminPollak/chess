@@ -28,8 +28,8 @@ public class Board extends JFrame{
         _boardWidth = boardWidth;
         _boardLength = boardLength;
         _field = new Piece[_boardWidth][_boardLength];
-        _whitePieces = placePieces(null);
-        _blackPieces = placePieces(null);
+        _whitePieces = instantiatePieces(null);
+        _blackPieces = instantiatePieces(null);
     }
 
     /*
@@ -38,8 +38,9 @@ public class Board extends JFrame{
      * @param create_white: indicates if white is being created
      * @returns a hash map containing all the pieces needed for a game of chess
      */
-    public HashMap<PieceType, Piece[]> placePieces(Pair<PieceType, Location[]> unplacedPieces[]) {
+    public HashMap<PieceType, Piece[]> instantiatePieces(Pair<PieceType, Location[]> unplacedPieces[]) {
         HashMap<PieceType, Piece[]> placedPieces = new HashMap();
+
         // TODO: place pieces
         return placedPieces;
     }

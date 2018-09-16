@@ -16,28 +16,24 @@ public class TestBoard {
 
         Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
 
-        Location locations[] = {
-                new Location((boardWidth - 1), (boardLength - 1)),
-                new Location(0, (boardLength - 1))
-        };
+        Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location expectedSecondLoc = new Location((0), (boardLength - 1));
+        Location locations[] = {expectedFirstLoc, expectedSecondLoc};
         unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
 
         // act
-        HashMap<PieceType, Piece[]> pieces = board.placePieces(unplacedPieces);
+        HashMap<PieceType, Piece[]> pieces = board.instantiatePieces(unplacedPieces);
 
         // assert
-        Rook rooks[] = (Rook[]) pieces.get(PieceType.ROOK);
+        Piece[] rooks = pieces.get(PieceType.ROOK);
 
-        // TODO: check location of rooks
-        for(Rook rook:  rooks) {
-            Location actualLocation = rook.getLocation();
-            boolean foundMatch = false;
-            for(Location potentialLocation: locations) {
-                if(actualLocation == potentialLocation)
-                    foundMatch = true;
-            }
-            if(!foundMatch) Assert.fail();
-        }
+        Assert.assertEquals(rooks.length, locations.length);
+
+        Location actualFirstLoc = rooks[0].getLocation();
+        Location actualSecondLoc = rooks[1].getLocation();
+
+        Assert.assertEquals(actualFirstLoc, expectedFirstLoc);
+        Assert.assertEquals(actualSecondLoc, expectedSecondLoc);
     }
 
     @Test(expected = IllegalArgumentException.class)
