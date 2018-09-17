@@ -5,7 +5,18 @@ public class Queen extends Piece{
         super(pieceLocation,boardParameters, PieceType.QUEEN, color);
     }
 
-    MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
+        // TODO
+    }
+
+    /*
+     *  Handles moving and attacking with the queen
+     *  @param xCoord: horizontal position where piece should be moved
+     *  @param yCoord: vertical position where piece should be moved
+     *  @param board: board that piece should be moved on
+     *  @return: the type of move performed
+     */
+    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         Location oldLocation = getLocation();
         checkCoordinates(xCoord, yCoord, board.getBoardWidth(), board.getBoardLength());
         boolean isAnAttack = checkValidMove(xCoord, yCoord, board.getField());
@@ -22,6 +33,14 @@ public class Queen extends Piece{
         else return MoveType.MOVE;
     }
 
+    /*
+     * Checks that the movement made by the queen is valid
+     * @param int newX: the new horizontal position
+     * @param int newY: the new vertical position
+     * @param Piece[][] field: Where the piece is to be moved
+     * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
+     * @returns a boolean describing whether or not a piece is taken
+     */
     public boolean checkValidMove( int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         int oldX = getLocation().getKey();
         int oldY = getLocation().getValue();
@@ -70,6 +89,12 @@ public class Queen extends Piece{
         }
     }
 
+    /*
+     * Looks for obstructions. Helper function for checkValidMove()
+     * @param boolean vertical: indicates whether or not piece moves vertically
+     * @param boolean iterateUp: indicates whether or not to add or subtract fom the iterated value
+     * @param Piece[][] field: where the movement happens
+     */
     boolean detectObstructions(boolean vertical, boolean iterateUp, int start, int end, Piece[][] field) throws IllegalArgumentException {
         if(vertical) {
             if(iterateUp) {

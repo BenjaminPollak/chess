@@ -7,19 +7,32 @@ public class Game {
     private Pair<PieceType, Location[]> _whitePieces[];
     private Pair<PieceType, Location[]> _blackPieces[];
 
+    // Main method. Starts a game of chess
     public static void main(String[] args) {
         Game game = new Game(8,8, null, null);
     }
 
+    /*
+     * Constructor for starting a game
+     * @param int boardWidth: how mamy columns the board has
+     * @param int boardLength: how mamy rows the board has
+     * @param Pair<PieceType, Location[]> whitePieces[]: the type of a white piece and all occurrences
+     *        of its starting place
+     * @param Pair<PieceType, Location[]> blackPieces[]: the type of black piece and all occurrences
+     *        of its starting place
+     */
     public Game(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[],Pair<PieceType, Location[]> blackPieces[]) {
-        if(whitePieces == null) gatherPieces(Color.WHITE);
-        if(blackPieces == null) gatherPieces(Color.BLACK);
 
         _boardParams = new Location(boardWidth, boardLength);
         _board = new Board(_boardParams.getKey(), _boardParams.getValue(), _whitePieces, _blackPieces);
     }
 
     // TODO: how do I test this?
+    /*
+     * Gathers all the pieces needed for one side of a traditional chess game
+     * @param Color color: Which "color" or side to instantiate
+     * @returns nothing, the function is of type void
+     */
     public void gatherPieces(Color color) {
         if(color == Color.WHITE) {
             _whitePieces = new Pair[6];
@@ -56,6 +69,11 @@ public class Game {
         }
     }
 
+    /*
+     * Generates pawn schematics
+     * @param Color color: "color" or side of the pawn(s)
+     * @returns an array of locations for pawns
+     */
     public Location[] createPawnSchematics(Color color) {
         if(color == Color.WHITE) {
             Location pawns[] = new Location[8];
@@ -73,6 +91,11 @@ public class Game {
         }
     }
 
+    /*
+     * Generates rook schematics
+     * @param Color color: "color" or side of the rook(s)
+     * @returns an array of locations for rook
+     */
     public Location[] createRookSchematics(Color color) {
         int boardWidth = _boardParams.getKey();
         int boardLength = _boardParams.getValue();
@@ -88,8 +111,12 @@ public class Game {
         }
     }
 
+    /*
+     * Generates knight schematics
+     * @param Color color: "color" or side of the knight(s)
+     * @returns an array of locations for knight
+     */
     public Location[] createKnightSchematics(Color color) {
-        // TODO
         if(color == Color.WHITE) {
             int boardLength = _boardParams.getKey();
             Location leftKnight = new Location(1, boardLength -1);
@@ -103,8 +130,12 @@ public class Game {
         }
     }
 
+    /*
+     * Generates bishop schematics
+     * @param Color color: "color" or side of the bishop(s)
+     * @returns an array of locations for bishop
+     */
     public Location[] createBishopSchematics(Color color) {
-        // TODO
         Location[] bishopSchematics = new Location[2];
         if(color == Color.WHITE) {
             int boardLength = _boardParams.getValue();
@@ -124,8 +155,12 @@ public class Game {
         }
     }
 
+    /*
+     * Generates queen schematics
+     * @param Color color: "color" or side of the queen(s)
+     * @returns an array of locations for queen
+     */
     public Location[] createQueenSchematics(Color color) {
-        // TODO
         if(color == Color.WHITE) {
             int boardLength = _boardParams.getValue();
             Location queenLoc = new Location(3, boardLength - 1);
@@ -137,8 +172,12 @@ public class Game {
         }
     }
 
+    /*
+     * Generates king schematics
+     * @param Color color: "color" or side of the king(s)
+     * @returns an array of locations for king
+     */
     public Location[] createKingSchematics(Color color) {
-        // TODO
         if(color == Color.WHITE) {
             int boardLength = _boardParams.getKey();
             Location kingLoc = new Location(4, boardLength - 1);

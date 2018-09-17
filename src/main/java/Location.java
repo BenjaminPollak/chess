@@ -1,5 +1,9 @@
 import javafx.util.Pair;
 
+/*
+ * A type that is essential a cartesian tuple,
+ * describing location on a two-dimensional grid
+ */
 public class Location extends Pair<Integer, Integer> {
     public Location(int x, int y) {
         super(x, y);

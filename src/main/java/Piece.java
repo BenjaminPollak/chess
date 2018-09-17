@@ -36,7 +36,8 @@ abstract public class Piece {
 
     }
 
-    abstract MoveType move(int xCoord, int yCoord, Board board);
+    public abstract MoveType move(int xCoord, int yCoord, Board board);
+    public abstract void findIfKingInCheck(Piece[][] field) throws KingInCheck;
 
     // getters and setter
 
@@ -55,5 +56,12 @@ abstract public class Piece {
 
     public void setLocation(Location newLocation) {
         _location = newLocation;
+    }
+
+    // custom exception
+    public class KingInCheck extends RuntimeException {
+        public KingInCheck(String message) {
+            super(message);
+        }
     }
 }

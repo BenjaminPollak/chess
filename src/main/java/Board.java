@@ -46,7 +46,7 @@ public class Board extends JFrame{
         return false;
     }
 
-    // TODO: i smell a bug
+    // TODO: potential bug here?
     /*
      * Instantiates all the pieces needed for chess
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
@@ -68,7 +68,7 @@ public class Board extends JFrame{
                 for(Location loc: locations) {
                     int xCoord = loc.getKey();
                     int yCoord = loc.getValue();
-                    if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException("Position already taken");
+                    if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException();
 
                     if(type == PieceType.ROOK) {
                         Rook newPiece = new Rook(loc, _boardParams, color);
@@ -135,8 +135,11 @@ public class Board extends JFrame{
 
     // custom exception
     public class PositionAlreadyTakenException extends RuntimeException {
-            public PositionAlreadyTakenException(String message) {
-                super(message);
-            }
+        public PositionAlreadyTakenException(String message) {
+            super(message);
+        }
+        public PositionAlreadyTakenException() {
+            super("Position already taken");
+        }
     }
 }

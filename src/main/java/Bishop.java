@@ -5,7 +5,20 @@ public class Bishop extends Piece {
     public Bishop(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation,boardParameters, PieceType.BISHOP, color);
     }
-    MoveType move(int xCoord, int yCoord, Board board) {
+
+    // TODO
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
+        return;
+    }
+
+    /*
+     *  Handles moving and attacking with bishops
+     *  @param xCoord: horizontal position where piece should be moved
+     *  @param yCoord: vertical position where piece should be moved
+     *  @param board: board that piece should be moved on
+     *  @return: the type of move performed
+     */
+    public MoveType move(int xCoord, int yCoord, Board board) {
         Location oldLocation = getLocation();
         checkCoordinates(xCoord, yCoord, board.getBoardWidth(), board.getBoardLength());
         boolean isAnAttack = checkValidMove(xCoord, yCoord, board.getField());
@@ -19,6 +32,14 @@ public class Bishop extends Piece {
         else return MoveType.MOVE;
     }
 
+    /*
+     * Checks that the movement made by the bishop is valid
+     * @param int newX: the new horizontal position
+     * @param int newY: the new vertical position
+     * @param Piece[][] field: Where the piece is to be moved
+     * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
+     * @returns a boolean describing whether or not a piece is taken
+     */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException{
         Location oldLocation = super.getLocation();
         int oldX = oldLocation.getKey();

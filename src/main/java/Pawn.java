@@ -1,15 +1,32 @@
-// TODO: needs more testing
 import static java.lang.Math.abs;
 
 public class Pawn extends Piece {
     private boolean _yetToMove;
 
+    /*
+     * Creates a pawn.
+     * @param Location pieceLocation: Where the piece is to be placed
+     * @param Location boardParameters: Size of the board
+     * @param Color color: The color or "side" of the piece
+     * @throws IllegalArgumentException: where a piece would be placed "out of bounds'
+     */
     public Pawn(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
         super(pieceLocation, boardParameters, PieceType.PAWN, color);
         _yetToMove = true;
     }
 
-    MoveType move(int xCoord, int yCoord, Board board) {
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
+        // TODO
+    }
+
+    /*
+     * Handles moving and attacking with pawns
+     * @param int xCord: where the piece is to be moved horizontally
+     * @param int yCord: where the piece is to be moved vertically
+     * @param Board board: the space on which the piece is to be moved
+     * @returns the MoveType, an enum describing what the move did
+     */
+    public MoveType move(int xCoord, int yCoord, Board board) {
         Piece[][] field = board.getField();
         Location oldLocation = getLocation();
         checkCoordinates(xCoord, yCoord, board.getBoardWidth(), board.getBoardLength());
@@ -26,6 +43,14 @@ public class Pawn extends Piece {
         else return  MoveType.MOVE;
     }
 
+    /*
+     * Checks that the movement made by the pawn is valid
+     * @param int newX: the new horizontal position
+     * @param int newY: the new vertical position
+     * @param Piece[][] field: Where the piece is to be moved
+     * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
+     * @returns a boolean describing whether or not a piece is taken
+     */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldPosition = getLocation();
         int oldX = oldPosition.getKey();
@@ -41,6 +66,13 @@ public class Pawn extends Piece {
         }
     }
 
+    /*
+     * Checks that a white pawn's move is valid
+     * @param int newX: the new horizontal position
+     * @param int newY: the new vertical position
+     * @param Piece[][] field: Where the piece is to be moved
+     * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
+     */
     public boolean checkWhiteMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = this.getLocation();
         int deltaX = oldLocation.getKey() - newX;
@@ -68,6 +100,13 @@ public class Pawn extends Piece {
         return true;
     }
 
+    /*
+     * Checks that a white pawn's move is valid
+     * @param int newX: the new horizontal position
+     * @param int newY: the new vertical position
+     * @param Piece[][] field: Where the piece is to be moved
+     * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
+     */
     public boolean checkBlackMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = this.getLocation();
         int deltaX = oldLocation.getKey() - newX;
@@ -91,12 +130,20 @@ public class Pawn extends Piece {
             if(deltaY == -1) return true;
             else throw new IllegalArgumentException();        }
         else throw new IllegalArgumentException();
-        return true;    }
+        return true;
+    }
 
+
+    /*
+     * setter for the _yetToMove variable
+     */
     public void setYetToMove(boolean yetToMove) {
         _yetToMove = yetToMove;
     }
 
+    /*
+     * getter for the _yetToMove variable
+     */
     public boolean getYetToMove() {
         return _yetToMove;
     }
