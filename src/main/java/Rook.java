@@ -32,7 +32,13 @@ public class Rook extends Piece {
 
         _yetToMove = false;
 
-        if(isAnAttack) return MoveType.ATTACK;
+        if(isAnAttack) {
+            field[xCoord][yCoord] = this;
+            Location oldLocation = super.getLocation();
+            field[oldLocation.getKey()][oldLocation.getValue()] = null;
+            setLocation(new Location(xCoord, yCoord));
+            return MoveType.ATTACK;
+        }
         return MoveType.MOVE;
     }
 
