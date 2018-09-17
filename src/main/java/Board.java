@@ -82,6 +82,12 @@ public class Board extends JFrame{
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }
+
+                    if(type == PieceType.PAWN) {
+                        Pawn newPiece = new Pawn(loc, _boardParams, color);
+                        pieces.add(newPiece);
+                        _field[xCoord][yCoord] = newPiece;
+                    }
                 }
             }
 
