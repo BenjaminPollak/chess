@@ -8,19 +8,52 @@ public class Game {
     private Pair<PieceType, Location[]> _blackPieces[];
 
     public static void main(String[] args) {
-        Pair<PieceType, Location[]>[] whitePieces = new Pair [6];
-
-        Pair<PieceType, Location[]> pawns = new Pair(PieceType.PAWN, null);
-
-
-        //Game game = new Game(8,8, whitePieces, blackPieces);
+        Game game = new Game(8,8, null, null);
     }
 
     public Game(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[],Pair<PieceType, Location[]> blackPieces[]) {
-        _whitePieces = whitePieces;
-        _blackPieces = whitePieces;
+        if(whitePieces == null) gatherPieces(Color.WHITE);
+        if(blackPieces == null) gatherPieces(Color.BLACK);
+
         _boardParams = new Location(boardWidth, boardLength);
         _board = new Board(_boardParams.getKey(), _boardParams.getValue(), _whitePieces, _blackPieces);
+    }
+
+    // TODO: how do I test this?
+    public void gatherPieces(Color color) {
+        if(color == Color.WHITE) {
+            _whitePieces = new Pair[6];
+            Location whitePawnSchematics[] = createPawnSchematics(Color.WHITE);
+            Location whiteKnightSchematics[] = createKnightSchematics(Color.WHITE);
+            Location whiteRookSchematics[] = createRookSchematics(Color.WHITE);
+            Location whiteBishopSchematics[] = createBishopSchematics(Color.WHITE);
+            Location whiteQueenSchematics[] = createQueenSchematics(Color.WHITE);
+            Location whiteKingSchematics[] = createKingSchematics(Color.WHITE);
+
+            _whitePieces[0] = new Pair(PieceType.PAWN, whitePawnSchematics);
+            _whitePieces[1] = new Pair(PieceType.ROOK, whiteRookSchematics);
+            _whitePieces[2] = new Pair(PieceType.KNIGHT, whiteKnightSchematics);
+            _whitePieces[3] = new Pair(PieceType.BISHOP, whiteBishopSchematics);
+            _whitePieces[4] = new Pair(PieceType.QUEEN, whiteQueenSchematics);
+            _whitePieces[5] = new Pair(PieceType.KING, whiteKingSchematics);
+        }
+
+        else if(color == Color.BLACK) {
+            _blackPieces = new Pair[6];
+            Location blackPawnSchematics[] = createPawnSchematics(Color.BLACK);
+            Location blackKnightSchematics[] = createKnightSchematics(Color.BLACK);
+            Location blackRookSchematics[] = createRookSchematics(Color.BLACK);
+            Location blackBishopSchematics[] = createBishopSchematics(Color.BLACK);
+            Location blackQueenSchematics[] = createQueenSchematics(Color.BLACK);
+            Location blackKingSchematics[] = createKingSchematics(Color.BLACK);
+
+            _blackPieces[0] = new Pair(PieceType.PAWN, blackPawnSchematics);
+            _blackPieces[1] = new Pair(PieceType.ROOK, blackRookSchematics);
+            _blackPieces[2] = new Pair(PieceType.KNIGHT, blackKnightSchematics);
+            _blackPieces[3] = new Pair(PieceType.BISHOP, blackBishopSchematics);
+            _blackPieces[4] = new Pair(PieceType.QUEEN, blackQueenSchematics);
+            _whitePieces[5] = new Pair(PieceType.KING, blackKingSchematics);
+        }
     }
 
     public Location[] createPawnSchematics(Color color) {
