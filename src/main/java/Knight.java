@@ -18,6 +18,7 @@ public class Knight extends Piece {
 
         field[xCoord][yCoord] = this;
         field[oldLocation.getKey()][oldLocation.getValue()] = null;
+        setLocation(new Location(xCoord, yCoord));
 
         if(isAnAttack) return MoveType.ATTACK;
         return MoveType.MOVE;

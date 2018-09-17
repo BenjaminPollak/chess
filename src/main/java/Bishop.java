@@ -1,3 +1,4 @@
+// TODO: are pieces moved around board correctly?
 import static java.lang.Math.abs;
 
 public class Bishop extends Piece {

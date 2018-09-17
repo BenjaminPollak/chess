@@ -94,6 +94,11 @@ public class Board extends JFrame{
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }
+                    else if(type == PieceType.QUEEN) {
+                        Queen newPiece = new Queen(loc, _boardParams, color);
+                        pieces.add(newPiece);
+                        _field[xCoord][yCoord] = newPiece;
+                    }
                 }
             }
 
