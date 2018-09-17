@@ -13,6 +13,7 @@ public class Board extends JFrame{
     private int _boardWidth;
     private int _boardLength;
     private Piece[][] _field;
+    private Location _boardParams;
 
     private HashMap<PieceType, Vector<Piece>> _whitePieces;
     private HashMap<PieceType, Vector<Piece>> _blackPieces;
@@ -27,6 +28,7 @@ public class Board extends JFrame{
 
         _boardWidth = boardWidth;
         _boardLength = boardLength;
+        _boardParams = new Location(boardWidth, boardLength);
         _field = new Piece[_boardWidth][_boardLength];
         _whitePieces = createAndPlacePiecesOnBoard(whitePieces, Color.WHITE);
         _blackPieces = createAndPlacePiecesOnBoard(blackPieces, Color.BLACK);
@@ -70,7 +72,13 @@ public class Board extends JFrame{
                     if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException("Position already taken");
 
                     if(type == PieceType.ROOK) {
-                        Rook newPiece = new Rook(loc, new Location(_boardWidth, _boardLength), color);
+                        Rook newPiece = new Rook(loc, _boardParams, color);
+                        pieces.add(newPiece);
+                        _field[xCoord][yCoord] = newPiece;
+                    }
+
+                    if(type == PieceType.KNIGHT) {
+                        Knight newPiece = new Knight(loc, _boardParams, color);
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }

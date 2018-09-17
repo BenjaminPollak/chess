@@ -1,7 +1,5 @@
-// TODO: refactor to use class Location?
 public class Rook extends Piece {
     private boolean _yetToMove;
-    private Location _location;
 
     /*
      * Rook constructor
@@ -12,7 +10,6 @@ public class Rook extends Piece {
      */
     public Rook(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
         super(pieceLocation, boardParameters, PieceType.ROOK, color);
-        _location = pieceLocation;
         _yetToMove = true;
     }
 
@@ -25,12 +22,15 @@ public class Rook extends Piece {
      *  @exception IllegalArgumentException: Thrown if the coordinates given violate a rule of chess
      */
     MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
+        // TODO: update coordinates, NULL old location of this
         int boardWidth = board.getBoardWidth();
         int boardLength = board.getBoardLength();
         Piece[][] field = board.getField();
 
         checkCoordinates(xCoord, yCoord, boardWidth, boardLength);
         boolean isAnAttack = checkValidMove(xCoord, yCoord, field);
+
+        _yetToMove = false;
 
         if(isAnAttack) return MoveType.ATTACK;
         return MoveType.MOVE;
@@ -43,8 +43,9 @@ public class Rook extends Piece {
      * @param board: board on which piece is being moved
      */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
-        int oldX = _location.getKey();
-        int oldY = _location.getValue();
+        Location oldLocation = super.getLocation();
+        int oldX = oldLocation.getKey();
+        int oldY = oldLocation.getValue();
 
         if((oldX != newX) && (oldY != newY)) throw new IllegalArgumentException();
         checkCoordinates(newX, newY, field.length, field[0].length);
