@@ -3,6 +3,13 @@ abstract public class Piece {
     private PieceType _pieceType;
     private Color _color;
 
+    /*
+     * Piece constructor
+     * Location pieceLocation: Where the piece should be placed on the board
+     * Location boardParameters: The size of the board
+     * PieceType pieceType: The type of the piece (pawn, rook ,etc)
+     * Color color: The "color" or side of the piece
+     */
     public Piece(Location pieceLocation, Location boardParameters, PieceType pieceType, Color color) {
         int xCoord = pieceLocation.getKey();
         int yCoord = pieceLocation.getValue();

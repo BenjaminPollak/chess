@@ -199,5 +199,32 @@ public class testKnight {
         Assert.assertEquals(MoveType.ATTACK, move);
         Assert.assertEquals(null, field[1][_boardLength - 1]);
         Assert.assertEquals(PieceType.KNIGHT, expectedKnight.getPieceType());
+        Assert.assertTrue(expectedKnight.getLocation().equals(blackLoc));
+    }
+
+    @Test(expected = Piece.KingInCheck.class)
+    public void detectInCheck() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(1, (_boardLength - 1));
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.KNIGHT, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(2, (_boardLength - 3));
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Knight knight = (Knight) board.retrievePiece(whiteLoc);
+        knight.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+
     }
 }

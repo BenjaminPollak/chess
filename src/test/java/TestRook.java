@@ -283,26 +283,28 @@ public class TestRook {
     @Test
     public void testAttack() {
         // arrange
-        int boardWidth = 8; int boardLength = 8;
-
         Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
-        Location whiteLoc = new Location((boardWidth - 1), (boardLength - 1));
+        Location whiteLoc = new Location((_boardWidth - 1), (_boardLength - 1));
         Location whiteLocations[] = {whiteLoc};
         whitePieces[0] = new Pair(PieceType.ROOK, whiteLocations);
 
         Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
-        Location blackLoc = new Location((boardWidth - 1), (boardLength - 2));
+        Location blackLoc = new Location((_boardWidth - 1), (_boardLength - 2));
         Location blackLocations[] = {blackLoc};
         blackPieces[0] = new Pair(PieceType.ROOK, blackLocations);
 
-        Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
         Rook whiteRook = (Rook) board.retrievePiece(whiteLoc);
 
         // act
-        MoveType type = whiteRook.move((boardWidth - 1), (boardLength - 2), board);
+        MoveType move = whiteRook.move((_boardWidth - 1), (_boardLength - 2), board);
 
         // assert
-        Assert.assertEquals(MoveType.ATTACK, type);
-
+        Piece[][] field = board.getField();
+        Piece expectedRook = field[_boardWidth - 1][_boardLength - 2];
+        Assert.assertEquals(MoveType.ATTACK, move);
+        Assert.assertEquals(null, field[_boardWidth - 1][_boardLength - 1]);
+        Assert.assertEquals(PieceType.ROOK, expectedRook.getPieceType());
+        Assert.assertTrue(expectedRook.getLocation().equals(blackLoc));
     }
 }

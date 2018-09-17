@@ -22,7 +22,6 @@ public class TestBoard {
         // act
         HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, Color.WHITE);
 
-        // TODO: check field state
         // assert
         Vector<Piece> rooks = pieces.get(PieceType.ROOK);
         Location actualFirstLoc = rooks.elementAt(0).getLocation();
