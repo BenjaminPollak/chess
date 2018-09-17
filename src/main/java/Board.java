@@ -77,14 +77,20 @@ public class Board extends JFrame{
                         _field[xCoord][yCoord] = newPiece;
                     }
 
-                    if(type == PieceType.KNIGHT) {
+                    else if(type == PieceType.KNIGHT) {
                         Knight newPiece = new Knight(loc, _boardParams, color);
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }
 
-                    if(type == PieceType.PAWN) {
+                    else if(type == PieceType.PAWN) {
                         Pawn newPiece = new Pawn(loc, _boardParams, color);
+                        pieces.add(newPiece);
+                        _field[xCoord][yCoord] = newPiece;
+                    }
+
+                    else if(type == PieceType.BISHOP) {
+                        Bishop newPiece = new Bishop(loc, _boardParams, color);
                         pieces.add(newPiece);
                         _field[xCoord][yCoord] = newPiece;
                     }

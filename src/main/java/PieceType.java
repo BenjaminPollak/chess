@@ -1,7 +1,7 @@
 public enum PieceType {
     PAWN,
     KNIGHT,
-    BISHOP, // unimplemented
+    BISHOP,
     ROOK,
     QUEEN, // unimplemented
     KING // unimplemented
