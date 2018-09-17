@@ -27,7 +27,6 @@ public class Rook extends Piece {
      *  @exception IllegalArgumentException: Thrown if the coordinates given violate a rule of chess
      */
     public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
-        // TODO: update coordinates, NULL old location of this
         int boardWidth = board.getBoardWidth();
         int boardLength = board.getBoardLength();
         Piece[][] field = board.getField();
@@ -48,7 +47,8 @@ public class Rook extends Piece {
     }
 
     /*
-     * Makes sure (1) no pieces are in path of movement and (2) not attacking friendly pieces
+     * Makes sure (1) no pieces are in path of movement and (2) not attacking friendly pieces. Helper
+     *  function for move()
      * @param xCoord: horizontal position where piece is being moved
      * @param yCoord: vertical position where piece is being moved
      * @param board: board on which piece is being moved

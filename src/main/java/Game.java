@@ -27,13 +27,13 @@ public class Game {
         _board = new Board(_boardParams.getKey(), _boardParams.getValue(), _whitePieces, _blackPieces);
     }
 
-    // TODO: how do I test this?
     /*
      * Gathers all the pieces needed for one side of a traditional chess game
      * @param Color color: Which "color" or side to instantiate
      * @returns nothing, the function is of type void
      */
     public void gatherPieces(Color color) {
+        // TODO: how do I test this?
         if(color == Color.WHITE) {
             _whitePieces = new Pair[6];
             Location whitePawnSchematics[] = createPawnSchematics(Color.WHITE);

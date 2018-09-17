@@ -33,7 +33,7 @@ public class Bishop extends Piece {
     }
 
     /*
-     * Checks that the movement made by the bishop is valid
+     * Checks that the movement made by the bishop is valid. Helper function for move()
      * @param int newX: the new horizontal position
      * @param int newY: the new vertical position
      * @param Piece[][] field: Where the piece is to be moved

@@ -34,7 +34,7 @@ public class Queen extends Piece{
     }
 
     /*
-     * Checks that the movement made by the queen is valid
+     * Checks that the movement made by the queen is valid. Helper function for move
      * @param int newX: the new horizontal position
      * @param int newY: the new vertical position
      * @param Piece[][] field: Where the piece is to be moved
@@ -66,7 +66,6 @@ public class Queen extends Piece{
             return false;
         }
         else {
-            // TODO: diagonal attacks?
             boolean moveRight = deltaX < 0;
             boolean moveDown = deltaY < 0;
             int iterations = abs(deltaX);

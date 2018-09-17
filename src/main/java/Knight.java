@@ -8,7 +8,58 @@ public class Knight extends Piece {
 
     @Override
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
-        //TODO
+        // TODO
+        Location currentLocation = getLocation();
+        int xCoord = currentLocation.getKey();
+        int yCoord = currentLocation.getValue();
+
+        try {
+            Piece piece = field[xCoord - 2][yCoord - 1];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException e) {}
+
+        try {
+            Piece piece = field[xCoord - 2][yCoord + 1];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException e) {}
+
+        try {
+            Piece piece = field[xCoord + 2][yCoord - 1];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
+
+        try {
+            Piece piece = field[xCoord + 2][yCoord + 1];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
+
+        try {
+            Piece piece = field[xCoord - 1][yCoord - 2];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
+
+        try {
+            Piece piece = field[xCoord - 1][yCoord + 2];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
+
+        try {
+            Piece piece = field[xCoord + 1][yCoord - 2];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
+
+        try {
+            Piece piece = field[xCoord + 1][yCoord + 2];
+            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+        }
+        catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
     }
 
     /*
@@ -19,7 +70,6 @@ public class Knight extends Piece {
      *  @return: the type of move performed
      */
     public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException{
-        // TODO: update coordinates, NULL old location of this
         Location oldLocation = super.getLocation();
         int boardWidth = board.getBoardWidth();
         int boardLength = board.getBoardLength();
@@ -37,7 +87,7 @@ public class Knight extends Piece {
     }
 
     /*
-     * Checks that the movement made by the knight is valid
+     * Checks that the movement made by the knight is valid. Helper function for move()
      * @param int newX: the new horizontal position
      * @param int newY: the new vertical position
      * @param Piece[][] field: Where the piece is to be moved

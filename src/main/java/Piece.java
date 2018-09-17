@@ -1,4 +1,3 @@
-// TODO: refactor to use location
 abstract public class Piece {
     private Location _location;
     private PieceType _pieceType;
@@ -18,7 +17,7 @@ abstract public class Piece {
     }
 
     /*
-     *  Called by constructor to make sure coordinates are "in-bounds"
+     *  makes sure coordinates are "in-bounds"
      *  @param xCoord: desired horizontal location of piece
      *  @param yCoord: desired vertical location of piece
      *  @param boardWidth: Horizontal size of board
@@ -62,6 +61,9 @@ abstract public class Piece {
     public class KingInCheck extends RuntimeException {
         public KingInCheck(String message) {
             super(message);
+        }
+        public KingInCheck() {
+            super("KING IN CHECK");
         }
     }
 }
