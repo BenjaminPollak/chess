@@ -8,7 +8,6 @@ public class Board extends JFrame{
     // NOTE: top left corner is (0, 0).
     //       bottom right corner is (_boardWidth - 1, _boardLength - 1)
 
-    // useful type
     // member variables
     private int _boardWidth;
     private int _boardLength;
