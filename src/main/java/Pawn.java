@@ -10,9 +10,19 @@ public class Pawn extends Piece {
     }
 
     MoveType move(int xCoord, int yCoord, Board board) {
-        checkCoordinates(xCoord, yCoord, board.getWidth(), board.getBoardLength());
+        Piece[][] field = board.getField();
+        Location oldLocation = getLocation();
+        checkCoordinates(xCoord, yCoord, board.getBoardWidth(), board.getBoardLength());
+
         boolean attacking = checkValidMove(xCoord, yCoord, board.getField());
-        if(attacking) return MoveType.ATTACK;
+        field[xCoord][yCoord] = null;
+        field[xCoord][yCoord] = this;
+        field[oldLocation.getKey()][oldLocation.getValue()] = null;
+        setLocation(new Location(xCoord, yCoord));
+
+        if(attacking) {
+            return MoveType.ATTACK;
+        }
         else return  MoveType.MOVE;
     }
 
@@ -78,7 +88,7 @@ public class Pawn extends Piece {
             }
         }
         else if (abs(deltaX) == 1) {
-            if(deltaY == 1) return true;
+            if(deltaY == -1) return true;
             else throw new IllegalArgumentException();        }
         else throw new IllegalArgumentException();
         return true;    }
