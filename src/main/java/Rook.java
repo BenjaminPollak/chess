@@ -15,7 +15,13 @@ public class Rook extends Piece {
 
     @Override
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
+        int xCoord = getLocation().getKey();
+        int yCoord = getLocation().getValue();
 
+        lookUpForKing(field, xCoord, yCoord - 1);
+        lookDownForKing(field, xCoord, yCoord + 1);
+        lookLeftForKing(field, xCoord - 1, yCoord);
+        lookRightForKing(field, xCoord + 1, yCoord);
     }
 
     /*

@@ -46,7 +46,7 @@ abstract public class Piece {
     public abstract void findIfKingInCheck(Piece[][] field) throws KingInCheck;
 
     // look functions
-    public void lookDownAndRight(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -63,7 +63,7 @@ abstract public class Piece {
         }
     }
 
-    public void lookUpAndLeft(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -80,7 +80,7 @@ abstract public class Piece {
         }
     }
 
-    public void lookDownAndLeft(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -97,7 +97,72 @@ abstract public class Piece {
         }
     }
 
-    public void lookUpAndRight(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+        while(true) {
+            try {
+                Piece piece = field[xCoord][yCoord];
+                if(piece != null) {
+                    if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
+                        throw new KingInCheck();
+                    }
+                    else break;
+                }
+            } catch(ArrayIndexOutOfBoundsException e) {
+                break;
+            }
+            --yCoord;
+        }            }
+
+    public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+        while(true) {
+            try {
+                Piece piece = field[xCoord][yCoord];
+                if(piece != null) {
+                    if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
+                        throw new KingInCheck();
+                    }
+                    else break;
+                }
+            } catch(ArrayIndexOutOfBoundsException e) {
+                break;
+            }
+            ++yCoord;
+        }                }
+
+    public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+        while(true) {
+            try {
+                Piece piece = field[xCoord][yCoord];
+                if(piece != null) {
+                    if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
+                        throw new KingInCheck();
+                    }
+                    else break;
+                }
+            } catch(ArrayIndexOutOfBoundsException e) {
+                break;
+            }
+            --xCoord;
+        }        }
+
+    public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+        while(true) {
+            try {
+                Piece piece = field[xCoord][yCoord];
+                if(piece != null) {
+                    if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
+                        throw new KingInCheck();
+                    }
+                    else break;
+                }
+            } catch(ArrayIndexOutOfBoundsException e) {
+                break;
+            }
+            ++xCoord;
+        }    }
+
+
+    public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];

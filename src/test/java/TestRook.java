@@ -307,4 +307,105 @@ public class TestRook {
         Assert.assertEquals(PieceType.ROOK, expectedRook.getPieceType());
         Assert.assertTrue(expectedRook.getLocation().equals(blackLoc));
     }
+
+    // TODO: what about check sad path?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckDownHappyPath() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(0, 0);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(0, 7);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Rook rook = (Rook) board.retrievePiece(whiteLoc);
+        rook.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckUpHappyPath() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(0, 7);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(0, 0);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Rook rook = (Rook) board.retrievePiece(whiteLoc);
+        rook.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckLeftHappyPath() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(7, 7);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(0, 7);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Rook rook = (Rook) board.retrievePiece(whiteLoc);
+        rook.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckRightHappyPath() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(0, 7);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(7, 7);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Rook rook = (Rook) board.retrievePiece(whiteLoc);
+        rook.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
 }

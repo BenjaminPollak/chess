@@ -11,10 +11,10 @@ public class Bishop extends Piece {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
 
-        lookUpAndLeft(field, xCoord - 1, yCoord - 1);
-        lookDownAndLeft(field, xCoord - 1, yCoord + 1);
-        lookUpAndRight(field, xCoord + 1, yCoord - 1);
-        lookDownAndRight(field, xCoord + 1, yCoord + 1);
+        lookUpAndLeftForKing(field, xCoord - 1, yCoord - 1);
+        lookDownAndLeftForKing(field, xCoord - 1, yCoord + 1);
+        lookUpAndRightForKing(field, xCoord + 1, yCoord - 1);
+        lookDownAndRightForKing(field, xCoord + 1, yCoord + 1);
     }
 
     /*
