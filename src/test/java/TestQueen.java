@@ -308,4 +308,111 @@ public class TestQueen {
         Assert.assertEquals(PieceType.QUEEN, expectedQueen.getPieceType());
         Assert.assertTrue(expectedQueen.getLocation().equals(blackLoc));
     }
+
+    /*
+     * TODO: Below is problematic
+     */
+    // TODO: what if piece in the way, OOB error?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckUpAndRightHappy() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(2, 7);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(4, 5);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Queen queen = (Queen) board.retrievePiece(whiteLoc);
+        queen.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    // TODO: what if piece in the way, OOB error?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckUpAndLeft() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(2, 7);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(1, 6);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Queen queen = (Queen) board.retrievePiece(whiteLoc);
+        queen.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    // TODO: what if piece in the way, OOB error?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckDownAndLeft() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(2, 0);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(1, 1);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Queen queen = (Queen) board.retrievePiece(whiteLoc);
+        queen.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    // TODO: what if piece in the way, OOB error?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testCheckDownAndRight() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(2, 0);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(4, 2);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Queen queen = (Queen) board.retrievePiece(whiteLoc);
+        queen.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
 }

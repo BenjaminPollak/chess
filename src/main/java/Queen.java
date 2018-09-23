@@ -6,7 +6,20 @@ public class Queen extends Piece{
     }
 
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
-        // TODO
+        int xCoord = getLocation().getKey();
+        int yCoord = getLocation().getValue();
+
+        // rook checks
+        lookUpForKing(field, xCoord, yCoord - 1);
+        lookDownForKing(field, xCoord, yCoord + 1);
+        lookLeftForKing(field, xCoord - 1, yCoord);
+        lookRightForKing(field, xCoord + 1, yCoord);
+
+        // bishop checks
+        lookUpAndLeftForKing(field, xCoord - 1, yCoord - 1);
+        lookDownAndLeftForKing(field, xCoord - 1, yCoord + 1);
+        lookUpAndRightForKing(field, xCoord + 1, yCoord - 1);
+        lookDownAndRightForKing(field, xCoord + 1, yCoord + 1);
     }
 
     /*
