@@ -386,7 +386,7 @@ public class TestPawn {
     }
 
     // TODO: what if no check?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testWhiteCheckRight() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -412,7 +412,7 @@ public class TestPawn {
     }
 
     // TODO: what if no check?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testWhiteCheckLeft() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -437,7 +437,7 @@ public class TestPawn {
         Assert.fail();    }
 
     // TODO: what if no check?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testBlackCheckLeft() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -463,7 +463,7 @@ public class TestPawn {
     }
 
     // TODO: what if no check?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testBlackCheckRight() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;

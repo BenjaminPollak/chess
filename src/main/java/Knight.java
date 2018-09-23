@@ -15,49 +15,49 @@ public class Knight extends Piece {
 
         try {
             Piece piece = field[xCoord - 2][yCoord - 1];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException e) {}
 
         try {
             Piece piece = field[xCoord - 2][yCoord + 1];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException e) {}
 
         try {
             Piece piece = field[xCoord + 2][yCoord - 1];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
 
         try {
             Piece piece = field[xCoord + 2][yCoord + 1];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
 
         try {
             Piece piece = field[xCoord - 1][yCoord - 2];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
 
         try {
             Piece piece = field[xCoord - 1][yCoord + 2];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
 
         try {
             Piece piece = field[xCoord + 1][yCoord - 2];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
 
         try {
             Piece piece = field[xCoord + 1][yCoord + 2];
-            if(piece.getPieceType() == PieceType.KING) throw new Piece.KingInCheck();
+            if(piece.getPieceType() == PieceType.KING) throw new KingInCheck();
         }
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
     }

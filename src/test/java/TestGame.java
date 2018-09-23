@@ -235,4 +235,10 @@ public class TestGame {
         Pair<PieceType, Location[]> blackPieces[] = game.getBlackPieces();
         Assert.assertEquals(blackPieces.length, 6);
     }
+
+    // TODO: simple checkmate
+    // TODO: complex checkmate
+    // TODO: simple stalemate
+    // TODO: complex stalemate
+
 }

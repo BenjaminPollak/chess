@@ -118,7 +118,7 @@ public class TestBishop {
     }
 
     // TODO: what if piece in the way, OOB error?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckUpAndRightHappy() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -144,7 +144,7 @@ public class TestBishop {
     }
 
     // TODO: what if piece in the way, OOB error?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckUpAndLeft() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -170,7 +170,7 @@ public class TestBishop {
     }
 
     // TODO: what if piece in the way, OOB error?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckDownAndLeft() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -196,7 +196,7 @@ public class TestBishop {
     }
 
     // TODO: what if piece in the way, OOB error?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckDownAndRight() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;

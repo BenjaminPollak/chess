@@ -309,7 +309,7 @@ public class TestRook {
     }
 
     // TODO: what about check sad path?
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckDownHappyPath() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -334,7 +334,7 @@ public class TestRook {
         Assert.fail();
     }
 
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckUpHappyPath() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -359,7 +359,7 @@ public class TestRook {
         Assert.fail();
     }
 
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckLeftHappyPath() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
@@ -384,7 +384,7 @@ public class TestRook {
         Assert.fail();
     }
 
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void testCheckRightHappyPath() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;

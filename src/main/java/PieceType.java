@@ -3,7 +3,7 @@ public enum PieceType {
     KNIGHT,
     BISHOP,
     ROOK,
-    QUEEN,// TODO: check
+    QUEEN,
     KING
 }
 

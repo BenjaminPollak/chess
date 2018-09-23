@@ -202,7 +202,7 @@ public class testKnight {
         Assert.assertTrue(expectedKnight.getLocation().equals(blackLoc));
     }
 
-    @Test(expected = Piece.KingInCheck.class)
+    @Test(expected = KingInCheck.class)
     public void detectInCheck() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;

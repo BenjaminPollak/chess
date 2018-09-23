@@ -189,6 +189,11 @@ public class Game {
         }
     }
 
+    // TODO
+    public static boolean detectCheckmate(Board board, Color color) {
+        return false;
+    }
+
     public Pair<PieceType, Location[]> [] getWhitePieces() {
         return _whitePieces;
     }
@@ -196,4 +201,5 @@ public class Game {
     public Pair<PieceType, Location[]>[] getBlackPieces() {
         return _blackPieces;
     }
+
 }
