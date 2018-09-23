@@ -16,7 +16,31 @@ public class Pawn extends Piece {
     }
 
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
-        // TODO
+        int xCoord = getLocation().getKey();
+        int yCoord = getLocation().getValue();
+
+        if(getColor() == Color.WHITE) {
+            Piece potentialKing;
+            try {
+                potentialKing = field[xCoord + 1][yCoord - 1];
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+            } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
+            try {
+                potentialKing = field[xCoord - 1][yCoord - 1];
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+            } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
+        }
+        else {
+            Piece potentialKing;
+            try {
+                potentialKing = field[xCoord + 1][yCoord + 1];
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+            } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
+            try {
+                potentialKing = field[xCoord - 1][yCoord + 1];
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+            } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
+        }
     }
 
     /*

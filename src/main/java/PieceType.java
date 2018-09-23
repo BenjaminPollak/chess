@@ -1,5 +1,5 @@
 public enum PieceType {
-    PAWN,// TODO: check
+    PAWN,
     KNIGHT,
     BISHOP,
     ROOK,// TODO: check

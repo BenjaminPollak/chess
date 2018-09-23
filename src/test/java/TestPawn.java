@@ -382,5 +382,108 @@ public class TestPawn {
         Assert.assertEquals(MoveType.ATTACK, move);
         Assert.assertEquals(null, field[1][boardLength - 3]);
         Assert.assertEquals(PieceType.PAWN, expectedPawn.getPieceType());
-        Assert.assertTrue(expectedPawn.getLocation().equals(enemyLoc));    }
+        Assert.assertTrue(expectedPawn.getLocation().equals(enemyLoc));
+    }
+
+    // TODO: what if no check?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testWhiteCheckRight() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(1, 1);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(2, 0);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Pawn pawn = (Pawn) board.retrievePiece(whiteLoc);
+        pawn.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    // TODO: what if no check?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testWhiteCheckLeft() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(3, 1);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(2, 0);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Pawn pawn = (Pawn) board.retrievePiece(whiteLoc);
+        pawn.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();    }
+
+    // TODO: what if no check?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testBlackCheckLeft() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(1, 2);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.KING, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(2, 1);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Pawn pawn = (Pawn) board.retrievePiece(blackLoc);
+        pawn.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();
+    }
+
+    // TODO: what if no check?
+    @Test(expected = Piece.KingInCheck.class)
+    public void testBlackCheckRight() {
+        // arrange
+        int _boardLength = 8; int _boardWidth = 8;
+
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        Location whiteLoc = new Location(3, 2);
+        Location whiteLocations[] = {whiteLoc};
+        whitePieces[0] = new Pair(PieceType.KING, whiteLocations);
+
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        Location blackLoc = new Location(2, 1);
+        Location blackLocations[] = {blackLoc};
+        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+
+        Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
+
+        // act
+        Pawn pawn = (Pawn) board.retrievePiece(blackLoc);
+        pawn.findIfKingInCheck(board.getField());
+
+        // assert - should raise an exception
+        Assert.fail();    }
 }
