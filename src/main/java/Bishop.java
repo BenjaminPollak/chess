@@ -8,7 +8,13 @@ public class Bishop extends Piece {
 
     // TODO
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
-        return;
+        int xCoord = getLocation().getKey();
+        int yCoord = getLocation().getValue();
+
+        lookUpAndLeft(field, xCoord - 1, yCoord - 1);
+        lookDownAndLeft(field, xCoord - 1, yCoord + 1);
+        lookUpAndRight(field, xCoord + 1, yCoord - 1);
+        lookDownAndRight(field, xCoord + 1, yCoord + 1);
     }
 
     /*
