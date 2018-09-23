@@ -65,7 +65,7 @@ public class Game {
             _blackPieces[2] = new Pair(PieceType.KNIGHT, blackKnightSchematics);
             _blackPieces[3] = new Pair(PieceType.BISHOP, blackBishopSchematics);
             _blackPieces[4] = new Pair(PieceType.QUEEN, blackQueenSchematics);
-            _whitePieces[5] = new Pair(PieceType.KING, blackKingSchematics);
+            _blackPieces[5] = new Pair(PieceType.KING, blackKingSchematics);
         }
     }
 
@@ -187,5 +187,13 @@ public class Game {
             Location kingLoc = new Location(4, 0);
             return new Location[]{kingLoc};
         }
+    }
+
+    public Pair<PieceType, Location[]> [] getWhitePieces() {
+        return _whitePieces;
+    }
+
+    public Pair<PieceType, Location[]>[] getBlackPieces() {
+        return _blackPieces;
     }
 }

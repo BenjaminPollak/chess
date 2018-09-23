@@ -1,3 +1,4 @@
+import javafx.util.Pair;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -199,11 +200,39 @@ public class TestGame {
         Game game = new Game(boardWidth, boardLength, null, null);
 
         // act
-        Location [] blackKings = game.createQueenSchematics(Color.BLACK);
+        Location [] blackKings = game.createKingSchematics(Color.BLACK);
 
         // assert
-        Location firstQueen = blackKings[0];
+        Location blackKingLocation = blackKings[0];
         Assert.assertEquals(blackKings.length, 1);
-        Assert.assertTrue(firstQueen.equals(new Location(3, 0)));
+        Assert.assertTrue(blackKingLocation.equals(new Location(4, 0)));
+    }
+
+    @Test
+    public void testGatherWhitePieces() {
+        // arrange
+        int boardWidth = 8; int boardLength = 8;
+        Game game = new Game(boardWidth, boardLength, null, null);
+
+        // act
+        game.gatherPieces(Color.WHITE);
+
+        // assert
+        Pair<PieceType, Location[]> whitePieces[] = game.getWhitePieces();
+        Assert.assertEquals(whitePieces.length, 6);
+    }
+
+    @Test
+    public void testGatherBlackPieces() {
+        // arrange
+        int boardWidth = 8; int boardLength = 8;
+        Game game = new Game(boardWidth, boardLength, null, null);
+
+        // act
+        game.gatherPieces(Color.BLACK);
+
+        // assert
+        Pair<PieceType, Location[]> blackPieces[] = game.getBlackPieces();
+        Assert.assertEquals(blackPieces.length, 6);
     }
 }
