@@ -297,15 +297,12 @@ public class TestRook {
         Rook whiteRook = (Rook) board.retrievePiece(whiteLoc);
 
         // act
-        MoveType move = whiteRook.move((_boardWidth - 1), (_boardLength - 2), board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedRook = field[_boardWidth - 1][_boardLength - 2];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[_boardWidth - 1][_boardLength - 1]);
-        Assert.assertEquals(PieceType.ROOK, expectedRook.getPieceType());
-        Assert.assertTrue(expectedRook.getLocation().equals(blackLoc));
+        try {
+            MoveType move = whiteRook.move((_boardWidth - 1), (_boardLength - 2), board);
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(Color.BLACK, e.getColor());
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
     }
 
     // TODO: what about check sad path?

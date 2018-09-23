@@ -4,7 +4,7 @@ public enum PieceType {
     BISHOP,
     ROOK,
     QUEEN,
-    KING
+    KING // TODO: throw exception for capture
 }
 
 

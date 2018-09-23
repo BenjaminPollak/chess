@@ -189,17 +189,15 @@ public class testKnight {
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
-        // act
+        // act & assert
         Knight knight = (Knight) board.retrievePiece(whiteLoc);
-        MoveType move = knight.move(2, _boardLength - 3, board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedKnight = field[2][_boardLength - 3];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[1][_boardLength - 1]);
-        Assert.assertEquals(PieceType.KNIGHT, expectedKnight.getPieceType());
-        Assert.assertTrue(expectedKnight.getLocation().equals(blackLoc));
+        try {
+            MoveType move = knight.move(2, _boardLength - 3, board);
+            Assert.fail();
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(e.getColor(), Color.BLACK);
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
     }
 
     @Test(expected = KingInCheck.class)

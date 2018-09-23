@@ -47,7 +47,9 @@ public class Rook extends Piece {
             Location oldLocation = super.getLocation();
             field[oldLocation.getKey()][oldLocation.getValue()] = null;
             setLocation(new Location(xCoord, yCoord));
-            return MoveType.ATTACK;
+
+            if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
+            throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
         }
         return MoveType.MOVE;
     }

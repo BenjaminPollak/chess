@@ -104,17 +104,15 @@ public class TestBishop {
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
-        // act
+        // act & assert
         Bishop bishop = (Bishop) board.retrievePiece(whiteLoc);
-        MoveType move = bishop.move(blackLoc.getKey(), blackLoc.getValue(), board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedBishop = field[2][_boardLength - 2];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[1][_boardLength - 1]);
-        Assert.assertEquals(PieceType.BISHOP, expectedBishop.getPieceType());
-        Assert.assertTrue(expectedBishop.getLocation().equals(blackLoc));
+        try {
+            MoveType move = bishop.move(blackLoc.getKey(), blackLoc.getValue(), board);
+            Assert.fail();
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(e.getColor(),Color.BLACK);
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
     }
 
     // TODO: what if piece in the way, OOB error?

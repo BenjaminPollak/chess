@@ -239,17 +239,15 @@ public class TestQueen {
 
         // act
         Queen queen = (Queen) board.retrievePiece(whiteLoc);
-        MoveType move = queen.move(blackX, blackY, board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedQueen = field[blackX][blackY];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[3][_boardLength - 2]);
-        Assert.assertEquals(PieceType.QUEEN, expectedQueen.getPieceType());
-        Assert.assertTrue(expectedQueen.getLocation().equals(blackLoc));
+        try {
+            MoveType move = queen.move(blackX, blackY, board);
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(e.getColor(), Color.BLACK);
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
     }
 
+    @Test
     public void testAttackVertical() {
         // arrange
         Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
@@ -268,15 +266,12 @@ public class TestQueen {
 
         // act
         Queen queen = (Queen) board.retrievePiece(whiteLoc);
-        MoveType move = queen.move(blackX, blackY, board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedQueen = field[blackX][blackY];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[3][_boardLength - 4]);
-        Assert.assertEquals(PieceType.QUEEN, expectedQueen.getPieceType());
-        Assert.assertTrue(expectedQueen.getLocation().equals(blackLoc));
+        try {
+            MoveType move = queen.move(blackX, blackY, board);
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(e.getColor(), Color.BLACK);
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
     }
 
     @Test
@@ -298,15 +293,13 @@ public class TestQueen {
 
         // act
         Queen queen = (Queen) board.retrievePiece(whiteLoc);
-        MoveType move = queen.move(blackX, blackY, board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedQueen = field[blackX][blackY];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[3][_boardLength - 2]);
-        Assert.assertEquals(PieceType.QUEEN, expectedQueen.getPieceType());
-        Assert.assertTrue(expectedQueen.getLocation().equals(blackLoc));
+        try {
+            MoveType move = queen.move(blackX, blackY, board);
+            Assert.fail();
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(e.getColor(), Color.BLACK);
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
     }
 
     /*

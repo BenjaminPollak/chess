@@ -62,9 +62,10 @@ public class Pawn extends Piece {
         setLocation(new Location(xCoord, yCoord));
 
         if(attacking) {
-            return MoveType.ATTACK;
+            if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
+            else throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
         }
-        else return  MoveType.MOVE;
+        return MoveType.MOVE;
     }
 
     /*

@@ -266,7 +266,7 @@ public class TestPawn {
         Assert.assertFalse(isValid);
     }
 
-    @Test
+    @Test(expected = PieceCaptured.class)
     public void testWhiteAttackRight() {
         // arrange
         int boardWidth = 8; int boardLength = 8;
@@ -287,15 +287,11 @@ public class TestPawn {
         Pawn attacker = (Pawn) board.retrievePiece(attackerLoc);
         MoveType move = attacker.move(1, (boardLength - 3), board);
 
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedPawn = field[1][boardLength - 3];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[1][boardLength - 2]);
-        Assert.assertEquals(PieceType.PAWN, expectedPawn.getPieceType());
-        Assert.assertTrue(expectedPawn.getLocation().equals(enemyLoc));    }
+        // assert - should throw exception
+        Assert.fail();
+    }
 
-    @Test
+    @Test(expected = PieceCaptured.class)
     public void testWhiteAttackLeft() {
         // arrange
         int boardWidth = 8; int boardLength = 8;
@@ -316,13 +312,8 @@ public class TestPawn {
         Pawn attacker = (Pawn) board.retrievePiece(attackerLoc);
         MoveType move = attacker.move(0, (boardLength - 3), board);
 
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedPawn = field[0][boardLength - 3];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[1][boardLength - 2]);
-        Assert.assertEquals(PieceType.PAWN, expectedPawn.getPieceType());
-        Assert.assertTrue(expectedPawn.getLocation().equals(enemyLoc));
+        // assert - should throw exception
+        Assert.fail();
     }
 
     @Test
@@ -342,20 +333,18 @@ public class TestPawn {
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
-        // act
+        // act & assert
         Pawn attacker = (Pawn) board.retrievePiece(attackerLoc);
-        MoveType move = attacker.move(0, (boardLength - 3), board);
-
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedPawn = field[1][boardLength - 2];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[0][boardLength - 3]);
-        Assert.assertEquals(PieceType.PAWN, expectedPawn.getPieceType());
-        Assert.assertTrue(expectedPawn.getLocation().equals(enemyLoc));
+        try {
+            MoveType move = attacker.move(1, (boardLength - 2), board);
+            Assert.fail();
+        } catch (PieceCaptured e) {
+            Assert.assertEquals(e.getColor(), Color.WHITE);
+            Assert.assertTrue(e.getLocation().equals(enemyLoc));
+        }
     }
 
-    @Test
+    @Test(expected = PieceCaptured.class)
     public void testBlackAttackLeft() {
         // arrange
         int boardWidth = 8; int boardLength = 8;
@@ -376,13 +365,8 @@ public class TestPawn {
         Pawn attacker = (Pawn) board.retrievePiece(attackerLoc);
         MoveType move = attacker.move(0, (boardLength - 2), board);
 
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedPawn = field[0][boardLength - 2];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[1][boardLength - 3]);
-        Assert.assertEquals(PieceType.PAWN, expectedPawn.getPieceType());
-        Assert.assertTrue(expectedPawn.getLocation().equals(enemyLoc));
+        // assert - should throw exception
+        Assert.fail();
     }
 
     // TODO: what if no check?

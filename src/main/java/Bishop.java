@@ -34,7 +34,10 @@ public class Bishop extends Piece {
         field[oldLocation.getKey()][oldLocation.getValue()] = null;
         setLocation(new Location(xCoord, yCoord));
 
-        if(isAnAttack) return MoveType.ATTACK;
+        if(isAnAttack) {
+            if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
+            throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
+        }
         else return MoveType.MOVE;
     }
 

@@ -41,7 +41,9 @@ public class Queen extends Piece{
             field[xCoord][yCoord] = null;
             field[xCoord][yCoord] = field[oldX][oldY];
             field[oldX][oldY] = null;
-            return MoveType.ATTACK;
+
+            if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
+            else throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
         }
         else return MoveType.MOVE;
     }

@@ -35,7 +35,8 @@ public class King extends Piece {
         setLocation(new Location(xCoord, yCoord));
 
         if(isAnAttack) {
-            return MoveType.ATTACK;
+            if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
+            else throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
         }
         return MoveType.MOVE;
     }

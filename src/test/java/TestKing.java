@@ -139,14 +139,12 @@ public class TestKing {
 
         // act
         King king = (King) board.retrievePiece(whiteLoc);
-        MoveType move = king.move(1, _boardLength - 2, board);
+        try {
+            MoveType move = king.move(1, _boardLength - 2, board);
+        } catch(PieceCaptured e) {
+            Assert.assertEquals(e.getColor(), Color.BLACK);
+            Assert.assertTrue(e.getLocation().equals(blackLoc));
+        }
 
-        // assert
-        Piece[][] field = board.getField();
-        Piece expectedKing = field[1][_boardLength - 2];
-        Assert.assertEquals(MoveType.ATTACK, move);
-        Assert.assertEquals(null, field[1][_boardLength - 1]);
-        Assert.assertEquals(PieceType.KING, expectedKing.getPieceType());
-        Assert.assertTrue(expectedKing.getLocation().equals(blackLoc));
     }
 }
