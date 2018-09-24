@@ -20,7 +20,7 @@ public class Queen extends Piece{
      * @param field: field to look on
      * @throw KingInCheck if king in check
      */
-    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck() {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
 
@@ -44,7 +44,7 @@ public class Queen extends Piece{
      *  @param board: board that piece should be moved on
      *  @return: the type of move performed
      */
-    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
+    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException() {
         Location oldLocation = getLocation();
         checkCoordinates(xCoord, yCoord, board.getBoardWidth(), board.getBoardLength());
         boolean isAnAttack = checkValidMove(xCoord, yCoord, board.getField());
@@ -71,7 +71,7 @@ public class Queen extends Piece{
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      * @return a boolean describing whether or not a piece is taken
      */
-    public boolean checkValidMove( int newX, int newY, Piece[][] field) throws IllegalArgumentException {
+    public boolean checkValidMove( int newX, int newY, Piece[][] field) throws IllegalArgumentException() {
         int oldX = getLocation().getKey();
         int oldY = getLocation().getValue();
 

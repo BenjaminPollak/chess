@@ -58,7 +58,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -83,7 +83,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -108,7 +108,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -133,7 +133,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -157,7 +157,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -181,7 +181,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -205,7 +205,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -231,7 +231,7 @@ abstract public class Piece {
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
+    public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
