@@ -22,7 +22,7 @@ public class Knight extends Piece {
      * @throws KingInCheck if king is in check
      */
     @Override
-    public void findIfKingInCheck(Piece[][] field) throws KingInCheck() {
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         // TODO
         Location currentLocation = getLocation();
         int xCoord = currentLocation.getKey();
@@ -84,7 +84,7 @@ public class Knight extends Piece {
      *  @param board: board that piece should be moved on
      *  @return: the type of move performed
      */
-    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException() {
+    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
         int boardWidth = board.getBoardWidth();
         int boardLength = board.getBoardLength();
@@ -106,13 +106,13 @@ public class Knight extends Piece {
 
     /**
      * Checks that the movement made by the knight is valid. Helper function for move()
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      * @return a boolean describing whether or not a piece is taken
      */
-    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException() {
+    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
         int oldX = oldLocation.getKey();
         int oldY = oldLocation.getValue();

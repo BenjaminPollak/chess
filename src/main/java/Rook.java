@@ -10,7 +10,7 @@ public class Rook extends Piece {
      * @param boardParameters: parameters for the board
      * @param color: color of newly instantiated rook
      */
-    public Rook(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException() {
+    public Rook(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
         super(pieceLocation, boardParameters, PieceType.ROOK, color);
         _yetToMove = true;
     }
@@ -21,7 +21,7 @@ public class Rook extends Piece {
      * @throws KingInCheck when king is in check
      * @return nothing
      */
-    public void findIfKingInCheck(Piece[][] field) throws KingInCheck() {
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
 
@@ -39,7 +39,7 @@ public class Rook extends Piece {
      *  @throws IllegalArgumentException: thrown if a bad newX and/or newY is given
      *  @return: the type of move performed
      */
-    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException() {
+    public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         int boardWidth = board.getBoardWidth();
         int boardLength = board.getBoardLength();
         Piece[][] field = board.getField();
@@ -69,7 +69,7 @@ public class Rook extends Piece {
      * @throws IllegalArgumentException if a bad newX and/or newY is given
      * @return true if the the move is valid, false otherwise
      */
-    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException() {
+    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
         int oldX = oldLocation.getKey();
         int oldY = oldLocation.getValue();

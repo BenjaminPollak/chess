@@ -31,7 +31,7 @@ abstract public class Piece {
      *  @param xCoord: desired horizontal location of piece
      *  @param yCoord: desired vertical location of piece
      *  @param boardWidth: Horizontal size of board
-     *  @param boardlength: Vertical size of board
+     *  @param boardLength: Vertical size of board
      */
 
     public void checkCoordinates(int xCoord, int yCoord, int boardWidth, int boardLength) {
@@ -52,13 +52,13 @@ abstract public class Piece {
 
     /**
      * Looks down and right for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -77,13 +77,13 @@ abstract public class Piece {
 
     /**
      * Looks up and left for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -102,13 +102,13 @@ abstract public class Piece {
 
     /**
      * Looks down and left for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -127,13 +127,13 @@ abstract public class Piece {
 
     /**
      * Looks up for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -151,13 +151,13 @@ abstract public class Piece {
 
     /**
      * Looks down for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -175,13 +175,13 @@ abstract public class Piece {
 
     /**
      * Looks left for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -199,13 +199,13 @@ abstract public class Piece {
 
     /**
      * Looks right for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
-     * @param int xCoord: x coordinate of piece
-     * @param int yCoord: y coordinate of piece
+     * @param field: 2-D array representing where the pieces are
+     * @param xCoord: x coordinate of piece
+     * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -225,13 +225,13 @@ abstract public class Piece {
 
     /**
      * Looks diagonally up and right for the king.
-     * @param Piece[][] field: 2-D array representing where the pieces are
+     * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
      * @throws: KingInCheck if king found to be in check
      * @return nothing
      */
-    public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck() {
+    public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
             try {
                 Piece piece = field[xCoord][yCoord];
@@ -274,7 +274,7 @@ abstract public class Piece {
 
     /**
      * Sets _location member variable with newLocation
-     * @param Location newLocation: new value for _location
+     * @param newLocation: new value for _location
      */
     public void setLocation(Location newLocation) {
         _location = newLocation;

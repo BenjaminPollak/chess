@@ -22,7 +22,7 @@ public class Bishop extends Piece {
      * @throws KingInCheck if king is indeed in check
      * @return nothing
      */
-    public void findIfKingInCheck(Piece[][] field) throws KingInCheck() {
+    public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
 
@@ -64,7 +64,7 @@ public class Bishop extends Piece {
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      * @return a boolean describing whether or not a piece is taken
      */
-    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException() {
+    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
         int oldX = oldLocation.getKey();
         int oldY = oldLocation.getValue();
