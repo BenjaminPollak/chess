@@ -103,6 +103,11 @@ public class Board extends JFrame{
                     pieces.add(newPiece);
                     _field[xCoord][yCoord] = newPiece;
                 }
+                else if(type == PieceType.HOPPER) {
+                    Hopper newPiece = new Hopper(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
+                }
             }
         }
 

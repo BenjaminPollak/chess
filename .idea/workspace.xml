@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2ed37b3-54a3-4bc0-8021-af1c9bbef81c" name="Default Changelist" comment="kkkkkj">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Hopper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestHopper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KingInCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KingInCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PieceCaptured.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PieceCaptured.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PieceType.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -24,8 +20,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__2_.ic" NAME="All in bwpolla2.chess_test (2) Coverage Results" MODIFIED="1537717795078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test.ic" NAME="All in bwpolla2.chess_test Coverage Results" MODIFIED="1537759387022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__1_.ic" NAME="All in bwpolla2.chess_test (1) Coverage Results" MODIFIED="1537760104282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test.ic" NAME="All in bwpolla2.chess_test Coverage Results" MODIFIED="1537775430516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__3_.ic" NAME="All in bwpolla2.chess_test (3) Coverage Results" MODIFIED="1537717983372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/bwpolla2_chess$TestBoard_testPlacePieces.ic" NAME="TestBoard.testPlacePieces Coverage Results" MODIFIED="1537060575928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/bwpolla2_chess$TestRook.ic" NAME="TestRook Coverage Results" MODIFIED="1537758706903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -73,27 +69,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="3" />
-          <entry key="java" value="378" />
+          <entry key="java" value="397" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="378" />
+          <entry key="JAVA" value="397" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="53" />
           <entry key="gradle" value="211" />
-          <entry key="java" value="151113" />
+          <entry key="java" value="155522" />
           <entry key="txt" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="211" />
-          <entry key="JAVA" value="151113" />
+          <entry key="JAVA" value="155522" />
           <entry key="PLAIN_TEXT" value="117" />
         </counts>
       </usages-collector>
@@ -129,31 +125,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Gui.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3369#3370#0" expanded="true" />
-                <element signature="e#3395#3396#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -469,7 +441,6 @@
         <option value="$PROJECT_DIR$/src/main/java/MoveType.java" />
         <option value="$PROJECT_DIR$/src/main/java/Location.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestBoard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/PieceCaptured.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestPawn.java" />
         <option value="$PROJECT_DIR$/src/test/java/testKnight.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bishop.java" />
@@ -477,12 +448,10 @@
         <option value="$PROJECT_DIR$/src/test/java/TestRook.java" />
         <option value="$PROJECT_DIR$/src/main/java/Queen.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestQueen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/PieceType.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestKing.java" />
         <option value="$PROJECT_DIR$/src/main/java/Piece.java" />
         <option value="$PROJECT_DIR$/src/main/java/Knight.java" />
         <option value="$PROJECT_DIR$/src/main/java/Pawn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/King.java" />
         <option value="$PROJECT_DIR$/src/main/java/Direction.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rook.java" />
@@ -491,6 +460,11 @@
         <option value="$PROJECT_DIR$/src/main/java/KingInCheck.java" />
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/Gui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PieceType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PieceCaptured.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestHopper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Hopper.java" />
       </list>
     </option>
   </component>
@@ -546,7 +520,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537772284155" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537775429624" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -569,7 +543,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Gui">
+  <component name="RunManager" selected="JUnit.All in bwpolla2.chess_test">
     <configuration name="Board" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Board" />
       <module name="bwpolla2.chess_main" />
@@ -602,14 +576,6 @@
       </ExternalSystemSettings>
       <method v="2" />
     </configuration>
-    <configuration name="All in bwpolla2.chess_test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bwpolla2.chess_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in bwpolla2.chess_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bwpolla2.chess_test" />
       <option name="PACKAGE_NAME" value="" />
@@ -618,11 +584,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestGame.testSimpleCheckmateGameNotOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestHopper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bwpolla2.chess_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestGame" />
-      <option name="METHOD_NAME" value="testSimpleCheckmateGameNotOver" />
+      <option name="MAIN_CLASS_NAME" value="TestHopper" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestHopper.testCapture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bwpolla2.chess_test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestHopper" />
+      <option name="METHOD_NAME" value="testCapture" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -649,18 +623,18 @@
       <item itemvalue="Application.Board" />
       <item itemvalue="JUnit.Unnamed" />
       <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
-      <item itemvalue="JUnit.TestGame.testSimpleCheckmateGameNotOver" />
-      <item itemvalue="JUnit.All in bwpolla2.chess_test" />
-      <item itemvalue="JUnit.All in bwpolla2.chess_test (1)" />
       <item itemvalue="JUnit.testLocation" />
+      <item itemvalue="JUnit.TestHopper" />
+      <item itemvalue="JUnit.TestHopper.testCapture" />
+      <item itemvalue="JUnit.All in bwpolla2.chess_test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in bwpolla2.chess_test" />
+        <item itemvalue="JUnit.TestHopper" />
+        <item itemvalue="JUnit.TestHopper.testCapture" />
         <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
         <item itemvalue="JUnit.testLocation" />
-        <item itemvalue="JUnit.All in bwpolla2.chess_test (1)" />
-        <item itemvalue="JUnit.All in bwpolla2.chess_test" />
-        <item itemvalue="JUnit.TestGame.testSimpleCheckmateGameNotOver" />
       </list>
     </recent_temporary>
   </component>
@@ -678,42 +652,41 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestRook - 2018.09.23 at 22h 12m 07s.xml">
-      <configuration name="TestRook" configurationId="JUnit" />
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 37m 38s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 13m 54s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 38m 45s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 15m 10s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 38m 58s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 17m 12s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 39m 21s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 22m 19s.xml">
-      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 43m 13s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 22m 24s.xml">
-      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 43m 35s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_bwpolla2_chess_test - 2018.09.23 at 22h 23m 27s.xml">
+    <history-entry file="TestHopper_testCapture - 2018.09.24 at 02h 48m 42s.xml">
+      <configuration name="TestHopper.testCapture" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestHopper - 2018.09.24 at 02h 48m 55s.xml">
+      <configuration name="TestHopper" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestHopper - 2018.09.24 at 02h 49m 40s.xml">
+      <configuration name="TestHopper" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_bwpolla2_chess_test - 2018.09.24 at 02h 51m 04s.xml">
       <configuration name="All in bwpolla2.chess_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_bwpolla2_chess_test_(1) - 2018.09.23 at 22h 37m 40s.xml">
-      <configuration name="All in bwpolla2.chess_test (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="testLocation - 2018.09.23 at 22h 40m 13s.xml">
-      <configuration name="testLocation" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 55m 50s.xml">
-      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49545455" visible="true" weight="0.13927126" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49545455" visible="true" weight="0.28906882" />
       <window_info id="Structure" order="1" sideWeight="0.50454545" side_tool="true" weight="0.32955465" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -723,7 +696,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.37122557" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.37122557" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.41918296" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -868,13 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -902,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestBishop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -916,41 +875,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PieceCaptured.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Queen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestQueen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="272" column="60" selection-start-line="272" selection-start-column="60" selection-end-line="272" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PieceType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1015,17 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#9328#9329#0" expanded="true" />
-            <element signature="e#9360#9361#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestRook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -1040,27 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5424#5425#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="356" column="4" selection-start-line="356" selection-start-column="4" selection-end-line="356" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,24 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/KingInCheck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#1626#1627#0" expanded="true" />
-            <element signature="e#1666#1667#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Knight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestKing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -1116,21 +994,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Gui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        <state relative-caret-position="17">
+          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3369#3370#0" expanded="true" />
             <element signature="e#3395#3396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Knight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="277" column="44" selection-start-line="277" selection-start-column="44" selection-end-line="277" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PieceType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PieceCaptured.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="144" selection-start-line="144" selection-end-line="144" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5667#5668#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestQueen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="237" column="16" selection-start-line="237" selection-start-column="16" selection-end-line="237" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bishop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#9328#9329#0" expanded="true" />
+            <element signature="e#9360#9361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/KingInCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Hopper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestHopper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-307">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1195,7 +1183,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>bwpolla2.chess_test|bwpolla2.chess</last-edited>
+          <last-edited>bwpolla2.chess_main|bwpolla2.chess</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
