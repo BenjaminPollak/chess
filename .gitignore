@@ -4,3 +4,8 @@
 /out/
 
 # GENERAL JAVA
+
+# DOXYGEN
+ doxygen
+html/
+latex/
