@@ -8,9 +8,9 @@ public class Pawn extends Piece {
 
     /**
      * Creates a pawn.
-     * @param Location pieceLocation: Where the piece is to be placed
-     * @param Location boardParameters: Size of the board
-     * @param Color color: The color or "side" of the piece
+     * @param pieceLocation: Where the piece is to be placed
+     * @param boardParameters: Size of the board
+     * @param color: The color or "side" of the piece
      * @throws IllegalArgumentException: where a piece would be placed "out of bounds'
      */
     public Pawn(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
@@ -54,8 +54,8 @@ public class Pawn extends Piece {
 
     /**
      * Handles moving and attacking with pawns
-     * @param xCord: where the piece is to be moved horizontally
-     * @param yCord: where the piece is to be moved vertically
+     * @param xCoord: where the piece is to be moved horizontally
+     * @param yCoord: where the piece is to be moved vertically
      * @param board: the space on which the piece is to be moved
      * @return the MoveType, an enum describing what the move did
      */

@@ -45,7 +45,19 @@ abstract public class Piece {
 
     }
 
+    /**
+     * Handles movement of piece
+     * @param xCoord: new horizontal position
+     * @param yCoord: new vertical position
+     * @param board: board to move piece on
+     */
     public abstract MoveType move(int xCoord, int yCoord, Board board);
+
+    /**
+     * Detects if king is in check
+     * @param field: field to check on
+     * @throws KingInCheck if king in check
+     */
     public abstract void findIfKingInCheck(Piece[][] field) throws KingInCheck;
 
     // look functions

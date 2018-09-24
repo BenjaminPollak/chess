@@ -138,6 +138,7 @@ public class Rook extends Piece {
      * Looks right for valid moves
      * @param oldX: the previous horizontal position
      * @param oldY: the previous vertical position
+     * @param newX: the new horizontal position
      * @param field: where the piece is being moved
      * @return true if can move right, false otherwise
      */
@@ -160,6 +161,7 @@ public class Rook extends Piece {
      * Looks left for valid moves
      * @param oldX: the previous horizontal position
      * @param oldY: the previous vertical position
+     * @param newX: the new horizontal position
      * @param field: where the piece is being moved
      * @return true if can move left, false otherwise
      */

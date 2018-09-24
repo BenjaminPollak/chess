@@ -5,6 +5,12 @@ import javafx.util.Pair;
  * describing location on a two-dimensional grid
  */
 public class Location extends Pair<Integer, Integer> {
+
+    /**
+     * location constructor
+     * @param x: new x position
+     * @param y: new y position
+     */
     public Location(int x, int y) {
         super(x, y);
     }

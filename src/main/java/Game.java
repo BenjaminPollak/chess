@@ -40,7 +40,6 @@ public class Game {
      * @return nothing, the function is of type void
      */
     public void gatherPieces(Color color) {
-        // TODO: how do I test this?
         if(color == Color.WHITE) {
             _whitePieces = new Pair[6];
             Location whitePawnSchematics[] = createPawnSchematics(Color.WHITE);
@@ -221,7 +220,7 @@ public class Game {
         boolean canMoveKing = lookForValidKingMoves(board, threatenedKing, atkPieces);
         if(canMoveKing) return false;
 
-        // TODO: try moving literally every other piece to defend king
+        // try moving literally every other piece to defend king
         Direction direction = e.getDirectionOfThreat();
         Location atkLocation = e.getAtkLocation();
         boolean defenseExists = searchForDefense(direction, board, defPieces, threatenedKing.getLocation(), atkLocation);
