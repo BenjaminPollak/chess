@@ -108,6 +108,11 @@ public class Board extends JFrame{
                     pieces.add(newPiece);
                     _field[xCoord][yCoord] = newPiece;
                 }
+                else if(type == PieceType.FERZ) {
+                    Ferz newPiece = new Ferz(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
+                }
             }
         }
 

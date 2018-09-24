@@ -10,7 +10,7 @@ public class King extends Piece {
 
     @Override
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
-        // TODO
+        // doesnt do anything, a king cannot check a king
     }
 
     /*

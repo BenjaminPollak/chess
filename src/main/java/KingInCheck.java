@@ -1,15 +1,8 @@
 public class KingInCheck extends RuntimeException {
     private Location _kingPosition;
     private Location _attackerPosition;
-    private int _deltaX;
-    private int _deltaY;
     private Direction _directionOfThreat;
 
-    public KingInCheck(String message, Location kingPos, Location attackerPos) {
-        super(message);
-        _kingPosition = kingPos;
-        _attackerPosition = attackerPos;
-    }
     public KingInCheck(Location kingPos, Location attackerPos) {
         super("KING IN CHECK");
         _kingPosition = kingPos;
