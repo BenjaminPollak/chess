@@ -1,14 +1,24 @@
 import static java.lang.Math.abs;
 
+/**
+ * @author Benjamin Pollak
+ */
 public class Hopper extends Piece {
-    /*
-     * A hopper can move two spaces north, south, east, or west. It can jump
+    /**
+     * A hopper can move two spaces north, south, east, or west It can jump
      * pieces, but only attacks when it lands on an enemy piece
      */
     Hopper(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation, boardParameters, PieceType.HOPPER, color);
     }
 
+    /**
+     * Handles moving for hopper
+     * @param xCoord: new x position
+     * @param yCoord: new y position
+     * @param board: board to move piece on
+     * @return MoveType of hopper
+     */
     public MoveType move(int xCoord, int yCoord, Board board) {
         boolean captureAttempted = checkValidMove(xCoord, yCoord, board.getField());
         if(captureAttempted) {
@@ -18,13 +28,13 @@ public class Hopper extends Piece {
         return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the bishop is valid. Helper function for move()
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException{
         int oldX = getLocation().getKey();
@@ -44,6 +54,11 @@ public class Hopper extends Piece {
 
     }
 
+    /**
+     * Finds if king is in check
+     * @param field: field on which to look for king's check
+     * @throw KingInCheck when king is in check
+     */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int oldX = getLocation().getKey(); int oldY = getLocation().getValue();
         Piece potentialKing;

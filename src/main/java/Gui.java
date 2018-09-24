@@ -6,7 +6,10 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-// class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
+/**
+ * Handles Gui, class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
+ * @author Benjamin Pollak
+ */
 public class Gui extends JPanel {
     //private final JPanel gui = new JPanel(new BorderLayout(0, 0));
     private final JPanel gui = new JPanel();

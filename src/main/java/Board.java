@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.Vector;
 
+/**
+ * @author Benjamin Pollak
+ */
+
 public class Board extends JFrame{
     // NOTE: top left corner is (0, 0).
     //       bottom right corner is (_boardWidth - 1, _boardLength - 1)
@@ -17,6 +21,13 @@ public class Board extends JFrame{
     private HashMap<PieceType, Vector<Piece>> _whitePieces;
     private HashMap<PieceType, Vector<Piece>> _blackPieces;
 
+    /**
+     * Constructor for Board 
+     * @param boardWidth: width of board
+     * @param boardLength: length of board
+     * @param whitePieces: An array of pairs containing pieceType and array of where pieces are for white pieces
+     * @param blackPieces: An array of pairs containing pieceType and array of where pieces are for black pieces
+     */
     public Board(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[], Pair<PieceType, Location[]> blackPieces[]) throws IllegalArgumentException {
         if(boardWidth < 8) {
             throw new IllegalArgumentException("Cannot have board width < 8");
@@ -33,11 +44,11 @@ public class Board extends JFrame{
         _blackPieces = createAndPlacePiecesOnBoard(blackPieces, Color.BLACK);
     }
 
-    /*
+    /**
      * Checks if an array is needed for a dictionary
      * @param unplacedPieceType: all unplaced pieces of the same type
      * @param placedPieces: all placed pieces
-     * @returns: true if a new array is needed, false otherwise
+     * @return: true if a new array is needed, false otherwise
      */
     public boolean checkIfNewArrayNeeded(Pair<PieceType, Location[]> unplacedPieceType, HashMap<PieceType, Vector<Piece>> placedPieces) {
         PieceType type = unplacedPieceType.getKey();
@@ -47,10 +58,10 @@ public class Board extends JFrame{
     }
 
     // TODO: potential bug here?
-    /*
+    /**
      * Instantiates all the pieces needed for chess
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
-     * @returns a hash map containing all the pieces needed for a game of chess
+     * @return a hash map containing all the pieces needed for a game of chess
      */
     public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(Pair<PieceType, Location[]> unplacedPieces[], Color color) {
         if((_field == null) || (unplacedPieces == null)) return new HashMap<>();
@@ -119,10 +130,11 @@ public class Board extends JFrame{
         return placedPieces;
     }
 
-    /* TODO: test?
-     * Returns the piece found at a given location. Will return null if no piece found
+    // TODO: test?*
+    /** 
+     * Returns the piece found at a given location, will return null if no piece found
      * @param loc: Location from which to retrieve the piece from _field
-     * @returns piece at the position given
+     * @return piece at the position given
      */
     public Piece retrievePiece(Location loc) {
         int xCoord = loc.getKey();
@@ -131,30 +143,46 @@ public class Board extends JFrame{
     }
 
     // getters
+
+    /**
+     * Gets _blackPieces member variables
+     */
     public HashMap<PieceType, Vector<Piece>>  getBlackPieces() {
         return _blackPieces;
     }
 
+    /**
+     * Gets _whitePieces member variables
+     */
     public HashMap<PieceType, Vector<Piece>> getWhitePieces() {
         return _whitePieces;
     }
+
+    /**
+     * Gets _boardWidth member variables
+     */
     public int getBoardWidth() {
         return _boardWidth;
     }
 
+    /**
+     * Gets _boardLength member variables
+     */
     public int getBoardLength() {
         return _boardLength;
     }
 
+    /**
+     * Gets _field member variables
+     */
     public Piece[][] getField() {
         return _field;
     }
 
-    // custom exception
+    /**
+     * Custom exception, thrown if two pieces try to take the same spot
+     */
     public class PositionAlreadyTakenException extends RuntimeException {
-        public PositionAlreadyTakenException(String message) {
-            super(message);
-        }
         public PositionAlreadyTakenException() {
             super("Position already taken");
         }

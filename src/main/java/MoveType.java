@@ -1,4 +1,4 @@
-/* Enum representing the potential moves
+/** Enum representing the potential moves
  * that can happen
  */
 public enum MoveType {

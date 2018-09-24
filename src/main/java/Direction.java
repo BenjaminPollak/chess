@@ -1,3 +1,7 @@
+/**
+ * Represents the direction a piece is moving
+ * @author Benjamin Pollak
+ */
 public enum Direction {
     NORTH,
     SOUTH,

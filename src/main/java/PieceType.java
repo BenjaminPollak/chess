@@ -8,5 +8,3 @@ public enum PieceType {
     QUEEN,
     KING
 }
-
-

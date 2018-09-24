@@ -1,5 +1,9 @@
 import static java.lang.Math.abs;
 
+/**
+ * @author Benjamin Pollak
+ */
+
 public class Knight extends Piece {
 
     public Knight(Location pieceLocation, Location boardParameters, Color color) {
@@ -62,7 +66,7 @@ public class Knight extends Piece {
         catch (ArrayIndexOutOfBoundsException | NullPointerException e) {}
     }
 
-    /*
+    /**
      *  Handles moving and attacking with the knight
      *  @param xCoord: horizontal position where piece should be moved
      *  @param yCoord: vertical position where piece should be moved
@@ -89,13 +93,13 @@ public class Knight extends Piece {
         return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the knight is valid. Helper function for move()
      * @param int newX: the new horizontal position
      * @param int newY: the new vertical position
      * @param Piece[][] field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException{
         Location oldLocation = super.getLocation();

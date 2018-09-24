@@ -1,12 +1,14 @@
+/**
+ * @author Benjamin Pollak
+ */
 public class Rook extends Piece {
     private boolean _yetToMove;
 
-    /*
+    /**
      * Rook constructor
-     * @param xCoord: starting horizontal position. Starts with 0 on the left and increases to the right
-     * @param yCoord: starting vertical position. Starts with 0 on the top and increases down
-     * @param boardWidth: horizontal size of the board
-     * @param boardLength: vertical size of the board
+     * @param pieceLocation: location for new rook
+     * @param boardParameters: parameters for the board
+     * @param color: color of newly instantiated rook
      */
     public Rook(Location pieceLocation, Location boardParameters, Color color) throws IllegalArgumentException {
         super(pieceLocation, boardParameters, PieceType.ROOK, color);
@@ -14,6 +16,11 @@ public class Rook extends Piece {
     }
 
     @Override
+    /** Finds if king is in check
+     * @param field the field being played on
+     * @throws KingInCheck when king is in check
+     * @return nothing
+     */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
@@ -24,13 +31,13 @@ public class Rook extends Piece {
         lookRightForKing(field, xCoord + 1, yCoord);
     }
 
-    /*
+    /**
      *  Handles moving and attacking with rooks
      *  @param xCoord: horizontal position where piece should be moved
      *  @param yCoord: vertical position where piece should be moved
      *  @param board: board that piece should be moved on
+     *  @throws IllegalArgumentException: Thrown if the coordinates given violate a rule of chess
      *  @return: the type of move performed
-     *  @exception IllegalArgumentException: Thrown if the coordinates given violate a rule of chess
      */
     public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         int boardWidth = board.getBoardWidth();
@@ -53,12 +60,13 @@ public class Rook extends Piece {
         return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Makes sure (1) no pieces are in path of movement and (2) not attacking friendly pieces. Helper
      *  function for move()
-     * @param xCoord: horizontal position where piece is being moved
-     * @param yCoord: vertical position where piece is being moved
-     * @param board: board on which piece is being moved
+     * @param newX: horizontal position where piece is being moved
+     * @param newY: vertical position where piece is being moved
+     * @param field: field on which piece is being moved
+     * @return true if the the move is valid, false otherwise
      */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
@@ -82,11 +90,13 @@ public class Rook extends Piece {
         }
     }
 
-    /*
+    /**
      * Looks downwards for valid moves
-     * @param int oldX: the previous horizontal position
-     * @param int oldY: the previous vertical position
-     * @param Piece[][] field: where the piece is being moved
+     * @param oldX: the previous horizontal position
+     * @param oldY: the previous vertical position
+     * @param newY: the new vertical position
+     * @param field: where the piece is being moved
+     * @return true if can move downwards, false otherwise
      */
     public boolean checkDownwards(int oldX, int oldY, int newY, Piece[][] field) {
         for(int yCoord = oldY+1; yCoord < newY; ++yCoord) {
@@ -101,11 +111,13 @@ public class Rook extends Piece {
         return false;
     }
 
-    /*
+    /**
      * Looks upwards for valid moves
-     * @param int oldX: the previous horizontal position
-     * @param int oldY: the previous vertical position
-     * @param Piece[][] field: where the piece is being moved
+     * @param oldX: the previous horizontal position
+     * @param oldY: the previous vertical position
+     * @param newY: the new vertical position
+     * @param field: where the piece is being moved
+     * @return true if can move upwards, false otherwise
      */
     public boolean checkUpwards(int oldX, int oldY, int newY, Piece[][] field) {
         for(int yCoord = oldY-1; yCoord > newY; --yCoord) {
@@ -121,11 +133,12 @@ public class Rook extends Piece {
         return false;
     }
 
-    /*
+    /**
      * Looks right for valid moves
-     * @param int oldX: the previous horizontal position
-     * @param int oldY: the previous vertical position
-     * @param Piece[][] field: where the piece is being moved
+     * @param oldX: the previous horizontal position
+     * @param oldY: the previous vertical position
+     * @param field: where the piece is being moved
+     * @return true if can move right, false otherwise
      */
     public boolean checkRight(int oldX, int oldY, int newX, Piece[][] field) {
         for(int xCoord = oldX+1; xCoord < newX; ++xCoord) {
@@ -142,11 +155,12 @@ public class Rook extends Piece {
         return false;
     }
 
-    /*
+    /**
      * Looks left for valid moves
-     * @param int oldX: the previous horizontal position
-     * @param int oldY: the previous vertical position
-     * @param Piece[][] field: where the piece is being moved
+     * @param oldX: the previous horizontal position
+     * @param oldY: the previous vertical position
+     * @param field: where the piece is being moved
+     * @return true if can move left, false otherwise
      */
     public boolean checkLeft(int oldX, int oldY, int newX, Piece[][] field) {
         for(int xCoord = oldX-1; xCoord > newX; --xCoord) {

@@ -1,9 +1,12 @@
+/*
+ * @author Benjamin Pollak
+ */
 abstract public class Piece {
     private Location _location;
     private PieceType _pieceType;
     private Color _color;
 
-    /*
+    /**
      * Piece constructor
      * Location pieceLocation: Where the piece should be placed on the board
      * Location boardParameters: The size of the board
@@ -23,7 +26,7 @@ abstract public class Piece {
         _color = color;
     }
 
-    /*
+    /**
      *  makes sure coordinates are "in-bounds"
      *  @param xCoord: desired horizontal location of piece
      *  @param yCoord: desired vertical location of piece
@@ -47,13 +50,13 @@ abstract public class Piece {
 
     // look functions
 
-    /*
+    /**
      * Looks down and right for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -72,13 +75,13 @@ abstract public class Piece {
         }
     }
 
-    /*
+    /**
      * Looks up and left for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -97,13 +100,13 @@ abstract public class Piece {
         }
     }
 
-    /*
+    /**
      * Looks down and left for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -122,13 +125,13 @@ abstract public class Piece {
         }
     }
 
-    /*
+    /**
      * Looks up for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -146,13 +149,13 @@ abstract public class Piece {
             --yCoord;
         }            }
 
-    /*
+    /**
      * Looks down for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -170,13 +173,13 @@ abstract public class Piece {
             ++yCoord;
         }                }
 
-    /*
+    /**
      * Looks left for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -194,13 +197,13 @@ abstract public class Piece {
             --xCoord;
         }        }
 
-    /*
+    /**
      * Looks right for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param int xCoord: x coordinate of piece
      * @param int yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -220,13 +223,13 @@ abstract public class Piece {
     }
 
 
-    /*
+    /**
      * Looks diagonally up and right for the king.
      * @param Piece[][] field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @returns nothing
-     * @throws: KinginCheck if king found to be in check
+     * @throws: KingInCheck if king found to be in check
+     * @return nothing
      */
     public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
         while(true) {
@@ -247,19 +250,32 @@ abstract public class Piece {
 
     // getters and setter
 
+    /**
+     * Gets _color member variable
+     */
     public Color getColor() {
         return _color;
     }
 
+    /**
+     * Gets _location member variable
+     */
     public Location getLocation() {
         return _location;
     }
 
+    /**
+     * Gets _pieceType member variable
+     */
     public PieceType getPieceType() {
         return _pieceType;
     }
 
 
+    /**
+     * Sets _location member variable with newLocation
+     * @param Location newLocation: new value for _location
+     */
     public void setLocation(Location newLocation) {
         _location = newLocation;
     }

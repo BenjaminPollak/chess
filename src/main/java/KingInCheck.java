@@ -1,8 +1,16 @@
+/*
+ * @author Benjamin Pollak
+ */
 public class KingInCheck extends RuntimeException {
     private Location _kingPosition;
     private Location _attackerPosition;
     private Direction _directionOfThreat;
 
+    /**
+     * Constructor for KingInCheck exception
+     * @param kingPos: position of king
+     * @param attackerPos: position of attacker
+     */
     public KingInCheck(Location kingPos, Location attackerPos) {
         super("KING IN CHECK");
         _kingPosition = kingPos;
@@ -26,14 +34,23 @@ public class KingInCheck extends RuntimeException {
         }
     }
 
+    /**
+     * gets _directionOfThreat member variable
+     */
     public Direction getDirectionOfThreat() {
         return _directionOfThreat;
     }
 
+    /**
+     * gets _kingPosition member variable
+     */
     public Location getKingLocation() {
         return _kingPosition;
     }
 
+    /**
+     * gets _attackerPosition member variable
+     */
     public Location getAtkLocation() {
         return _attackerPosition;
     }

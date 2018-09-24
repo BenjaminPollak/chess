@@ -1,19 +1,32 @@
 import static java.lang.Math.abs;
 
+/**
+ * @author Benjamin Pollak
+ */
 public class King extends Piece {
     boolean _yetToMove;
 
+    /**
+     * Constructor for king
+     * pieceLocation: location for king
+     * boardParameters: size of board
+     * color: color of new piece
+     */
     public King(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation, boardParameters, PieceType.KING, color);
         _yetToMove = true;
     }
 
     @Override
+    /**
+     * Would check to see if the opposing king is in check, but does
+     * nothing because kings can't check
+     */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         // doesnt do anything, a king cannot check a king
     }
 
-    /*
+    /**
      *  Handles moving and attacking with the king
      *  @param xCoord: horizontal position where piece should be moved
      *  @param yCoord: vertical position where piece should be moved
@@ -41,13 +54,13 @@ public class King extends Piece {
         return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the king is valid. Helper function for move()
      * @param int newX: the new horizontal position
      * @param int newY: the new vertical position
      * @param Piece[][] field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     Boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();

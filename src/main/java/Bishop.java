@@ -1,12 +1,27 @@
 // TODO: are pieces moved around board correctly?
 import static java.lang.Math.abs;
 
+/**
+ * @author Benjamin Pollak
+ */
 public class Bishop extends Piece {
+    /**
+     * Constructor for bishop
+     * @param pieceLocation: location for new bishop
+     * @param boardParameters: size of board
+     * @param color: color of new bishop
+     */
     public Bishop(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation,boardParameters, PieceType.BISHOP, color);
     }
 
     // TODO
+    /**
+     * Finds if king is in check
+     * @param field: field to look for check on
+     * @throws KingInCheck if king is indeed in check
+     * @return nothing
+     */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
@@ -17,7 +32,7 @@ public class Bishop extends Piece {
         lookDownAndRightForKing(field, xCoord + 1, yCoord + 1);
     }
 
-    /*
+    /**
      *  Handles moving and attacking with bishops
      *  @param xCoord: horizontal position where piece should be moved
      *  @param yCoord: vertical position where piece should be moved
@@ -41,13 +56,13 @@ public class Bishop extends Piece {
         else return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the bishop is valid. Helper function for move()
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException{
         Location oldLocation = super.getLocation();

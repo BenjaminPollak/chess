@@ -1,9 +1,12 @@
 import static java.lang.Math.abs;
 
+/**
+ * @author Benjamin Pollak
+ */
 public class Pawn extends Piece {
     private boolean _yetToMove;
 
-    /*
+    /**
      * Creates a pawn.
      * @param Location pieceLocation: Where the piece is to be placed
      * @param Location boardParameters: Size of the board
@@ -15,6 +18,12 @@ public class Pawn extends Piece {
         _yetToMove = true;
     }
 
+    /**
+    * Finds if king is in check
+    * @param field: field to look for check
+    * @throw KingInCheck if king in check
+    * @return nothing
+    */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
@@ -43,12 +52,12 @@ public class Pawn extends Piece {
         }
     }
 
-    /*
+    /**
      * Handles moving and attacking with pawns
-     * @param int xCord: where the piece is to be moved horizontally
-     * @param int yCord: where the piece is to be moved vertically
-     * @param Board board: the space on which the piece is to be moved
-     * @returns the MoveType, an enum describing what the move did
+     * @param xCord: where the piece is to be moved horizontally
+     * @param yCord: where the piece is to be moved vertically
+     * @param board: the space on which the piece is to be moved
+     * @return the MoveType, an enum describing what the move did
      */
     public MoveType move(int xCoord, int yCoord, Board board) {
         Piece[][] field = board.getField();
@@ -68,13 +77,13 @@ public class Pawn extends Piece {
         return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the pawn is valid. Helper function for move()
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldPosition = getLocation();
@@ -91,11 +100,11 @@ public class Pawn extends Piece {
         }
     }
 
-    /*
+    /**
      * Checks that a white pawn's move is valid
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      */
     public boolean checkWhiteMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
@@ -125,11 +134,11 @@ public class Pawn extends Piece {
         return true;
     }
 
-    /*
+    /**
      * Checks that a white pawn's move is valid
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      */
     public boolean checkBlackMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
@@ -159,14 +168,14 @@ public class Pawn extends Piece {
     }
 
 
-    /*
+    /**
      * setter for the _yetToMove variable
      */
     public void setYetToMove(boolean yetToMove) {
         _yetToMove = yetToMove;
     }
 
-    /*
+    /**
      * getter for the _yetToMove variable
      */
     public boolean getYetToMove() {

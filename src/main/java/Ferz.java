@@ -1,12 +1,27 @@
 import static java.lang.Math.abs;
 
 // TODO: disappearing from board?
-// like a bishop, but only goes one square
+/*
+ * like a bishop, but only goes one square
+ * @author Benjamin Pollak
+ */
 public class Ferz extends Piece{
+    /**
+     * Constuctor for Ferz  
+     * @param pieceLocation: location for new ferz
+     * @param boardParameters: size of board
+     * @param color: color of piece
+     */
     public Ferz(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation, boardParameters, PieceType.FERZ,color);
     }
 
+    /**
+     * Controls movement for ferz
+     * @param xCoord: new x position
+     * @param yCoord: new y position
+     * @param board: board to move Ferz on
+     */
     public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         boolean attacking =  checkValidMove(xCoord, yCoord, board.getField());
         if(attacking) {
@@ -16,13 +31,13 @@ public class Ferz extends Piece{
         return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the king is valid. Helper function for move()
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     Boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         int oldX = getLocation().getKey(); int oldY = getLocation().getValue();
@@ -34,6 +49,11 @@ public class Ferz extends Piece{
         return false;
     }
 
+    /**
+     * Checks that the movement made by the king is valid. Helper function for move()
+     * @param field: Where the piece is to be moved
+     * @return nothing
+     */
     public void findIfKingInCheck(Piece[][] field) {
         int oldX = getLocation().getKey(); int oldY = getLocation().getValue();
         Piece potentialKing;

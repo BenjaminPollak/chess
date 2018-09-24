@@ -1,10 +1,25 @@
 import static java.lang.Math.abs;
 
+/**
+ * @author Benjamin Pollak
+ */
 public class Queen extends Piece{
+
+    /**
+    * Constructor for queen
+    * @param pieceLocation: place for new queen
+    * @param boardParameters: size of board
+    * @param color: color of queen
+    */
     public Queen(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation,boardParameters, PieceType.QUEEN, color);
     }
 
+    /**
+     * Finds if king in check
+     * @param field: field to look on
+     * @throw KingInCheck if king in check
+     */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
         int yCoord = getLocation().getValue();
@@ -22,7 +37,7 @@ public class Queen extends Piece{
         lookDownAndRightForKing(field, xCoord + 1, yCoord + 1);
     }
 
-    /*
+    /**
      *  Handles moving and attacking with the queen
      *  @param xCoord: horizontal position where piece should be moved
      *  @param yCoord: vertical position where piece should be moved
@@ -48,13 +63,13 @@ public class Queen extends Piece{
         else return MoveType.MOVE;
     }
 
-    /*
+    /**
      * Checks that the movement made by the queen is valid. Helper function for move
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
-     * @returns a boolean describing whether or not a piece is taken
+     * @return a boolean describing whether or not a piece is taken
      */
     public boolean checkValidMove( int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         int oldX = getLocation().getKey();
@@ -103,11 +118,12 @@ public class Queen extends Piece{
         }
     }
 
-    /*
+    /**
      * Looks for obstructions. Helper function for checkValidMove()
-     * @param boolean vertical: indicates whether or not piece moves vertically
-     * @param boolean iterateUp: indicates whether or not to add or subtract fom the iterated value
-     * @param Piece[][] field: where the movement happens
+     * @param vertical: indicates whether or not piece moves vertically
+     * @param iterateUp: indicates whether or not to add or subtract fom the iterated value
+     * @param field: where the movement happens
+     * @return true if there's a piece in the way, false otherwise
      */
     boolean detectObstructions(boolean vertical, boolean iterateUp, int start, int end, Piece[][] field) throws IllegalArgumentException {
         if(vertical) {

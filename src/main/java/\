@@ -13,7 +13,7 @@ public class Game {
     private Pair<PieceType, Location[]> _whitePieces[];
     private Pair<PieceType, Location[]> _blackPieces[];
 
-    /** Main method. Starts a game of chess*/
+    // Main method. Starts a game of chess
     public static void main(String[] args) {
         Game game = new Game(8,8, null, null);
     }
@@ -228,7 +228,7 @@ public class Game {
         return !defenseExists;
     }
 
-    /**
+    /*
      * Looks at pieces for a defense against checkmate
      * @param direction: The direction in which to look for defenses
      * @param board: The board on which to look
@@ -263,12 +263,12 @@ public class Game {
         return false;
     }
 
-    /**
+    /*
      * Check if a given piece can be moved to a specified location. Wraps  checkValidMove(), essentially
      * @param xCoord: horizontal target for piece
      * @param yCoord: vertical target for piece
-     * @param board: board on which to move piece
-     * @param pieceSet: piece set to check over
+     * @param Board board: board on which to move piece
+     * @param HashMap<PieceType, Vector<Piece>> pieceSet: piece set to check over
      */
     public static boolean canMovePieceTo(int xCoord, int yCoord, Board board, HashMap<PieceType, Vector<Piece>> pieceSet) {
         Vector<Piece> pawns = pieceSet.get(PieceType.PAWN);
@@ -391,22 +391,22 @@ public class Game {
     }
 
     /**
-     * Get _whitePieces member variable
-     */
+    * Get _whitePieces member variable
+    */
     public Pair<PieceType, Location[]> [] getWhitePieces() {
         return _whitePieces;
     }
 
     /**
-     * Get _blackPieces member variable
-     */
+    * Get _blackPieces member variable
+    */
     public Pair<PieceType, Location[]>[] getBlackPieces() {
         return _blackPieces;
     }
 
     /**
-     * Get _board member variable
-     */
+    * Get _board member variable
+    */
     public Board getBoard() {
         return _board;
     }
