@@ -37,14 +37,6 @@ public class KingInCheck extends RuntimeException {
         return _directionOfThreat;
     }
 
-    public int getDeltaX() {
-        return _deltaX;
-    }
-
-    public int getDeltaY() {
-        return _deltaY;
-    }
-
     public Location getKingLocation() {
         return _kingPosition;
     }

@@ -348,7 +348,11 @@ public class TestGame {
         // assert
         Assert.assertFalse(inCheckmate);
     }
-    // TODO: complex checkmate
+
+    @Test
+    public void testComplexCheckMate() {
+        // TODO: complex checkmate
+    }
     // TODO: simple stalemate
     // TODO: complex stalemate
 
