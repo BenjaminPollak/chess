@@ -61,7 +61,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -86,7 +86,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -111,7 +111,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -136,7 +136,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -160,7 +160,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -184,7 +184,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -208,7 +208,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }
@@ -234,7 +234,7 @@ abstract public class Piece {
                 Piece piece = field[xCoord][yCoord];
                 if(piece != null) {
                     if (piece.getPieceType() == PieceType.KING && (piece.getColor() != this.getColor())) {
-                        throw new KingInCheck();
+                        throw new KingInCheck(new Location(xCoord, yCoord), _location);
                     }
                     else break;
                 }

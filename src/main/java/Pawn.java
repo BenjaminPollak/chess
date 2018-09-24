@@ -23,22 +23,22 @@ public class Pawn extends Piece {
             Piece potentialKing;
             try {
                 potentialKing = field[xCoord + 1][yCoord - 1];
-                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck(new Location(xCoord+1, yCoord-1), getLocation());
             } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
             try {
                 potentialKing = field[xCoord - 1][yCoord - 1];
-                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck(new Location(xCoord-1, yCoord-1), getLocation());
             } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
         }
         else {
             Piece potentialKing;
             try {
                 potentialKing = field[xCoord + 1][yCoord + 1];
-                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck(new Location(xCoord+1, yCoord+1), getLocation());
             } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
             try {
                 potentialKing = field[xCoord - 1][yCoord + 1];
-                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck();
+                if(potentialKing.getPieceType() == PieceType.KING) throw new KingInCheck(new Location(xCoord-1, yCoord+1), getLocation());
             } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {/*do nothing*/}
         }
     }

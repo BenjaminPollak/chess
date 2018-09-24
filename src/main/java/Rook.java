@@ -42,12 +42,11 @@ public class Rook extends Piece {
 
         _yetToMove = false;
 
+        Location oldLocation = getLocation();
+        setLocation(new Location(xCoord, yCoord));
+        field[oldLocation.getKey()][oldLocation.getValue()] = null;
+        field[xCoord][yCoord] = this;
         if(isAnAttack) {
-            field[xCoord][yCoord] = this;
-            Location oldLocation = super.getLocation();
-            field[oldLocation.getKey()][oldLocation.getValue()] = null;
-            setLocation(new Location(xCoord, yCoord));
-
             if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
             throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
         }

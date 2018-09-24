@@ -2,6 +2,9 @@ import javafx.util.Pair;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 public class TestGame {
     @Test
     public void testCreateWhitePawns() {
@@ -236,7 +239,115 @@ public class TestGame {
         Assert.assertEquals(blackPieces.length, 6);
     }
 
-    // TODO: simple checkmate
+    @Test
+    public void testLookForValidKingMoves() {
+        // arrange
+        Location whiteRooks[] = new Location[2];
+        whiteRooks[0] = new Location(0, 1);
+        whiteRooks[1] = new Location(7, 0);
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteRooks);
+
+        Location blackKing[] = new Location[1];
+        blackKing[0] = new Location(4 ,0);
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        blackPieces[0] = new Pair(PieceType.KING, blackKing);
+
+        // act
+        Game game = new Game(8, 8, whitePieces, blackPieces);
+        Board board = game.getBoard();
+        King threatenedKing = (King)board.retrievePiece(new Location(4, 0));
+        HashMap<PieceType, Vector<Piece>> pieceSet = board.getWhitePieces();
+
+        boolean canMove = Game.lookForValidKingMoves(board, threatenedKing, pieceSet);
+
+        // assert
+        Assert.assertFalse(canMove);
+    }
+
+    // simple checkmate
+    @Test
+    public void testSimpleCheckmateGameOver() {
+        // arrange
+        Location whiteRooks[] = new Location[2];
+        whiteRooks[0] = new Location(0, 7);
+        whiteRooks[1] = new Location(7, 7);
+        Location whiteKing[] = new Location[1];
+        whiteKing[0] = new Location(4, 7);
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[2];
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteRooks);
+        whitePieces[1] = new Pair(PieceType.KING, whiteKing);
+
+        Location blackKing[] = new Location[1];
+        blackKing[0] = new Location(4 ,0);
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        blackPieces[0] = new Pair(PieceType.KING, blackKing);
+
+        Game game = new Game(8, 8, whitePieces, blackPieces);
+        Board board = game.getBoard();
+
+        boolean inCheckmate = false;
+
+        // act & assert
+        Rook lwRook = (Rook) game.retrievePiece(0, 7);
+        lwRook.move(0, 1, board);
+        King bKing = (King) game.retrievePiece(4, 0); // move king out of check
+        bKing.move(3, 0, board);
+        Rook rwRook = (Rook) game.retrievePiece(7, 7);
+        try { // check
+            rwRook.move(7, 0, board);
+            rwRook.findIfKingInCheck(board.getField());
+            Assert.fail();
+        } catch(KingInCheck e) {
+            inCheckmate = Game.detectCheckmate(board, Color.BLACK, e);
+        }
+
+        // assert
+        Assert.assertTrue(inCheckmate);
+    }
+
+    @Test
+    public void testSimpleCheckmateGameNotOver() {
+        // arrange
+        Location whiteRooks[] = new Location[2];
+        whiteRooks[0] = new Location(0, 7);
+        whiteRooks[1] = new Location(7, 7);
+        Location whiteKing[] = new Location[1];
+        whiteKing[0] = new Location(4, 7);
+        Pair<PieceType, Location[]> whitePieces[] = new Pair[2];
+        whitePieces[0] = new Pair(PieceType.ROOK, whiteRooks);
+        whitePieces[1] = new Pair(PieceType.KING, whiteKing);
+
+        Location blackKing[] = new Location[1];
+        blackKing[0] = new Location(4 ,0);
+        Location blackRook[] = new Location[1];
+        blackRook[0] = new Location(5 ,6);
+        Pair<PieceType, Location[]> blackPieces[] = new Pair[2];
+        blackPieces[0] = new Pair(PieceType.KING, blackKing);
+        blackPieces[1] = new Pair(PieceType.ROOK, blackRook);
+
+        Game game = new Game(8, 8, whitePieces, blackPieces);
+        Board board = game.getBoard();
+
+        boolean inCheckmate = false;
+
+        // act & assert
+        Rook lwRook = (Rook) game.retrievePiece(0, 7);
+        lwRook.move(0, 1, board);
+        King bKing = (King) game.retrievePiece(4, 0); // move king out of check
+        bKing.move(3, 0, board);
+        Rook rwRook = (Rook) game.retrievePiece(7, 7);
+        try { // check
+            rwRook.move(7, 0, board);
+            rwRook.findIfKingInCheck(board.getField());
+            Assert.fail();
+        } catch(KingInCheck e) {
+            inCheckmate = Game.detectCheckmate(board, Color.BLACK, e);
+        }
+
+        // assert
+        Assert.assertFalse(inCheckmate);
+    }
     // TODO: complex checkmate
     // TODO: simple stalemate
     // TODO: complex stalemate

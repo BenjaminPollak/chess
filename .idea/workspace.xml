@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2ed37b3-54a3-4bc0-8021-af1c9bbef81c" name="Default Changelist" comment="kkkkkj">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PieceCaptured.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KingInCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KingInCheck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PieceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestBishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestBishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestKing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestKing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestQueen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestQueen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testKnight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testKnight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestGame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -29,10 +29,11 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__2_.ic" NAME="All in bwpolla2.chess_test (2) Coverage Results" MODIFIED="1537717795078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test.ic" NAME="All in bwpolla2.chess_test Coverage Results" MODIFIED="1537726490132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__1_.ic" NAME="All in bwpolla2.chess_test (1) Coverage Results" MODIFIED="1537726947366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__1_.ic" NAME="All in bwpolla2.chess_test (1) Coverage Results" MODIFIED="1537744073574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test.ic" NAME="All in bwpolla2.chess_test Coverage Results" MODIFIED="1537759387022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/bwpolla2_chess$All_in_bwpolla2_chess_test__3_.ic" NAME="All in bwpolla2.chess_test (3) Coverage Results" MODIFIED="1537717983372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/bwpolla2_chess$TestBoard_testPlacePieces.ic" NAME="TestBoard.testPlacePieces Coverage Results" MODIFIED="1537060575928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/bwpolla2_chess$TestRook.ic" NAME="TestRook Coverage Results" MODIFIED="1537758706903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="142" />
@@ -83,37 +84,38 @@
     <session id="-1392454601">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.53" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="2" />
-          <entry key="java" value="322" />
+          <entry key="java" value="371" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="322" />
+          <entry key="JAVA" value="371" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="53" />
           <entry key="gradle" value="211" />
-          <entry key="java" value="124767" />
+          <entry key="java" value="142026" />
           <entry key="txt" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="211" />
-          <entry key="JAVA" value="124767" />
+          <entry key="JAVA" value="142026" />
           <entry key="PLAIN_TEXT" value="117" />
         </counts>
       </usages-collector>
@@ -151,43 +153,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PieceType.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/King.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestKing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
+            <state relative-caret-position="204">
+              <caret line="267" column="80" selection-start-line="267" selection-start-column="80" selection-end-line="267" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#15362#15363#0" expanded="true" />
+                <element signature="e#15435#15436#0" expanded="true" />
+                <element signature="e#15497#15498#0" expanded="true" />
+                <element signature="e#15532#15533#0" expanded="true" />
+                <element signature="e#15593#15594#0" expanded="true" />
+                <element signature="e#15628#15629#0" expanded="true" />
+                <element signature="e#15659#15660#0" expanded="true" />
+                <element signature="e#15688#15689#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+            <state relative-caret-position="663">
+              <caret line="344" selection-start-line="344" selection-end-line="344" />
               <folding>
-                <element signature="e#8950#8951#0" expanded="true" />
-                <element signature="e#8979#8980#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -198,8 +189,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -506,30 +497,30 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/Piece.java" />
         <option value="$PROJECT_DIR$/src/test/java/testLocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Direction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/Color.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveType.java" />
         <option value="$PROJECT_DIR$/src/main/java/Location.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestBoard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/KingInCheck.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Piece.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestGame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/PieceCaptured.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Pawn.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestPawn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Knight.java" />
         <option value="$PROJECT_DIR$/src/test/java/testKnight.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bishop.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestBishop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Rook.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestRook.java" />
         <option value="$PROJECT_DIR$/src/main/java/Queen.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestQueen.java" />
         <option value="$PROJECT_DIR$/src/main/java/PieceType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/King.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestKing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Piece.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Knight.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Pawn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/King.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Direction.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/KingInCheck.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Rook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Game.java" />
       </list>
     </option>
   </component>
@@ -598,7 +589,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537733972123" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537759386163" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -621,7 +612,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestKing">
+  <component name="RunManager" selected="JUnit.All in bwpolla2.chess_test">
     <configuration name="Board" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Board" />
       <module name="bwpolla2.chess_main" />
@@ -629,26 +620,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestBishop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="fa18-cs242-assignment1 [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="All in bwpolla2.chess_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bwpolla2.chess_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestBishop" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestKing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bwpolla2.chess_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestKing" />
+      <option name="MAIN_CLASS_NAME" value="TestGame" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestQueen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestGame.testSimpleCheckmateGameNotOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bwpolla2.chess_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestQueen" />
+      <option name="MAIN_CLASS_NAME" value="TestGame" />
+      <option name="METHOD_NAME" value="testSimpleCheckmateGameNotOver" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -661,31 +672,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRook.testAttack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bwpolla2.chess_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestRook" />
-      <option name="METHOD_NAME" value="testAttack" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Board" />
-      <item itemvalue="JUnit.TestBishop" />
-      <item itemvalue="JUnit.TestRook.testAttack" />
+      <item itemvalue="JUnit.TestGame" />
+      <item itemvalue="JUnit.TestGame.testSimpleCheckmateGameNotOver" />
       <item itemvalue="JUnit.TestRook" />
-      <item itemvalue="JUnit.TestQueen" />
-      <item itemvalue="JUnit.TestKing" />
+      <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
+      <item itemvalue="JUnit.All in bwpolla2.chess_test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestKing" />
-        <item itemvalue="JUnit.TestQueen" />
+        <item itemvalue="JUnit.All in bwpolla2.chess_test" />
+        <item itemvalue="JUnit.TestGame.testSimpleCheckmateGameNotOver" />
+        <item itemvalue="Gradle.fa18-cs242-assignment1 [test]" />
         <item itemvalue="JUnit.TestRook" />
-        <item itemvalue="JUnit.TestRook.testAttack" />
-        <item itemvalue="JUnit.TestBishop" />
+        <item itemvalue="JUnit.TestGame" />
       </list>
     </recent_temporary>
   </component>
@@ -703,42 +704,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestBishop - 2018.09.23 at 15h 06m 09s.xml">
-      <configuration name="TestBishop" configurationId="JUnit" />
+    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 02m 47s.xml">
+      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRook_testAttack - 2018.09.23 at 15h 07m 59s.xml">
-      <configuration name="TestRook.testAttack" configurationId="JUnit" />
+    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 07m 02s.xml">
+      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRook_testAttack - 2018.09.23 at 15h 08m 15s.xml">
-      <configuration name="TestRook.testAttack" configurationId="JUnit" />
+    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 08m 08s.xml">
+      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRook - 2018.09.23 at 15h 10m 21s.xml">
+    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 08m 53s.xml">
+      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 11m 32s.xml">
+      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestRook - 2018.09.23 at 22h 12m 07s.xml">
       <configuration name="TestRook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestQueen - 2018.09.23 at 15h 12m 48s.xml">
-      <configuration name="TestQueen" configurationId="JUnit" />
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 13m 54s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueen - 2018.09.23 at 15h 14m 19s.xml">
-      <configuration name="TestQueen" configurationId="JUnit" />
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 15m 10s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueen - 2018.09.23 at 15h 15m 39s.xml">
-      <configuration name="TestQueen" configurationId="JUnit" />
+    <history-entry file="fa18-cs242-assignment1_[test] - 2018.09.23 at 22h 17m 12s.xml">
+      <configuration name="fa18-cs242-assignment1 [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueen - 2018.09.23 at 15h 17m 02s.xml">
-      <configuration name="TestQueen" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestKing - 2018.09.23 at 15h 18m 37s.xml">
-      <configuration name="TestKing" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestKing - 2018.09.23 at 15h 19m 36s.xml">
-      <configuration name="TestKing" configurationId="JUnit" />
+    <history-entry file="TestGame_testSimpleCheckmateGameNotOver - 2018.09.23 at 22h 22m 19s.xml">
+      <configuration name="TestGame.testSimpleCheckmateGameNotOver" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49545455" visible="true" weight="0.25263157" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49545455" weight="0.13927126" />
       <window_info id="Structure" order="1" sideWeight="0.50454545" side_tool="true" weight="0.32955465" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -748,8 +749,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.37122557" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.45648313" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49959514" weight="0.37122557" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.45648313" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -769,7 +770,7 @@
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32955465" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49545455" visible="true" weight="0.23805667" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49545455" weight="0.25668016" />
       <window_info id="Structure" order="1" sideWeight="0.50454545" side_tool="true" weight="0.32955465" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -779,8 +780,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3285968" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.37122557" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.45648313" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49959514" weight="0.37122557" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.45648313" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -788,13 +789,13 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50040483" side_tool="true" weight="0.41740674" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.3285968" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" visible="true" weight="0.32955465" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32955465" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.24939272" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.32955465" />
+      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.19352227" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32955465" />
@@ -808,21 +809,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/TestGame.java</url>
-          <line>130</line>
+          <line>133</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/TestGame.java</url>
-          <line>147</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Rook.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -835,6 +830,20 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>i == 4</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>i == 5</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/settings.gradle">
@@ -854,25 +863,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Direction.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runner/JUnitCore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="331" selection-start-line="331" selection-end-line="331" />
         </state>
       </provider>
     </entry>
@@ -897,60 +891,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5416#5417#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4012">
-          <caret line="238" column="19" selection-start-line="238" selection-start-column="19" selection-end-line="238" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/KingInCheck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding>
-            <element signature="e#91#92#0" expanded="true" />
-            <element signature="e#121#122#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -974,13 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Knight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="86" column="46" selection-start-line="86" selection-start-column="46" selection-end-line="86" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bishop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -995,23 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/javafx-src.zip!/javafx/util/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#218#219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PieceCaptured.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1019,45 +939,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Rook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestRook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5185">
-          <caret line="305" selection-start-line="305" selection-end-line="305" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Queen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding>
-            <element signature="e#8950#8951#0" expanded="true" />
-            <element signature="e#8979#8980#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1078,17 +963,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/King.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestKing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+        <state relative-caret-position="2465">
+          <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestKing.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#245#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Knight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="744" selection-start-line="744" selection-end-line="744" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="1141" selection-start-line="1141" selection-end-line="1141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/KingInCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="e#1666#1667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#2922#2923#0" expanded="true" />
+            <element signature="e#11040#11204#0" expanded="true" />
+            <element signature="e#11203#11204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/javafx-src.zip!/javafx/util/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Piece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#9328#9329#0" expanded="true" />
+            <element signature="e#9360#9361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestRook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Rook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5424#5425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="267" column="80" selection-start-line="267" selection-start-column="80" selection-end-line="267" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#15362#15363#0" expanded="true" />
+            <element signature="e#15435#15436#0" expanded="true" />
+            <element signature="e#15497#15498#0" expanded="true" />
+            <element signature="e#15532#15533#0" expanded="true" />
+            <element signature="e#15593#15594#0" expanded="true" />
+            <element signature="e#15628#15629#0" expanded="true" />
+            <element signature="e#15659#15660#0" expanded="true" />
+            <element signature="e#15688#15689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="344" selection-start-line="344" selection-end-line="344" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

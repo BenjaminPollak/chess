@@ -52,61 +52,61 @@ public class Board extends JFrame{
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
      * @returns a hash map containing all the pieces needed for a game of chess
      */
-        public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(Pair<PieceType, Location[]> unplacedPieces[], Color color) {
-            if((_field == null) || (unplacedPieces == null)) return new HashMap<>();
+    public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(Pair<PieceType, Location[]> unplacedPieces[], Color color) {
+        if((_field == null) || (unplacedPieces == null)) return new HashMap<>();
 
-            HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();
+        HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();
 
-            for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
-                PieceType type = unplacedPieceType.getKey();
-                boolean newArrayNeeded = checkIfNewArrayNeeded(unplacedPieceType, placedPieces);
-                if(newArrayNeeded) {
-                    placedPieces.put(type, new Vector<Piece>());
+        for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
+            PieceType type = unplacedPieceType.getKey();
+            boolean newArrayNeeded = checkIfNewArrayNeeded(unplacedPieceType, placedPieces);
+            if(newArrayNeeded) {
+                placedPieces.put(type, new Vector<Piece>());
+            }
+            Location[] locations = unplacedPieceType.getValue();
+            Vector<Piece> pieces = placedPieces.get(type);
+            for(Location loc: locations) {
+                int xCoord = loc.getKey();
+                int yCoord = loc.getValue();
+                if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException();
+
+                if(type == PieceType.ROOK) {
+                    Rook newPiece = new Rook(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
                 }
-                Location[] locations = unplacedPieceType.getValue();
-                Vector<Piece> pieces = placedPieces.get(type);
-                for(Location loc: locations) {
-                    int xCoord = loc.getKey();
-                    int yCoord = loc.getValue();
-                    if(_field[xCoord][yCoord] != null) throw new PositionAlreadyTakenException();
 
-                    if(type == PieceType.ROOK) {
-                        Rook newPiece = new Rook(loc, _boardParams, color);
-                        pieces.add(newPiece);
-                        _field[xCoord][yCoord] = newPiece;
-                    }
+                else if(type == PieceType.KNIGHT) {
+                    Knight newPiece = new Knight(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
+                }
 
-                    else if(type == PieceType.KNIGHT) {
-                        Knight newPiece = new Knight(loc, _boardParams, color);
-                        pieces.add(newPiece);
-                        _field[xCoord][yCoord] = newPiece;
-                    }
+                else if(type == PieceType.PAWN) {
+                    Pawn newPiece = new Pawn(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
+                }
 
-                    else if(type == PieceType.PAWN) {
-                        Pawn newPiece = new Pawn(loc, _boardParams, color);
-                        pieces.add(newPiece);
-                        _field[xCoord][yCoord] = newPiece;
-                    }
-
-                    else if(type == PieceType.BISHOP) {
-                        Bishop newPiece = new Bishop(loc, _boardParams, color);
-                        pieces.add(newPiece);
-                        _field[xCoord][yCoord] = newPiece;
-                    }
-                    else if(type == PieceType.QUEEN) {
-                        Queen newPiece = new Queen(loc, _boardParams, color);
-                        pieces.add(newPiece);
-                        _field[xCoord][yCoord] = newPiece;
-                    }
-                    else if(type == PieceType.KING) {
-                        King newPiece = new King(loc, _boardParams, color);
-                        pieces.add(newPiece);
-                        _field[xCoord][yCoord] = newPiece;
-                    }
+                else if(type == PieceType.BISHOP) {
+                    Bishop newPiece = new Bishop(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
+                }
+                else if(type == PieceType.QUEEN) {
+                    Queen newPiece = new Queen(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
+                }
+                else if(type == PieceType.KING) {
+                    King newPiece = new King(loc, _boardParams, color);
+                    pieces.add(newPiece);
+                    _field[xCoord][yCoord] = newPiece;
                 }
             }
+        }
 
-            return placedPieces;
+        return placedPieces;
     }
 
     /* TODO: test?
@@ -121,6 +121,13 @@ public class Board extends JFrame{
     }
 
     // getters
+    public HashMap<PieceType, Vector<Piece>>  getBlackPieces() {
+        return _blackPieces;
+    }
+
+    public HashMap<PieceType, Vector<Piece>> getWhitePieces() {
+        return _whitePieces;
+    }
     public int getBoardWidth() {
         return _boardWidth;
     }

@@ -1,8 +1,11 @@
 import javafx.util.Pair;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 public class Game {
-    Location _boardParams;
-    Board _board;
+    private Location _boardParams;
+    private Board _board;
 
     private Pair<PieceType, Location[]> _whitePieces[];
     private Pair<PieceType, Location[]> _blackPieces[];
@@ -23,6 +26,7 @@ public class Game {
      */
     public Game(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[],Pair<PieceType, Location[]> blackPieces[]) {
 
+        _whitePieces = whitePieces; _blackPieces = blackPieces;
         _boardParams = new Location(boardWidth, boardLength);
         _board = new Board(_boardParams.getKey(), _boardParams.getValue(), _whitePieces, _blackPieces);
     }
@@ -189,9 +193,193 @@ public class Game {
         }
     }
 
-    // TODO
-    public static boolean detectCheckmate(Board board, Color color) {
+    /*
+     * Detects if Color color is in checkmate
+     * @param Board board: Where the game is being played
+     * @param Color color: the color that may be in checkmate
+     * @param KingInCheck e: the KingInCheck exception that was thrown, triggering this function call
+     * @returns true if the color is in checkmate, false otherwise
+     */
+    public static boolean detectCheckmate(Board board, Color color, KingInCheck e) {
+        HashMap<PieceType, Vector<Piece>> atkPieces;
+        HashMap<PieceType, Vector<Piece>> defPieces;
+        King threatenedKing;
+        if(color == Color.WHITE) {
+            atkPieces = board.getBlackPieces();
+            defPieces = board.getWhitePieces();
+        }
+        else {
+            atkPieces = board.getWhitePieces();
+            defPieces = board.getBlackPieces();
+        }
+
+        Vector kingArr = defPieces.get(PieceType.KING);
+        threatenedKing = (King) kingArr.elementAt(0);
+        boolean canMoveKing = lookForValidKingMoves(board, threatenedKing, atkPieces);
+        if(canMoveKing) return false;
+
+        // TODO: try moving literally every other piece to defend king
+        Direction direction = e.getDirectionOfThreat();
+        Location atkLocation = e.getAtkLocation();
+        boolean defenseExists = searchForDefense(direction, board, defPieces, threatenedKing.getLocation(), atkLocation);
+        return !defenseExists;
+    }
+
+    /*
+     * Looks at pieces for a defense against checkmate
+     * @param Direction direction: The direction in which to look for defenses
+     * @param Board board: The board on which to look
+     * @param HashMap<PieceType> defensePieces: The pieces for which to look
+     * @param Location kingLoc: Location of king
+     * @param Location attackerLoc: location of attacker
+     * @returns true if a defense exists, false otherwise
+     */
+    public static boolean searchForDefense(Direction direction, Board board, HashMap<PieceType, Vector<Piece>> defensePieces, Location kingLoc, Location attackerLoc) {
+        int kingX = kingLoc.getKey(); int kingY = kingLoc.getValue();
+        int atkX = attackerLoc.getKey(); int atkY = attackerLoc.getValue();
+
+        int startX = (atkX < kingX) ? atkX : kingX;
+        int endX = (kingX < atkX) ? atkX : kingX;
+
+        int startY = (atkY < kingY) ? atkY : kingY;
+        int endY = (kingY < atkY) ? kingY : atkY;
+
+        if((direction == Direction.WEST) || (direction == Direction.EAST)) {
+            int i;
+            for(i = startX + 1; i <= endX; ++i) {
+                boolean moveExists = canMovePieceTo(i, kingLoc.getValue(),  board, defensePieces);
+                if(moveExists) return true;
+            }
+        }
+        else if((direction == Direction.NORTH) || (direction == Direction.SOUTH)) {
+            for(int i = startY; i < endY; ++i) {
+                boolean moveExists = canMovePieceTo(i, kingLoc.getValue(),  board, defensePieces);
+                if(moveExists) return true;
+            }
+        }
         return false;
+    }
+
+    /*
+     * Check if a given piece can be moved to a specified location. Wraps  checkValidMove(), essentially
+     * @param xCoord: horizontal target for piece
+     * @param yCoord: vertical target for piece
+     * @param Board board: board on which to move piece
+     * @param HashMap<PieceType, Vector<Piece>> pieceSet: piece set to check over
+     */
+    public static boolean canMovePieceTo(int xCoord, int yCoord, Board board, HashMap<PieceType, Vector<Piece>> pieceSet) {
+        Vector<Piece> pawns = pieceSet.get(PieceType.PAWN);
+        Vector<Piece> queens = pieceSet.get(PieceType.QUEEN);
+        Vector<Piece> bishops = pieceSet.get(PieceType.BISHOP);
+        Vector<Piece> knights = pieceSet.get(PieceType.KNIGHT);
+        Vector<Piece> rooks = pieceSet.get(PieceType.ROOK);
+
+        if(pawns != null) {
+            for (Piece p : pawns) {
+                Pawn pawn = (Pawn) p;
+                try {pawn.checkValidMove(xCoord, yCoord, board.getField());}
+                catch (IllegalArgumentException e) {return false;}
+                return true;
+            }
+        }
+
+        if(queens != null) {
+            for (Piece q : queens) {
+                Queen queen = (Queen) q;
+                try {queen.checkValidMove(xCoord, yCoord, board.getField()); }
+                catch (IllegalArgumentException e) {return false;}
+                return true;
+            }
+        }
+
+        if(bishops != null) {
+            for (Piece b : bishops) {
+                Bishop bishop = (Bishop) b;
+                try {boolean canMove = bishop.checkValidMove(xCoord, yCoord, board.getField()); }
+                catch (IllegalArgumentException e) {return false;}
+                return true;
+            }
+        }
+
+        if(rooks != null) {
+            for (Piece r : rooks) {
+                Rook rook = (Rook) r;
+                boolean canMove = false;
+                try {canMove = rook.checkValidMove(xCoord, yCoord, board.getField()); }
+                catch (IllegalArgumentException e) {return false;}
+                return true;
+            }
+        }
+
+        if(knights != null) {
+            for (Piece k : knights) {
+                Knight knight = (Knight) k;
+                boolean canMove = knight.checkValidMove(xCoord, yCoord, board.getField());
+                if (canMove) return true;
+            }
+        }
+
+        return false;
+    }
+
+    /*
+     * Looks for ways to move the king
+     * @param Board board: where the game is being played
+     * @param King threatenedKing: the king in check
+     * @param HashMap<PieceType, Vector<Piece>> atkPieces: pieces that can attack the threatened king
+     * @returns true if there are moves threatenedKing can legally make
+     */
+    public static boolean lookForValidKingMoves(Board board, King threatenedKing, HashMap<PieceType, Vector<Piece>> atkPieces) {
+        int oldX = threatenedKing.getLocation().getKey();
+        int oldY = threatenedKing.getLocation().getValue();
+        Piece[][] field = board.getField();
+
+        // east
+        try {
+            threatenedKing.checkCoordinates(oldX-1, oldY, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX - 1, oldY, field);
+        } catch (IllegalArgumentException e) {};
+        // west
+        try {
+            threatenedKing.checkCoordinates(oldX+1, oldY, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX + 1, oldY, field);
+        } catch (IllegalArgumentException e) {};
+        // north
+        try {
+            threatenedKing.checkCoordinates(oldX, oldY-1, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX, oldY - 1, field);
+        } catch (IllegalArgumentException e) {};
+        // south
+        try {
+            threatenedKing.checkCoordinates(oldX, oldY+1, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX, oldY + 1, field);
+        } catch (IllegalArgumentException e) {};
+        // northeast
+        try {
+            threatenedKing.checkCoordinates(oldX+1, oldY-1, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX + 1, oldY - 1, field);
+        } catch (IllegalArgumentException e) {};
+        // northwest
+        try {
+            threatenedKing.checkCoordinates(oldX-1, oldY-1, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX - 1, oldY - 1, field);
+        } catch (IllegalArgumentException e) {};
+        // southeast
+        try {
+            threatenedKing.checkCoordinates(oldX+1, oldY+1, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX + 1, oldY + 1, field);
+        } catch (IllegalArgumentException e) {};
+        // southwest
+        try {
+            threatenedKing.checkCoordinates(oldX-1, oldY+1, board.getBoardWidth(), board.getBoardLength());
+            threatenedKing.checkValidMove(oldX - 1, oldY + 1, field);
+        } catch (IllegalArgumentException e) {};
+
+        return false;
+    }
+
+    public Piece retrievePiece(int xCoord, int yCoord) {
+        return _board.retrievePiece(new Location(xCoord, yCoord));
     }
 
     public Pair<PieceType, Location[]> [] getWhitePieces() {
@@ -200,6 +388,10 @@ public class Game {
 
     public Pair<PieceType, Location[]>[] getBlackPieces() {
         return _blackPieces;
+    }
+
+    public Board getBoard() {
+        return _board;
     }
 
 }
