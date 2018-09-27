@@ -1,3 +1,10 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 /**
  * @author Benjamin Pollak
  */
@@ -5,7 +12,7 @@ public class Rook extends Piece {
     private boolean _yetToMove;
 
     /**
-     * Rook constructor
+     * model.pieces.Rook constructor
      * @param pieceLocation: location for new rook
      * @param boardParameters: parameters for the board
      * @param color: color of newly instantiated rook

@@ -1,4 +1,4 @@
-// TODO: place pieces on board
+package view;// TODO: place pieces on board
 // TODO: why can't board be of mismatched size?
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * Handles Gui, class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
+ * Handles view.Gui, class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
  * @author Benjamin Pollak
  */
 public class Gui extends JPanel {

@@ -1,9 +1,14 @@
+package model.game;
+
+import model.game.Location;
+import model.pieces.Color;
+
 public class PieceCaptured extends RuntimeException  {
     private Color _color; // color of piece captured
     private Location _location; // location where piece captured
 
     /**
-     * constructor for PieceCaptured exception
+     * constructor for model.game.PieceCaptured exception
      * @param color: color of piece captured
      * @param xCoord: new horizontal position of piece
      * @param yCoord: new vertical position of piece

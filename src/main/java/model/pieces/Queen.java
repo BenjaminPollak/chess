@@ -1,3 +1,10 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 import static java.lang.Math.abs;
 
 /**
@@ -18,7 +25,7 @@ public class Queen extends Piece{
     /**
      * Finds if king in check
      * @param field: field to look on
-     * @throw KingInCheck if king in check
+     * @throw model.game.KingInCheck if king in check
      */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int xCoord = getLocation().getKey();
@@ -125,7 +132,7 @@ public class Queen extends Piece{
      * @param field: where the movement happens
      * @return true if there's a piece in the way, false otherwise
      */
-    boolean detectObstructions(boolean vertical, boolean iterateUp, int start, int end, Piece[][] field) throws IllegalArgumentException {
+    public boolean detectObstructions(boolean vertical, boolean iterateUp, int start, int end, Piece[][] field) throws IllegalArgumentException {
         if(vertical) {
             if(iterateUp) {
                 int xCoord= getLocation().getKey();

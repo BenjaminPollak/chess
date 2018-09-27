@@ -1,3 +1,10 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 import static java.lang.Math.abs;
 
 /**
@@ -62,7 +69,7 @@ public class King extends Piece {
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      * @return a boolean describing whether or not a piece is taken
      */
-    Boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
+    public Boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
         int oldX = oldLocation.getKey(); int oldY = oldLocation.getValue();
 

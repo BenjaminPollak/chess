@@ -1,6 +1,10 @@
 import javafx.util.Pair;
+import model.game.Board;
+import model.game.Location;
+import model.game.PieceCaptured;
+import model.game.PieceSpec;
+import model.pieces.*;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class TestKing {

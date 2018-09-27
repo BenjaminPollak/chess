@@ -1,3 +1,10 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 import static java.lang.Math.abs;
 
 /**
@@ -21,7 +28,7 @@ public class Pawn extends Piece {
     /**
     * Finds if king is in check
     * @param field: field to look for check
-    * @throw KingInCheck if king in check
+    * @throw model.game.KingInCheck if king in check
     * @return nothing
     */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
@@ -57,7 +64,7 @@ public class Pawn extends Piece {
      * @param xCoord: where the piece is to be moved horizontally
      * @param yCoord: where the piece is to be moved vertically
      * @param board: the space on which the piece is to be moved
-     * @return the MoveType, an enum describing what the move did
+     * @return the model.pieces.MoveType, an enum describing what the move did
      */
     public MoveType move(int xCoord, int yCoord, Board board) {
         Piece[][] field = board.getField();

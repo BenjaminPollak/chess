@@ -1,3 +1,5 @@
+package model.game;
+
 import javafx.util.Pair;
 
 /**

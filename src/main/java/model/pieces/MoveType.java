@@ -1,3 +1,5 @@
+package model.pieces;
+
 /** Enum representing the potential moves
  * that can happen
  */

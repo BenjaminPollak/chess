@@ -1,6 +1,10 @@
 import javafx.util.Pair;
+import model.game.*;
+import model.pieces.Color;
+import model.pieces.Hopper;
+import model.pieces.MoveType;
+import model.pieces.PieceType;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestHopper {

@@ -1,7 +1,11 @@
 import javafx.util.Pair;
+import model.game.*;
+import model.pieces.Color;
+import model.pieces.MoveType;
+import model.pieces.PieceType;
+import model.pieces.Queen;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestQueen {

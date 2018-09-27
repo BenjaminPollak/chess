@@ -1,3 +1,5 @@
+package model.pieces;
+
 /**
  * Represents the direction a piece is moving
  * @author Benjamin Pollak

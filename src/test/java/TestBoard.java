@@ -1,4 +1,10 @@
 import javafx.util.Pair;
+import model.game.Board;
+import model.game.Location;
+import model.game.PieceSpec;
+import model.pieces.Color;
+import model.pieces.Piece;
+import model.pieces.PieceType;
 import org.junit.Test;
 import org.junit.Assert;
 

@@ -1,4 +1,9 @@
 import javafx.util.Pair;
+import model.game.*;
+import model.pieces.Bishop;
+import model.pieces.Color;
+import model.pieces.MoveType;
+import model.pieces.PieceType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -110,7 +115,7 @@ public class TestBishop {
             MoveType move = bishop.move(blackLoc.getKey(), blackLoc.getValue(), board);
             Assert.fail();
         } catch(PieceCaptured e) {
-            Assert.assertEquals(e.getColor(),Color.BLACK);
+            Assert.assertEquals(e.getColor(), Color.BLACK);
             Assert.assertTrue(e.getLocation().equals(blackLoc));
         }
     }

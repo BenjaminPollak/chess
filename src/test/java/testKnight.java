@@ -1,6 +1,7 @@
 import javafx.util.Pair;
+import model.game.*;
+import model.pieces.*;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class testKnight {

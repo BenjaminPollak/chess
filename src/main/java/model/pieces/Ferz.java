@@ -1,3 +1,10 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 import static java.lang.Math.abs;
 
 // TODO: disappearing from board?
@@ -5,9 +12,9 @@ import static java.lang.Math.abs;
  * like a bishop, but only goes one square
  * @author Benjamin Pollak
  */
-public class Ferz extends Piece{
+public class Ferz extends Piece {
     /**
-     * Constuctor for Ferz  
+     * Constuctor for model.pieces.Ferz
      * @param pieceLocation: location for new ferz
      * @param boardParameters: size of board
      * @param color: color of piece
@@ -20,7 +27,7 @@ public class Ferz extends Piece{
      * Controls movement for ferz
      * @param xCoord: new x position
      * @param yCoord: new y position
-     * @param board: board to move Ferz on
+     * @param board: board to move model.pieces.Ferz on
      */
     public MoveType move(int xCoord, int yCoord, Board board) throws IllegalArgumentException {
         boolean attacking =  checkValidMove(xCoord, yCoord, board.getField());

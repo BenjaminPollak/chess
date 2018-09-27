@@ -1,4 +1,7 @@
+package model.game;
+
 import javafx.util.Pair;
+import model.pieces.*;
 
 import java.util.HashMap;
 import java.util.Vector;
@@ -88,7 +91,7 @@ public class Game {
             }
             return pawns;
         }
-        else { // color == Color.BLACK
+        else { // color == model.pieces.Color.BLACK
             Location pawns[] = new Location[8];
             for (int pawnXCoord = 0; pawnXCoord < 8; ++pawnXCoord) {
                 pawns[pawnXCoord] = new Location(pawnXCoord,1);
@@ -196,10 +199,10 @@ public class Game {
     }
 
     /**
-     * Detects if Color color is in checkmate
+     * Detects if model.pieces.Color color is in checkmate
      * @param board: Where the game is being played
      * @param color: the color that may be in checkmate
-     * @param e: the KingInCheck exception that was thrown, triggering this function call
+     * @param e: the model.game.KingInCheck exception that was thrown, triggering this function call
      * @return true if the color is in checkmate, false otherwise
      */
     public static boolean detectCheckmate(Board board, Color color, KingInCheck e) {
@@ -232,7 +235,7 @@ public class Game {
      * @param direction: The direction in which to look for defenses
      * @param board: The board on which to look
      * @param defensePieces: The pieces for which to look
-     * @param kingLoc: Location of king
+     * @param kingLoc: model.game.Location of king
      * @param attackerLoc: location of attacker
      * @return true if a defense exists, false otherwise
      */

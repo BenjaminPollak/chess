@@ -1,3 +1,4 @@
+import model.game.Location;
 import org.junit.Assert;
 import org.junit.Test;
 

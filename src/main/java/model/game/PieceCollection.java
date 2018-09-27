@@ -1,3 +1,8 @@
+package model.game;
+
+import model.pieces.Piece;
+import model.pieces.PieceType;
+
 import java.util.HashMap;
 import java.util.Vector;
 

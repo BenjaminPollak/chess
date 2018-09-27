@@ -1,3 +1,5 @@
+package model.pieces;
+
 public enum PieceType {
     PAWN,
     FERZ,

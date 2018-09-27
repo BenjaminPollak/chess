@@ -1,4 +1,4 @@
-* Pair<PieceType, Location[]> whitePieces[] switched to PieceSpec alias, using Vector instead of array
-* Created PieceCollection type, extending HashMap<PieceType, Vector<Piece>>
+* Pair<model.pieces.PieceType, model.game.Location[]> whitePieces[] switched to model.game.PieceSpec alias, using Vector instead of array
+* Created model.game.PieceCollection type, extending HashMap<model.pieces.PieceType, Vector<model.pieces.Piece>>
 * TODO: copy constructor for Pair, wrappers for getValue() and getKey()
-* TODO: refactor related classes into packages
+* refactor related classes into packages

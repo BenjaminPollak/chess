@@ -1,4 +1,7 @@
+package model.game;
+
 import javafx.util.Pair;
+import model.pieces.*;
 
 import javax.swing.*;
 import java.util.HashMap;
@@ -22,7 +25,7 @@ public class Board extends JFrame{
     private PieceCollection _blackPieces;
 
     /**
-     * Constructor for Board 
+     * Constructor for model.game.Board
      * @param boardWidth: width of board
      * @param boardLength: length of board
      * @param whitePieces: An array of pairs containing pieceType and array of where pieces are for white pieces
@@ -133,7 +136,7 @@ public class Board extends JFrame{
     // TODO: test?*
     /** 
      * Returns the piece found at a given location, will return null if no piece found
-     * @param loc: Location from which to retrieve the piece from _field
+     * @param loc: model.game.Location from which to retrieve the piece from _field
      * @return piece at the position given
      */
     public Piece retrievePiece(Location loc) {

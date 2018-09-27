@@ -1,3 +1,9 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+
 /*
  * @author Benjamin Pollak
  */
@@ -7,11 +13,11 @@ abstract public class Piece {
     private Color _color;
 
     /**
-     * Piece constructor
-     * Location pieceLocation: Where the piece should be placed on the board
-     * Location boardParameters: The size of the board
-     * PieceType pieceType: The type of the piece (pawn, rook ,etc)
-     * Color color: The "color" or side of the piece
+     * model.pieces.Piece constructor
+     * model.game.Location pieceLocation: Where the piece should be placed on the board
+     * model.game.Location boardParameters: The size of the board
+     * model.pieces.PieceType pieceType: The type of the piece (pawn, rook ,etc)
+     * model.pieces.Color color: The "color" or side of the piece
      */
     public Piece(Location pieceLocation, Location boardParameters, PieceType pieceType, Color color) {
         int xCoord = pieceLocation.getKey();
@@ -67,7 +73,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookDownAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -92,7 +98,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookUpAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -117,7 +123,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookDownAndLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -142,7 +148,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookUpForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -166,7 +172,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookDownForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -190,7 +196,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookLeftForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -214,7 +220,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {
@@ -240,7 +246,7 @@ abstract public class Piece {
      * @param field: 2-D array representing where the pieces are
      * @param xCoord: x coordinate of piece
      * @param yCoord: y coordinate of piece
-     * @throws: KingInCheck if king found to be in check
+     * @throws: model.game.KingInCheck if king found to be in check
      * @return nothing
      */
     public void lookUpAndRightForKing(Piece[][] field, int xCoord, int yCoord) throws KingInCheck {

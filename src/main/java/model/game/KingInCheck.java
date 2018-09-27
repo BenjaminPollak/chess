@@ -1,3 +1,7 @@
+package model.game;
+
+import model.pieces.Direction;
+
 /*
  * @author Benjamin Pollak
  */
@@ -7,7 +11,7 @@ public class KingInCheck extends RuntimeException {
     private Direction _directionOfThreat;
 
     /**
-     * Constructor for KingInCheck exception
+     * Constructor for model.game.KingInCheck exception
      * @param kingPos: position of king
      * @param attackerPos: position of attacker
      */

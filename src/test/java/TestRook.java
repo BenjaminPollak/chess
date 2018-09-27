@@ -1,6 +1,7 @@
 import javafx.util.Pair;
+import model.game.*;
+import model.pieces.*;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Assert;
 

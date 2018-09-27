@@ -1,4 +1,9 @@
-// TODO: are pieces moved around board correctly?
+package model.pieces;// TODO: are pieces moved around board correctly?
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 import static java.lang.Math.abs;
 
 /**

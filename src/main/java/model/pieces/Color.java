@@ -1,3 +1,5 @@
+package model.pieces;
+
 /**
  * enum representing different colors,
  * or sides of the game

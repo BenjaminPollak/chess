@@ -1,4 +1,8 @@
+package model.game;
+
 import javafx.util.Pair;
+import model.game.Location;
+import model.pieces.PieceType;
 
 import java.util.Vector;
 

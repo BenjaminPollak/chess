@@ -1,3 +1,10 @@
+package model.pieces;
+
+import model.game.Board;
+import model.game.KingInCheck;
+import model.game.Location;
+import model.game.PieceCaptured;
+
 import static java.lang.Math.abs;
 
 /**
@@ -8,7 +15,7 @@ public class Hopper extends Piece {
      * A hopper can move two spaces north, south, east, or west It can jump
      * pieces, but only attacks when it lands on an enemy piece
      */
-    Hopper(Location pieceLocation, Location boardParameters, Color color) {
+    public Hopper(Location pieceLocation, Location boardParameters, Color color) {
         super(pieceLocation, boardParameters, PieceType.HOPPER, color);
     }
 
@@ -17,7 +24,7 @@ public class Hopper extends Piece {
      * @param xCoord: new x position
      * @param yCoord: new y position
      * @param board: board to move piece on
-     * @return MoveType of hopper
+     * @return model.pieces.MoveType of hopper
      */
     public MoveType move(int xCoord, int yCoord, Board board) {
         boolean captureAttempted = checkValidMove(xCoord, yCoord, board.getField());
@@ -57,7 +64,7 @@ public class Hopper extends Piece {
     /**
      * Finds if king is in check
      * @param field: field on which to look for king's check
-     * @throw KingInCheck when king is in check
+     * @throw model.game.KingInCheck when king is in check
      */
     public void findIfKingInCheck(Piece[][] field) throws KingInCheck {
         int oldX = getLocation().getKey(); int oldY = getLocation().getValue();

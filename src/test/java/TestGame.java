@@ -1,4 +1,6 @@
 import javafx.util.Pair;
+import model.game.*;
+import model.pieces.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -90,7 +92,7 @@ public class TestGame {
         Game game = new Game(boardWidth, boardLength, null, null);
 
         // act
-        Location [] blackKnights = game.createKnightSchematics(Color.WHITE);
+        Location[] blackKnights = game.createKnightSchematics(Color.WHITE);
 
         // assert
         Location firstKnight = blackKnights[0];
