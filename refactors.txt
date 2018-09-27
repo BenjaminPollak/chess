@@ -1,3 +1,4 @@
 * Pair<PieceType, Location[]> whitePieces[] switched to PieceSpec alias, using Vector instead of array
+* Created PieceCollection type, extending HashMap<PieceType, Vector<Piece>>
 * TODO: copy constructor for Pair, wrappers for getValue() and getKey()
-* TODO: refactor classes into packages
+* TODO: refactor related classes into packages

@@ -18,8 +18,8 @@ public class Board extends JFrame{
     private Piece[][] _field;
     private Location _boardParams;
 
-    private HashMap<PieceType, Vector<Piece>> _whitePieces;
-    private HashMap<PieceType, Vector<Piece>> _blackPieces;
+    private PieceCollection _whitePieces;
+    private PieceCollection _blackPieces;
 
     /**
      * Constructor for Board 
@@ -63,10 +63,10 @@ public class Board extends JFrame{
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
      * @return a hash map containing all the pieces needed for a game of chess
      */
-    public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(PieceSpec unplacedPieces, Color color) {
-        if((_field == null) || (unplacedPieces == null)) return new HashMap<>();
+    public PieceCollection createAndPlacePiecesOnBoard(PieceSpec unplacedPieces, Color color) {
+        if((_field == null) || (unplacedPieces == null)) return new PieceCollection();
 
-        HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();
+        PieceCollection placedPieces = new PieceCollection();
 
         for(Pair<PieceType, Location[]> unplacedPieceType: unplacedPieces) {
             PieceType type = unplacedPieceType.getKey();

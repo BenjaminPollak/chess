@@ -12,3 +12,7 @@
 doxygen
 html/
 latex/
+
+# Gradle
+.gradle/4.8/fileHashes/
+.gradle/4.8/taskHistory/
