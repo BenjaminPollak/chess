@@ -8,17 +8,17 @@ public class TestFerz {
     @Test
     public void testMove() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 4; int blackY = 0;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -35,16 +35,16 @@ public class TestFerz {
     @Test(expected = PieceCaptured.class)
     public void testFriendlyFire() {
          // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = _boardWidth - 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(whiteX - 1, whiteY - 1);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -59,17 +59,17 @@ public class TestFerz {
     @Test
     public void testCapture() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 2; int blackY = _boardLength - 3;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -87,17 +87,17 @@ public class TestFerz {
     @Test
     public void testKingInCheckHappyPath() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = whiteX - 1; int blackY = _boardLength - 2;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -114,17 +114,17 @@ public class TestFerz {
     @Test
     public void testKingInCheckSouthWest() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 4; int whiteY = _boardLength - 4;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = whiteX - 1; int blackY = whiteY + 1;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -141,17 +141,17 @@ public class TestFerz {
     @Test
     public void testKingInCheckNorthWest() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 4; int whiteY = _boardLength - 4;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 3; int blackY = 3;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -168,17 +168,17 @@ public class TestFerz {
     @Test
     public void testKingInCheckSouthEast() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 4; int whiteY = _boardLength - 4;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = whiteX + 1; int blackY = whiteY + 1;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -195,17 +195,17 @@ public class TestFerz {
     @Test
     public void testKingInCheckNorthEast() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 4; int whiteY = _boardLength - 4;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.FERZ, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.FERZ, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = whiteX + 1; int blackY = whiteY - 1;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -222,17 +222,17 @@ public class TestFerz {
     @Test
     public void testKingInCheckSadPath() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 2; int blackY = 0;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 

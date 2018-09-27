@@ -5,6 +5,9 @@
 
 # GENERAL JAVA
 
+# INTELLIJ
+.idea/workspace.xml
+
 # DOXYGEN
 doxygen
 html/

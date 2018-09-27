@@ -7,11 +7,11 @@ public class TestBishop {
     public void testCheckValidMoveHappyPath() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -28,10 +28,10 @@ public class TestBishop {
     public void testCheckValidMoveOutOfBounds() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, (_boardLength - 1));
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -48,10 +48,10 @@ public class TestBishop {
     public void testCheckValidMoveIllegalMovement() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, (_boardLength - 1));
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -68,13 +68,13 @@ public class TestBishop {
     public void testCheckValidMoveObstructed() {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[2];
+        PieceSpec whitePieces = new PieceSpec();
         Location bishopLoc = new Location(2, (_boardLength - 1));
         Location obstructionLoc = new Location(3, (_boardLength - 2));
         Location bishopLocations[] = {bishopLoc};
         Location obstructionLocations[] = {obstructionLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, bishopLocations);
-        whitePieces[1] = new Pair(PieceType.PAWN, obstructionLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, bishopLocations));
+        whitePieces.addElement(new Pair(PieceType.PAWN, obstructionLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -92,15 +92,15 @@ public class TestBishop {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(1, (_boardLength - 1));
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(2, (_boardLength - 2));
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KNIGHT, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KNIGHT, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -121,15 +121,15 @@ public class TestBishop {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 7);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(4, 5);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -147,15 +147,15 @@ public class TestBishop {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 7);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(1, 6);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -173,15 +173,15 @@ public class TestBishop {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 0);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(1, 1);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -199,15 +199,15 @@ public class TestBishop {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 0);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.BISHOP, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.BISHOP, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(4, 2);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 

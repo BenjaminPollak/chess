@@ -43,11 +43,11 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location pawnLoc = new Location((boardWidth - 1), (boardLength - 2));
         Location obstructionLoc = new Location((boardWidth - 1), (boardLength - 4));
         Location whiteLocations[] = {pawnLoc, obstructionLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, null);
 
@@ -64,15 +64,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location attackerLoc = new Location(1, (boardLength - 2));
         Location whiteLocations[] = {attackerLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location enemyLoc = new Location(0, (boardLength - 3));
         Location blackLocations[] = {enemyLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -89,15 +89,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location attackerLoc = new Location(0, (boardLength - 2));
         Location whiteLocations[] = {attackerLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location enemyLoc = new Location(1, (boardLength - 3));
         Location blackLocations[] = {enemyLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -148,11 +148,11 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location pawnLoc = new Location(0, 1);
         Location obstructionLoc = new Location(0, 3);
         Location whiteLocations[] = {pawnLoc, obstructionLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
         Board board = new Board(boardWidth, boardLength, blackPieces, null);
 
@@ -169,15 +169,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location attackerLoc = new Location(0, 2);
         Location whiteLocations[] = {attackerLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location enemyLoc = new Location(1, 1);
         Location blackLocations[] = {enemyLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -194,15 +194,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location attackerLoc = new Location(1, 2);
         Location whiteLocations[] = {attackerLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location enemyLoc = new Location(0, 1);
         Location blackLocations[] = {enemyLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -271,15 +271,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location attackerLoc = new Location(0, (boardLength - 2));
         Location whiteLocations[] = {attackerLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location enemyLoc = new Location(1, (boardLength - 3));
         Location blackLocations[] = {enemyLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -296,15 +296,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location attackerLoc = new Location(1, (boardLength - 2));
         Location whiteLocations[] = {attackerLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location enemyLoc = new Location(0, (boardLength - 3));
         Location blackLocations[] = {enemyLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -321,15 +321,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location enemyLoc = new Location(1, (boardLength - 2));
         Location whiteLocations[] = {enemyLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location attackerLoc = new Location(0, (boardLength - 3));
         Location blackLocations[] = {attackerLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -349,15 +349,15 @@ public class TestPawn {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location enemyLoc = new Location(0, (boardLength - 2));
         Location whiteLocations[] = {enemyLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location attackerLoc = new Location(1, (boardLength - 3));
         Location blackLocations[] = {attackerLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(boardWidth, boardLength, whitePieces, blackPieces);
 
@@ -375,15 +375,15 @@ public class TestPawn {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(1, 1);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(2, 0);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -401,15 +401,15 @@ public class TestPawn {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(3, 1);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.PAWN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.PAWN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(2, 0);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -426,15 +426,15 @@ public class TestPawn {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(1, 2);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.KING, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.KING, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(2, 1);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -452,15 +452,15 @@ public class TestPawn {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(3, 2);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.KING, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.KING, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(2, 1);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.PAWN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.PAWN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 

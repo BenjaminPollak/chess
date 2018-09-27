@@ -28,7 +28,7 @@ public class Board extends JFrame{
      * @param whitePieces: An array of pairs containing pieceType and array of where pieces are for white pieces
      * @param blackPieces: An array of pairs containing pieceType and array of where pieces are for black pieces
      */
-    public Board(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[], Pair<PieceType, Location[]> blackPieces[]) throws IllegalArgumentException {
+    public Board(int boardWidth, int boardLength, PieceSpec whitePieces, PieceSpec blackPieces) throws IllegalArgumentException {
         if(boardWidth < 8) {
             throw new IllegalArgumentException("Cannot have board width < 8");
         }
@@ -63,7 +63,7 @@ public class Board extends JFrame{
      * @param unplacedPieces: array of pairs containing pieceTypes and their locations
      * @return a hash map containing all the pieces needed for a game of chess
      */
-    public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(Pair<PieceType, Location[]> unplacedPieces[], Color color) {
+    public HashMap<PieceType, Vector<Piece>> createAndPlacePiecesOnBoard(PieceSpec unplacedPieces, Color color) {
         if((_field == null) || (unplacedPieces == null)) return new HashMap<>();
 
         HashMap<PieceType, Vector<Piece>> placedPieces = new HashMap();

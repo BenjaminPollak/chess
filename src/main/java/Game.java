@@ -10,8 +10,8 @@ public class Game {
     private Location _boardParams;
     private Board _board;
 
-    private Pair<PieceType, Location[]> _whitePieces[];
-    private Pair<PieceType, Location[]> _blackPieces[];
+    private PieceSpec _whitePieces;
+    private PieceSpec _blackPieces;
 
     /** Main method. Starts a game of chess*/
     public static void main(String[] args) {
@@ -20,14 +20,14 @@ public class Game {
 
     /**
      * Constructor for starting a game
-     * @param boardWidth: how mamy columns the board has
-     * @param boardLength: how mamy rows the board has
+     * @param boardWidth: how many columns the board has
+     * @param boardLength: how many rows the board has
      * @param whitePieces: the type of a white piece and all occurrences
      *        of its starting place
      * @param blackPieces: the type of black piece and all occurrences
      *        of its starting place
      */
-    public Game(int boardWidth, int boardLength, Pair<PieceType, Location[]> whitePieces[],Pair<PieceType, Location[]> blackPieces[]) {
+    public Game(int boardWidth, int boardLength, PieceSpec whitePieces, PieceSpec blackPieces) {
 
         _whitePieces = whitePieces; _blackPieces = blackPieces;
         _boardParams = new Location(boardWidth, boardLength);
@@ -41,7 +41,7 @@ public class Game {
      */
     public void gatherPieces(Color color) {
         if(color == Color.WHITE) {
-            _whitePieces = new Pair[6];
+            _whitePieces = new PieceSpec();
             Location whitePawnSchematics[] = createPawnSchematics(Color.WHITE);
             Location whiteKnightSchematics[] = createKnightSchematics(Color.WHITE);
             Location whiteRookSchematics[] = createRookSchematics(Color.WHITE);
@@ -49,16 +49,16 @@ public class Game {
             Location whiteQueenSchematics[] = createQueenSchematics(Color.WHITE);
             Location whiteKingSchematics[] = createKingSchematics(Color.WHITE);
 
-            _whitePieces[0] = new Pair(PieceType.PAWN, whitePawnSchematics);
-            _whitePieces[1] = new Pair(PieceType.ROOK, whiteRookSchematics);
-            _whitePieces[2] = new Pair(PieceType.KNIGHT, whiteKnightSchematics);
-            _whitePieces[3] = new Pair(PieceType.BISHOP, whiteBishopSchematics);
-            _whitePieces[4] = new Pair(PieceType.QUEEN, whiteQueenSchematics);
-            _whitePieces[5] = new Pair(PieceType.KING, whiteKingSchematics);
+            _whitePieces.addElement(new Pair(PieceType.PAWN, whitePawnSchematics));
+            _whitePieces.addElement(new Pair(PieceType.ROOK, whiteRookSchematics));
+            _whitePieces.addElement(new Pair(PieceType.KNIGHT, whiteKnightSchematics));
+            _whitePieces.addElement(new Pair(PieceType.BISHOP, whiteBishopSchematics));
+            _whitePieces.addElement(new Pair(PieceType.QUEEN, whiteQueenSchematics));
+            _whitePieces.addElement(new Pair(PieceType.KING, whiteKingSchematics));
         }
 
         else if(color == Color.BLACK) {
-            _blackPieces = new Pair[6];
+            _blackPieces = new PieceSpec();
             Location blackPawnSchematics[] = createPawnSchematics(Color.BLACK);
             Location blackKnightSchematics[] = createKnightSchematics(Color.BLACK);
             Location blackRookSchematics[] = createRookSchematics(Color.BLACK);
@@ -66,12 +66,12 @@ public class Game {
             Location blackQueenSchematics[] = createQueenSchematics(Color.BLACK);
             Location blackKingSchematics[] = createKingSchematics(Color.BLACK);
 
-            _blackPieces[0] = new Pair(PieceType.PAWN, blackPawnSchematics);
-            _blackPieces[1] = new Pair(PieceType.ROOK, blackRookSchematics);
-            _blackPieces[2] = new Pair(PieceType.KNIGHT, blackKnightSchematics);
-            _blackPieces[3] = new Pair(PieceType.BISHOP, blackBishopSchematics);
-            _blackPieces[4] = new Pair(PieceType.QUEEN, blackQueenSchematics);
-            _blackPieces[5] = new Pair(PieceType.KING, blackKingSchematics);
+            _blackPieces.addElement(new Pair(PieceType.PAWN, blackPawnSchematics));
+            _blackPieces.addElement(new Pair(PieceType.ROOK, blackRookSchematics));
+            _blackPieces.addElement(new Pair(PieceType.KNIGHT, blackKnightSchematics));
+            _blackPieces.addElement(new Pair(PieceType.BISHOP, blackBishopSchematics));
+            _blackPieces.addElement(new Pair(PieceType.QUEEN, blackQueenSchematics));
+            _blackPieces.addElement(new Pair(PieceType.KING, blackKingSchematics));
         }
     }
 
@@ -392,14 +392,14 @@ public class Game {
     /**
      * Get _whitePieces member variable
      */
-    public Pair<PieceType, Location[]> [] getWhitePieces() {
+    public PieceSpec getWhitePieces() {
         return _whitePieces;
     }
 
     /**
      * Get _blackPieces member variable
      */
-    public Pair<PieceType, Location[]>[] getBlackPieces() {
+    public PieceSpec getBlackPieces() {
         return _blackPieces;
     }
 

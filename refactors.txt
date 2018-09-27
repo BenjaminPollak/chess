@@ -1,0 +1,3 @@
+* Pair<PieceType, Location[]> whitePieces[] switched to PieceSpec alias, using Vector instead of array
+* TODO: copy constructor for Pair, wrappers for getValue() and getKey()
+* TODO: refactor classes into packages

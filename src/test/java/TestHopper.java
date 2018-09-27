@@ -9,17 +9,17 @@ public class TestHopper {
     @Test
     public void testMoveVertical() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 4; int blackY = 0;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -36,12 +36,12 @@ public class TestHopper {
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void testFriendlyFire() {
          // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = _boardWidth - 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location obstacleLoc = new Location(whiteX - 2, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -56,17 +56,17 @@ public class TestHopper {
     @Test
     public void testCapture() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 2; int blackY = _boardLength - 3;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -83,17 +83,17 @@ public class TestHopper {
     @Test
     public void testKingInCheckHappyPath() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 2; int blackY = _boardLength - 3;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -110,17 +110,17 @@ public class TestHopper {
     @Test
     public void testKingInCheckSadPath() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 2; int whiteY = _boardLength - 1;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.HOPPER, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.HOPPER, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 2; int blackY = 0;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 

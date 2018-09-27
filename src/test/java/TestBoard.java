@@ -12,12 +12,12 @@ public class TestBoard {
         int boardWidth = 8; int boardLength = 8;
         Board board = new Board(boardWidth, boardLength, null, null);
 
-        Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
+        PieceSpec unplacedPieces = new PieceSpec();
 
         Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
         Location expectedSecondLoc = new Location((0), (boardLength - 1));
         Location locations[] = {expectedFirstLoc, expectedSecondLoc};
-        unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
+        unplacedPieces.addElement(new Pair(PieceType.ROOK, locations));
 
         // act
         HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, Color.WHITE);
@@ -40,12 +40,12 @@ public class TestBoard {
         int boardWidth = 8; int boardLength = 8;
         Board board = new Board(boardWidth, boardLength, null, null);
 
-        Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
+        PieceSpec unplacedPieces = new PieceSpec();
 
         Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
         Location expectedSecondLoc = new Location((boardWidth - 1), (boardLength - 1));
         Location locations[] = {expectedFirstLoc, expectedSecondLoc};
-        unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
+        unplacedPieces.addElement(new Pair(PieceType.ROOK, locations));
 
         // act
         HashMap<PieceType, Vector<Piece>> pieces = board.createAndPlacePiecesOnBoard(unplacedPieces, Color.WHITE);
@@ -77,10 +77,10 @@ public class TestBoard {
         // arrange
         int boardWidth = 8; int boardLength = 8;
 
-        Pair<PieceType, Location[]> unplacedPieces[] = new Pair[1];
+        PieceSpec unplacedPieces = new PieceSpec();
         Location expectedFirstLoc = new Location((boardWidth - 1), (boardLength - 1));
         Location locations[] = {expectedFirstLoc};
-        unplacedPieces[0] = new Pair(PieceType.ROOK, locations);
+        unplacedPieces.addElement(new Pair(PieceType.ROOK, locations));
 
         Board board = new Board(boardWidth, boardLength, unplacedPieces, null);
 

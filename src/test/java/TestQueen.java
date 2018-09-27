@@ -8,8 +8,8 @@ public class TestQueen {
     int _boardLength; int _boardWidth;
     Location _boardParameters;
 
-    Pair<PieceType, Location[]> _whitePieces[];
-    Pair<PieceType, Location[]> _blackPieces[];
+    PieceSpec _whitePieces;
+    PieceSpec _blackPieces;
     Board _board;
 
     @Before
@@ -17,8 +17,8 @@ public class TestQueen {
         _boardLength = 8; _boardWidth = 8;
         _boardParameters = new Location(_boardWidth, _boardLength);
 
-        _whitePieces = new Pair[2];
-        _blackPieces = new Pair[2];
+        _whitePieces = new PieceSpec();
+        _blackPieces = new PieceSpec();
     }
 
     @Test
@@ -28,7 +28,8 @@ public class TestQueen {
         Location whiteLocations[] = new Location[] {queenLoc};
 
         Pair queenPair = new Pair(PieceType.QUEEN, whiteLocations);
-        _whitePieces = new Pair[] {queenPair};
+        _whitePieces = new PieceSpec();
+        _whitePieces.addElement(queenPair);
 
         _board = new Board(_boardWidth, _boardLength, _whitePieces, null);
 
@@ -51,7 +52,9 @@ public class TestQueen {
         Location pawnLocations[] = new Location[] {pawnLoc};
         Pair pawnPair = new Pair(PieceType.PAWN, pawnLocations);
 
-        _whitePieces = new Pair[] {queenPair, pawnPair};
+        _whitePieces = new PieceSpec();
+        _whitePieces.addElement(queenPair);
+        _whitePieces.addElement(pawnPair);
 
         _board = new Board(_boardWidth, _boardLength, _whitePieces, null);
 
@@ -70,7 +73,8 @@ public class TestQueen {
         Location whiteLocations[] = new Location[] {queenLoc};
 
         Pair queenPair = new Pair(PieceType.QUEEN, whiteLocations);
-        _whitePieces = new Pair[] {queenPair};
+        _whitePieces = new PieceSpec();
+        _whitePieces.addElement(queenPair);
 
         _board = new Board(_boardWidth, _boardLength, _whitePieces, null);
 
@@ -93,7 +97,9 @@ public class TestQueen {
         Location pawnLocations[] = new Location[] {pawnLoc};
         Pair pawnPair = new Pair(PieceType.PAWN, pawnLocations);
 
-        _whitePieces = new Pair[] {queenPair, pawnPair};
+        _whitePieces = new PieceSpec();
+        _whitePieces.addElement(queenPair);
+        _whitePieces.addElement(pawnPair);
 
         _board = new Board(_boardWidth, _boardLength, _whitePieces, null);
 
@@ -112,8 +118,8 @@ public class TestQueen {
         Location whiteLoc = new Location(3, _boardLength - 1);
         Location whiteLocs[] = new Location[] {whiteLoc};
 
-        _whitePieces = new Pair[1];
-        _whitePieces[0] = new Pair<PieceType, Location[]>(PieceType.QUEEN, whiteLocs);
+        _whitePieces = new PieceSpec();
+        _whitePieces.add(new Pair<PieceType, Location[]>(PieceType.QUEEN, whiteLocs));
 
         _board = new Board(_boardWidth, _boardLength, _whitePieces, null);
 
@@ -128,11 +134,11 @@ public class TestQueen {
     @Test
     public void testCheckMoveDownHappy() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -147,11 +153,11 @@ public class TestQueen {
     @Test
     public void testCheckMoveLeftHappy() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -166,11 +172,11 @@ public class TestQueen {
     @Test
     public void testCheckMoveRightHappy() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -185,11 +191,11 @@ public class TestQueen {
     @Test
     public void testCheckMoveDiagonalHappy() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -204,11 +210,11 @@ public class TestQueen {
     @Test(expected = IllegalArgumentException.class)
     public void testCheckMoveInvalid() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, null);
 
@@ -223,24 +229,24 @@ public class TestQueen {
     @Test
     public void testAttackHorizontal() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 4; int blackY = _boardLength - 2;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
         // act
         Queen queen = (Queen) board.retrievePiece(whiteLoc);
         try {
-            MoveType move = queen.move(blackX, blackY, board);
+            queen.move(blackX, blackY, board);
         } catch(PieceCaptured e) {
             Assert.assertEquals(e.getColor(), Color.BLACK);
             Assert.assertTrue(e.getLocation().equals(blackLoc));
@@ -250,17 +256,17 @@ public class TestQueen {
     @Test
     public void testAttackVertical() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 3; int blackY = _boardLength - 4;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -277,17 +283,17 @@ public class TestQueen {
     @Test
     public void testAttackDiagonal() {
         // arrange
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         int whiteX = 3; int whiteY = _boardLength - 2;
         Location whiteLoc = new Location(whiteX, whiteY);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         int blackX = 4; int blackY = _boardLength - 3;
         Location blackLoc = new Location(blackX, blackY);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.QUEEN, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.QUEEN, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -311,15 +317,15 @@ public class TestQueen {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 7);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(4, 5);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -337,15 +343,15 @@ public class TestQueen {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 7);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(1, 6);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -363,15 +369,15 @@ public class TestQueen {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 0);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(1, 1);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 
@@ -389,15 +395,15 @@ public class TestQueen {
         // arrange
         int _boardLength = 8; int _boardWidth = 8;
 
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
+        PieceSpec whitePieces = new PieceSpec();
         Location whiteLoc = new Location(2, 0);
         Location whiteLocations[] = {whiteLoc};
-        whitePieces[0] = new Pair(PieceType.QUEEN, whiteLocations);
+        whitePieces.addElement(new Pair(PieceType.QUEEN, whiteLocations));
 
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
+        PieceSpec blackPieces = new PieceSpec();
         Location blackLoc = new Location(4, 2);
         Location blackLocations[] = {blackLoc};
-        blackPieces[0] = new Pair(PieceType.KING, blackLocations);
+        blackPieces.addElement(new Pair(PieceType.KING, blackLocations));
 
         Board board = new Board(_boardWidth, _boardLength, whitePieces, blackPieces);
 

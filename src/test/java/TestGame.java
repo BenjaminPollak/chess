@@ -221,8 +221,8 @@ public class TestGame {
         game.gatherPieces(Color.WHITE);
 
         // assert
-        Pair<PieceType, Location[]> whitePieces[] = game.getWhitePieces();
-        Assert.assertEquals(whitePieces.length, 6);
+        PieceSpec whitePieces = game.getWhitePieces();
+        Assert.assertEquals(whitePieces.size(), 6);
     }
 
     @Test
@@ -235,8 +235,8 @@ public class TestGame {
         game.gatherPieces(Color.BLACK);
 
         // assert
-        Pair<PieceType, Location[]> blackPieces[] = game.getBlackPieces();
-        Assert.assertEquals(blackPieces.length, 6);
+        PieceSpec blackPieces = game.getBlackPieces();
+        Assert.assertEquals(6, blackPieces.size());
     }
 
     @Test
@@ -245,13 +245,13 @@ public class TestGame {
         Location whiteRooks[] = new Location[2];
         whiteRooks[0] = new Location(0, 1);
         whiteRooks[1] = new Location(7, 0);
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[1];
-        whitePieces[0] = new Pair(PieceType.ROOK, whiteRooks);
+        PieceSpec whitePieces = new PieceSpec();
+        whitePieces.addElement(new Pair(PieceType.ROOK, whiteRooks));
 
         Location blackKing[] = new Location[1];
         blackKing[0] = new Location(4 ,0);
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
-        blackPieces[0] = new Pair(PieceType.KING, blackKing);
+        PieceSpec blackPieces = new PieceSpec();
+        blackPieces.addElement(new Pair(PieceType.KING, blackKing));
 
         // act
         Game game = new Game(8, 8, whitePieces, blackPieces);
@@ -274,14 +274,14 @@ public class TestGame {
         whiteRooks[1] = new Location(7, 7);
         Location whiteKing[] = new Location[1];
         whiteKing[0] = new Location(4, 7);
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[2];
-        whitePieces[0] = new Pair(PieceType.ROOK, whiteRooks);
-        whitePieces[1] = new Pair(PieceType.KING, whiteKing);
+        PieceSpec whitePieces = new PieceSpec();
+        whitePieces.addElement(new Pair(PieceType.ROOK, whiteRooks));
+        whitePieces.addElement(new Pair(PieceType.KING, whiteKing));
 
         Location blackKing[] = new Location[1];
         blackKing[0] = new Location(4 ,0);
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[1];
-        blackPieces[0] = new Pair(PieceType.KING, blackKing);
+        PieceSpec blackPieces = new PieceSpec();
+        blackPieces.addElement(new Pair(PieceType.KING, blackKing));
 
         Game game = new Game(8, 8, whitePieces, blackPieces);
         Board board = game.getBoard();
@@ -314,17 +314,17 @@ public class TestGame {
         whiteRooks[1] = new Location(7, 7);
         Location whiteKing[] = new Location[1];
         whiteKing[0] = new Location(4, 7);
-        Pair<PieceType, Location[]> whitePieces[] = new Pair[2];
-        whitePieces[0] = new Pair(PieceType.ROOK, whiteRooks);
-        whitePieces[1] = new Pair(PieceType.KING, whiteKing);
+        PieceSpec whitePieces = new PieceSpec();
+        whitePieces.addElement(new Pair(PieceType.ROOK, whiteRooks));
+        whitePieces.addElement(new Pair(PieceType.KING, whiteKing));
 
         Location blackKing[] = new Location[1];
         blackKing[0] = new Location(4 ,0);
         Location blackRook[] = new Location[1];
         blackRook[0] = new Location(5 ,6);
-        Pair<PieceType, Location[]> blackPieces[] = new Pair[2];
-        blackPieces[0] = new Pair(PieceType.KING, blackKing);
-        blackPieces[1] = new Pair(PieceType.ROOK, blackRook);
+        PieceSpec blackPieces = new PieceSpec();
+        blackPieces.addElement(new Pair(PieceType.KING, blackKing));
+        blackPieces.addElement(new Pair(PieceType.ROOK, blackRook));
 
         Game game = new Game(8, 8, whitePieces, blackPieces);
         Board board = game.getBoard();
