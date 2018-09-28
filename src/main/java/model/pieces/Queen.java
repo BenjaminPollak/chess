@@ -86,43 +86,44 @@ public class Queen extends Piece{
         int deltaY = abs(newY - oldY);
 
         // if not one of the three cases of queen movement, throw an exception
-        if((deltaX != deltaY) && (oldX != newX) && (oldY != newY)) throw new IllegalArgumentException();
+        if((deltaX == deltaY) || (oldX == newX) || (oldY == newY)) {
+            //
+            if (newX == oldX) {
+                boolean iterateUp = newY > oldY;
+                boolean attacking = detectObstructions(true, iterateUp, oldX, newX, field);
 
-        if(newX == oldX) {
-            boolean iterateUp = newY > oldY;
-            boolean attacking = detectObstructions(true, iterateUp, oldX, newX, field);
-
-            if(attacking) return true;
-            return false;
-        }
-        else if(newY == oldY) {
-            boolean iterateUp = newX > oldX;
-            boolean attacking = detectObstructions(false, iterateUp, oldX, newX, field);
-
-            if(attacking) return true;
-            return false;
-        }
-        else {
-            boolean moveRight = deltaX < 0;
-            boolean moveDown = deltaY < 0;
-            int iterations = abs(deltaX);
-            while(iterations > 0) {
-                if(moveRight) ++oldX;
-                else --oldX;
-
-                if(moveDown) ++oldY;
-                else --oldY;
-
-                Piece myPiece = field[oldX][oldY];
-
-                if(myPiece != null) throw new IllegalArgumentException();
-                --iterations;
-            }
-            if(field[newX][newY] == null) {
+                if (attacking) return true;
                 return false;
+            } else if (newY == oldY) {
+                boolean iterateUp = newX > oldX;
+                boolean attacking = detectObstructions(false, iterateUp, oldX, newX, field);
+
+                if (attacking) return true;
+                return false;
+            } else {
+                boolean moveRight = deltaX < 0;
+                boolean moveDown = deltaY < 0;
+                int iterations = abs(deltaX);
+                while (iterations > 0) {
+                    if (moveRight) ++oldX;
+                    else --oldX;
+
+                    if (moveDown) ++oldY;
+                    else --oldY;
+
+                    Piece myPiece = field[oldX][oldY];
+
+                    if (myPiece != null) throw new IllegalArgumentException();
+                    --iterations;
+                }
+                if (field[newX][newY] == null) {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            //
         }
+        else throw new IllegalArgumentException();
     }
 
     /**
