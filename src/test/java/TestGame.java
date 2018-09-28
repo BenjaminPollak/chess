@@ -382,7 +382,7 @@ public class TestGame {
 
         Queen blackQueen = (Queen) game.retrievePiece(3, 0);
         try {
-            blackQueen.move(7, 4, game.getBoard());
+            blackQueen.move(7, 4, game.getBoard()); // TODO: bug starts w/ this fn call
         } catch (KingInCheck e) {
             inCheckmate = Game.detectCheckmate(game.getBoard(), Color.BLACK, e);
         }
