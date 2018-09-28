@@ -1,4 +1,8 @@
+DONE:
 * Pair<model.pieces.PieceType, model.game.Location[]> whitePieces[] switched to model.game.PieceSpec alias, using Vector instead of array
 * Created model.game.PieceCollection type, extending HashMap<model.pieces.PieceType, Vector<model.pieces.Piece>>
-* TODO: copy constructor for Pair, wrappers for getValue() and getKey()
 * refactor related classes into packages
+
+TODO:
+* remove pieces from internal structure of board/game
+* copy constructor for Pair, wrappers for getValue() and getKey()

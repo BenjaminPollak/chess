@@ -67,7 +67,8 @@ public class Board extends JFrame{
      * @return a hash map containing all the pieces needed for a game of chess
      */
     public PieceCollection createAndPlacePiecesOnBoard(PieceSpec unplacedPieces, Color color) {
-        if((_field == null) || (unplacedPieces == null)) return new PieceCollection();
+        if(_field == null) return new PieceCollection();
+        if(unplacedPieces == null) return new PieceCollection();// TODO: change this
 
         PieceCollection placedPieces = new PieceCollection();
 

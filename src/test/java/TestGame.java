@@ -351,10 +351,46 @@ public class TestGame {
         Assert.assertFalse(inCheckmate);
     }
 
+    // TODO: complex checkmate
     @Test
     public void testComplexCheckMate() {
-        // TODO: complex checkmate
+        // arrange
+        Game game = new Game(8, 8, null, null);
+        boolean inCheckmate = false;
+
+        // act
+        Pawn firstWhitePawn = (Pawn) game.retrievePiece(5, 6);
+        try {
+            firstWhitePawn.move(5, 5, game.getBoard());
+        } catch (Exception e) {
+            Assert.fail();
+        }
+
+        Pawn blackPawn = (Pawn) game.retrievePiece(4, 1);
+        try {
+            blackPawn.move(4, 3, game.getBoard());
+        } catch (Exception e) {
+            Assert.fail();
+        }
+
+        Pawn secondWhitePawn = (Pawn) game.retrievePiece(6, 1);
+        try {
+            secondWhitePawn.move(6, 3, game.getBoard());
+        } catch (Exception e) {
+            Assert.fail();
+        }
+
+        Queen blackQueen = (Queen) game.retrievePiece(3, 0);
+        try {
+            blackQueen.move(7, 4, game.getBoard());
+        } catch (KingInCheck e) {
+            inCheckmate = Game.detectCheckmate(game.getBoard(), Color.BLACK, e);
+        }
+
+        // assert
+        Assert.assertTrue(inCheckmate);
     }
+
     // TODO: simple stalemate
     // TODO: complex stalemate
 

@@ -31,9 +31,19 @@ public class Game {
      *        of its starting place
      */
     public Game(int boardWidth, int boardLength, PieceSpec whitePieces, PieceSpec blackPieces) {
-
-        _whitePieces = whitePieces; _blackPieces = blackPieces;
         _boardParams = new Location(boardWidth, boardLength);
+
+        if(whitePieces != null) {
+            _whitePieces = whitePieces;
+        } else {
+            gatherPieces(Color.WHITE);
+        }
+
+        if(blackPieces != null) {
+            _blackPieces = blackPieces;
+        } else {
+            gatherPieces(Color.BLACK);
+        }
         _board = new Board(_boardParams.getKey(), _boardParams.getValue(), _whitePieces, _blackPieces);
     }
 
