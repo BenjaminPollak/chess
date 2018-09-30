@@ -150,7 +150,7 @@ public class TestGame {
         Location secondBishop = blackBishops[1];
         Assert.assertEquals(blackBishops.length, 2);
         Assert.assertTrue(firstBishop.equals(new Location(2, 0)));
-        Assert.assertTrue(secondBishop.equals(new Location(0, boardWidth - 3)));
+        Assert.assertTrue(secondBishop.equals(new Location(boardWidth - 3, 0)));
     }
 
     @Test

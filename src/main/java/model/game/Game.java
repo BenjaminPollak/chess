@@ -53,39 +53,28 @@ public class Game {
      * @return nothing, the function is of type void
      */
     public void gatherPieces(Color color) {
+        PieceSpec pieces;
         if(color == Color.WHITE) {
             _whitePieces = new PieceSpec();
-            Location whitePawnSchematics[] = createPawnSchematics(Color.WHITE);
-            Location whiteKnightSchematics[] = createKnightSchematics(Color.WHITE);
-            Location whiteRookSchematics[] = createRookSchematics(Color.WHITE);
-            Location whiteBishopSchematics[] = createBishopSchematics(Color.WHITE);
-            Location whiteQueenSchematics[] = createQueenSchematics(Color.WHITE);
-            Location whiteKingSchematics[] = createKingSchematics(Color.WHITE);
-
-            _whitePieces.addElement(new Pair(PieceType.PAWN, whitePawnSchematics));
-            _whitePieces.addElement(new Pair(PieceType.ROOK, whiteRookSchematics));
-            _whitePieces.addElement(new Pair(PieceType.KNIGHT, whiteKnightSchematics));
-            _whitePieces.addElement(new Pair(PieceType.BISHOP, whiteBishopSchematics));
-            _whitePieces.addElement(new Pair(PieceType.QUEEN, whiteQueenSchematics));
-            _whitePieces.addElement(new Pair(PieceType.KING, whiteKingSchematics));
+            pieces = _whitePieces;
         }
-
-        else if(color == Color.BLACK) {
+        else {
             _blackPieces = new PieceSpec();
-            Location blackPawnSchematics[] = createPawnSchematics(Color.BLACK);
-            Location blackKnightSchematics[] = createKnightSchematics(Color.BLACK);
-            Location blackRookSchematics[] = createRookSchematics(Color.BLACK);
-            Location blackBishopSchematics[] = createBishopSchematics(Color.BLACK);
-            Location blackQueenSchematics[] = createQueenSchematics(Color.BLACK);
-            Location blackKingSchematics[] = createKingSchematics(Color.BLACK);
-
-            _blackPieces.addElement(new Pair(PieceType.PAWN, blackPawnSchematics));
-            _blackPieces.addElement(new Pair(PieceType.ROOK, blackRookSchematics));
-            _blackPieces.addElement(new Pair(PieceType.KNIGHT, blackKnightSchematics));
-            _blackPieces.addElement(new Pair(PieceType.BISHOP, blackBishopSchematics));
-            _blackPieces.addElement(new Pair(PieceType.QUEEN, blackQueenSchematics));
-            _blackPieces.addElement(new Pair(PieceType.KING, blackKingSchematics));
+            pieces = _blackPieces;
         }
+        Location pawnSchematics[] = createPawnSchematics(color);
+        Location knightSchematics[] = createKnightSchematics(color);
+        Location rookSchematics[] = createRookSchematics(color);
+        Location bishopSchematics[] = createBishopSchematics(color);
+        Location queenSchematics[] = createQueenSchematics(color);
+        Location kingSchematics[] = createKingSchematics(color);
+
+        pieces.addElement(new Pair(PieceType.PAWN, pawnSchematics));
+        pieces.addElement(new Pair(PieceType.ROOK, rookSchematics));
+        pieces.addElement(new Pair(PieceType.KNIGHT, knightSchematics));
+        pieces.addElement(new Pair(PieceType.BISHOP, bishopSchematics));
+        pieces.addElement(new Pair(PieceType.QUEEN, queenSchematics));
+        pieces.addElement(new Pair(PieceType.KING, kingSchematics));
     }
 
     /**
@@ -167,7 +156,7 @@ public class Game {
         else {
             int boardWidth = _boardParams.getKey();
             Location leftBishop = new Location(2, 0);
-            Location rightBishop = new Location(0, 5);
+            Location rightBishop = new Location(5, 0);
             bishopSchematics[0] = leftBishop;
             bishopSchematics[1] = rightBishop;
             return bishopSchematics;

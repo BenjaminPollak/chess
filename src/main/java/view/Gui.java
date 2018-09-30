@@ -52,7 +52,7 @@ public class Gui extends JPanel {
                 f.setMinimumSize(f.getSize());
                 f.setVisible(true);
 
-                Director director = new Director(_gui); // TODO: this should be a member variable
+                Director director = new Director(); // TODO: this should be a member variable
             }
         };
 
