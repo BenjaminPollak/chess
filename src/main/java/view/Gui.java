@@ -52,6 +52,7 @@ public class Gui extends JPanel {
 
     public Gui(Game game) {
         _gui = this;
+        _controller = new Controller(game);
         int boardRows = game.getBoard().getBoardWidth();
         int boardCols = game.getBoard().getBoardLength();
         _game = game;
@@ -64,7 +65,6 @@ public class Gui extends JPanel {
     }
 
     public final void initializeGui(int boardRows, int boardCols) {
-        // set up the main GUI
         gui.setBorder(new EmptyBorder(_top, _left, _bottom, _right));
 
         chessBoard = new JPanel(new GridLayout(boardRows, boardCols));
@@ -75,10 +75,8 @@ public class Gui extends JPanel {
         // create the chess board squares
         for (int col = 0; col < _boardRows; col++) {
             for (int row = 0; row < _boardCols; row++) {
-                Square b = new Square(row, col, _controller, _game);
+                Square b = new Square(row, col, _game, _controller);
 
-                // our chess pieces are 64x64 px in size, so we'll
-                // 'fill this in' using a transparent icon..
                 Font font = new Font("Code2000", Font.PLAIN, 36);
                 b.setText("");
                 if ((row % 2 == 1 && col % 2 == 1) || (row % 2 == 0 && col % 2 == 0))
