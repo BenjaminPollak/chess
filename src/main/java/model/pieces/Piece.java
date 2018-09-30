@@ -32,6 +32,8 @@ abstract public class Piece {
         _color = color;
     }
 
+    public abstract boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException;
+
     /**
      *  makes sure coordinates are "in-bounds"
      *  @param xCoord: desired horizontal location of piece

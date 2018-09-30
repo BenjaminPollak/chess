@@ -11,7 +11,7 @@ import java.util.Vector;
  * @author Benjamin Pollak
  */
 
-public class Board extends JFrame{
+public class Board {
     // NOTE: top left corner is (0, 0).
     //       bottom right corner is (_boardWidth - 1, _boardLength - 1)
 
@@ -53,7 +53,7 @@ public class Board extends JFrame{
      * @param placedPieces: all placed pieces
      * @return: true if a new array is needed, false otherwise
      */
-    public boolean checkIfNewArrayNeeded(Pair<PieceType, Location[]> unplacedPieceType, HashMap<PieceType, Vector<Piece>> placedPieces) {
+    public boolean checkIfNewArrayNeeded(Pair<PieceType, Location[]> unplacedPieceType, PieceCollection placedPieces) {
         PieceType type = unplacedPieceType.getKey();
         Location[] locations =  unplacedPieceType.getValue();
         if(!placedPieces.containsKey(unplacedPieceType)) return true;

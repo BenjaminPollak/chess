@@ -18,7 +18,6 @@ public class Square extends JButton {
         Insets buttonMargin = new Insets(0,0,0,0);
         setMargin(buttonMargin);
 
-        //clr = new Controller(_xCoord, _yCoord, game);
         addActionListener(clr);
     }
 

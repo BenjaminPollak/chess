@@ -63,13 +63,13 @@ public class King extends Piece {
 
     /**
      * Checks that the movement made by the king is valid. Helper function for move()
-     * @param int newX: the new horizontal position
-     * @param int newY: the new vertical position
-     * @param Piece[][] field: Where the piece is to be moved
+     * @param newX: the new horizontal position
+     * @param newY: the new vertical position
+     * @param field: Where the piece is to be moved
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      * @return a boolean describing whether or not a piece is taken
      */
-    public Boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
+    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         Location oldLocation = super.getLocation();
         int oldX = oldLocation.getKey(); int oldY = oldLocation.getValue();
 

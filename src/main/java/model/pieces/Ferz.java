@@ -46,7 +46,7 @@ public class Ferz extends Piece {
      * @throws IllegalArgumentException wherea piece tries to go somewhere "out of bounds"
      * @return a boolean describing whether or not a piece is taken
      */
-    Boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
+    public boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException {
         int oldX = getLocation().getKey(); int oldY = getLocation().getValue();
         int deltaX = newX - oldX; int deltaY = newY - oldY;
 

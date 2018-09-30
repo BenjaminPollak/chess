@@ -1,6 +1,7 @@
 package control;
 
 import model.game.Game;
+import model.pieces.Color;
 import model.pieces.Piece;
 import view.Gui;
 import view.Square;
@@ -25,33 +26,37 @@ public class Controller implements ActionListener {
         int yCoord = sq.getYCoord();
 
         if(_selectPiece) {
-            System.out.println("select");
             _pieceToMove = _game.retrievePiece(xCoord, yCoord);
             if(_pieceToMove == null) return;
             else {
                 if((_numMoves % 2) == 0) {
-                    selectWhitePiece();
+                    _selectPiece = selectWhitePiece();
                 }
                 else {
-                    selectBlackPiece();
+                    _selectPiece = selectBlackPiece();
                 }
             }
-            _selectPiece = false;
         }
         else {
+            // TODO
             System.out.println("move");
+            _pieceToMove.move(xCoord, yCoord, _game.getBoard()); // TODO: exceptions?
             _selectPiece = true;
             ++_numMoves;
         }
     }
 
-    public void selectWhitePiece() {
-        // TODO
-        System.out.println("white");
+    public boolean selectWhitePiece() {
+        if(_pieceToMove.getColor() == Color.WHITE) {
+            return false;
+        }
+        return true;
     }
 
-    public void selectBlackPiece() {
-        // TODO
-        System.out.println("black");
+    public boolean selectBlackPiece() {
+        if(_pieceToMove.getColor() == Color.BLACK) {
+            return false;
+        }
+        return true;
     }
 }

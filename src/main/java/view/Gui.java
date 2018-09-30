@@ -1,5 +1,4 @@
 package view;
-// TODO: place pieces on board
 // TODO: why can't board be of mismatched size?
 import control.Controller;
 import javafx.util.Pair;
@@ -24,7 +23,6 @@ public class Gui extends JPanel {
     private int _boardRows;
     private int _boardCols;
     private Game _game;
-    private Gui _gui;
     private Controller _controller;
 
     private int _top;
@@ -51,7 +49,6 @@ public class Gui extends JPanel {
         };
 
     public Gui(Game game) {
-        _gui = this;
         _controller = new Controller(game);
         int boardRows = game.getBoard().getBoardWidth();
         int boardCols = game.getBoard().getBoardLength();
