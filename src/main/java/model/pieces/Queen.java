@@ -101,8 +101,8 @@ public class Queen extends Piece{
                 if (attacking) return true;
                 return false;
             } else {
-                boolean moveRight = deltaX < 0;
-                boolean moveDown = deltaY < 0;
+                boolean moveRight = deltaX > 0;
+                boolean moveDown = deltaY > 0;
                 int iterations = abs(deltaX);
                 while (iterations > 0) {
                     if (moveRight) ++oldX;

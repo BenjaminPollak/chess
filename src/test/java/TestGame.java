@@ -373,9 +373,9 @@ public class TestGame {
             Assert.fail();
         }
 
-        Pawn secondWhitePawn = (Pawn) game.retrievePiece(6, 1);
+        Pawn secondWhitePawn = (Pawn) game.retrievePiece(6, 6);
         try {
-            secondWhitePawn.move(6, 3, game.getBoard());
+            secondWhitePawn.move(6, 4, game.getBoard());
         } catch (Exception e) {
             Assert.fail();
         }
@@ -383,6 +383,7 @@ public class TestGame {
         Queen blackQueen = (Queen) game.retrievePiece(3, 0);
         try {
             blackQueen.move(7, 4, game.getBoard()); // TODO: bug starts w/ this fn call
+            blackQueen.findIfKingInCheck(game.getBoard().getField());
         } catch (KingInCheck e) {
             inCheckmate = Game.detectCheckmate(game.getBoard(), Color.BLACK, e);
         }
