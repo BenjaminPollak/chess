@@ -1,22 +1,16 @@
 package view;
 // TODO: place pieces on board
 // TODO: why can't board be of mismatched size?
-import control.Director;
 import javafx.util.Pair;
 import model.game.Game;
 import model.game.Location;
-import model.game.PieceCollection;
 import model.game.PieceSpec;
-import model.pieces.Pawn;
-import model.pieces.Piece;
 import model.pieces.PieceType;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.Vector;
 
 /**
  * Handles view.Gui, class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
@@ -51,8 +45,6 @@ public class Gui extends JPanel {
                 // ensures the minimum size is enforced.
                 f.setMinimumSize(f.getSize());
                 f.setVisible(true);
-
-                Director director = new Director(); // TODO: this should be a member variable
             }
         };
 

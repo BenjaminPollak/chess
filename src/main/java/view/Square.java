@@ -31,12 +31,4 @@ public class Square extends JButton implements ActionListener {
         System.out.print(_xCoord + ", ");
         System.out.println(_yCoord);
     }
-
-    public int getX() {
-        return _xCoord;
-    }
-
-    public int getY() {
-        return _yCoord;
-    }
 }
