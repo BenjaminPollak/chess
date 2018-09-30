@@ -1,65 +1,45 @@
-package view;// TODO: place pieces on board
+package view;
+// TODO: place pieces on board
 // TODO: why can't board be of mismatched size?
+import control.Director;
+import javafx.util.Pair;
+import model.game.Game;
+import model.game.Location;
+import model.game.PieceCollection;
+import model.game.PieceSpec;
+import model.pieces.Pawn;
+import model.pieces.Piece;
+import model.pieces.PieceType;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Vector;
 
 /**
  * Handles view.Gui, class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
  * @author Benjamin Pollak
  */
 public class Gui extends JPanel {
-    //private final JPanel gui = new JPanel(new BorderLayout(0, 0));
     private final JPanel gui = new JPanel();
-    private JButton[][] chessBoardSquares;
+    private JButton[][] _chessBoardSquares;
     private JPanel chessBoard;
+    private int _boardRows;
+    private int _boardCols;
+    private Game _game;
+    private Gui _gui;
 
-    Gui(int boardWidth, int boardLength) {
-        chessBoardSquares = new JButton[boardWidth][boardLength];
-        initializeGui(boardWidth, boardLength);
-    }
+    private int _top;
+    private int _left;
+    private int _right;
+    private int _bottom;
 
-    public final void initializeGui(int boardWidth, int boardLength) {
-        // set up the main GUI
-        gui.setBorder(new EmptyBorder(50, 50, 50, 50));
-
-        chessBoard = new JPanel(new GridLayout(boardWidth, boardLength));
-        chessBoard.setBorder(new LineBorder(java.awt.Color.BLACK));
-        gui.add(chessBoard);
-
-        // create the chess board squares
-        Insets buttonMargin = new Insets(0,0,0,0);
-        for (int col = 0; col < chessBoardSquares.length; col++) {
-            for (int row = 0; row < chessBoardSquares[col].length; row++) {
-                JButton b = new JButton();
-                b.setMargin(buttonMargin);
-                // our chess pieces are 64x64 px in size, so we'll
-                // 'fill this in' using a transparent icon..
-                ImageIcon icon = new ImageIcon( new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
-                b.setIcon(icon);
-                if ((row % 2 == 1 && col % 2 == 1) || (row % 2 == 0 && col % 2 == 0))
-                    b.setBackground(java.awt.Color.BLACK);
-                else
-                    b.setBackground(java.awt.Color.WHITE);
-                chessBoardSquares[row][col] = b;
-            }
-        }
-
-        // fill the black non-pawn piece row
-        for (int col = 0; col < boardWidth; col++) {
-            for (int row = 0; row < boardLength; row++) {
-                chessBoard.add(chessBoardSquares[row][col]);
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        Runnable r = new Runnable() {
+    public Runnable guiRunner = new Runnable() {
             @Override
             public void run() {
-                Gui gui = new Gui(8,8);
+                Gui gui = new Gui(_game);
 
                 JFrame f = new JFrame("Chess");
                 f.add(gui.getGui());
@@ -71,12 +51,187 @@ public class Gui extends JPanel {
                 // ensures the minimum size is enforced.
                 f.setMinimumSize(f.getSize());
                 f.setVisible(true);
+
+                Director director = new Director(_gui); // TODO: this should be a member variable
             }
         };
-        SwingUtilities.invokeLater(r);
+
+    public Gui(Game game) {
+        _gui = this;
+        int boardRows = game.getBoard().getBoardWidth();
+        int boardCols = game.getBoard().getBoardLength();
+        _game = game;
+        _chessBoardSquares = new JButton[boardRows][boardCols];
+        _top = 50; _bottom = 50; _left = 50; _right=  50;
+        _boardRows = boardRows; _boardCols = boardCols;
+        initializeGui(_boardRows, _boardCols);
+        drawWhitePieces(game.getWhitePieces());
+        drawBlackPieces(game.getBlackPieces());
+    }
+
+    public final void initializeGui(int boardRows, int boardCols) {
+        // set up the main GUI
+        gui.setBorder(new EmptyBorder(_top, _left, _bottom, _right));
+
+        chessBoard = new JPanel(new GridLayout(boardRows, boardCols));
+        chessBoard.setBorder(new LineBorder(java.awt.Color.BLACK));
+
+        gui.add(chessBoard);
+
+        // create the chess board squares
+        for (int col = 0; col < _boardRows; col++) {
+            for (int row = 0; row < _boardCols; row++) {
+                Square b = new Square(row, col);
+
+                // our chess pieces are 64x64 px in size, so we'll
+                // 'fill this in' using a transparent icon..
+                Font font = new Font("Code2000", Font.PLAIN, 36);
+                b.setText("");
+                if ((row % 2 == 1 && col % 2 == 1) || (row % 2 == 0 && col % 2 == 0))
+                    b.setBackground(java.awt.Color.lightGray);
+                else
+                    b.setBackground(java.awt.Color.WHITE);
+                _chessBoardSquares[row][col] = b;
+                chessBoard.add(_chessBoardSquares[row][col]);
+            }
+        }
+    }
+
+    public void drawBlackPieces(PieceSpec pieces) {
+         for(Pair pr: pieces) {
+            if(pr.getKey() == PieceType.PAWN) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawPawns(locations, "\u265f");
+            }
+            else if(pr.getKey() == PieceType.ROOK) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawRooks(locations, "\u265c");
+            }
+            else if(pr.getKey() == PieceType.KNIGHT) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawKnights(locations, "\u265e");
+            }
+            else if(pr.getKey() == PieceType.BISHOP) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawBishops(locations, "\u265d");
+            }
+            else if(pr.getKey() == PieceType.QUEEN) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawQueens(locations, "\u265b");
+            }
+            else if(pr.getKey() == PieceType.KING) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawKings(locations, "\u265a");
+            }
+        }
+    }
+
+    public void drawWhitePieces(PieceSpec pieces) {
+        for(Pair pr: pieces) {
+            if(pr.getKey() == PieceType.PAWN) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawPawns(locations, "\u2659");
+            }
+            else if(pr.getKey() == PieceType.ROOK) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawRooks(locations, "\u2656");
+            }
+            else if(pr.getKey() == PieceType.KNIGHT) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawKnights(locations, "\u2658");
+            }
+            else if(pr.getKey() == PieceType.BISHOP) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawBishops(locations, "\u2657");
+            }
+            else if(pr.getKey() == PieceType.QUEEN) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawQueens(locations, "\u2655");
+            }
+            else if(pr.getKey() == PieceType.KING) {
+                Location[] locations = (Location[]) pr.getValue();
+                drawKings(locations, "\u2654");
+            }
+        }
+    }
+
+    private void drawKings(Location[] locations, String piece) {
+         for(Location lcn: locations) {
+            int x = lcn.getKey();
+            int y = lcn.getValue();
+            Font font = new Font("Code2000", Font.PLAIN, 36);
+            JButton b = _chessBoardSquares[x][y];
+            b.setFont(font);
+            b.setText(piece);
+        }
+    }
+
+    private void drawQueens(Location[] locations, String piece) {
+        for(Location lcn: locations) {
+            int x = lcn.getKey();
+            int y = lcn.getValue();
+            Font font = new Font("Code2000", Font.PLAIN, 36);
+            JButton b = _chessBoardSquares[x][y];
+            b.setFont(font);
+            b.setText(piece);
+        }
+    }
+
+    private void drawBishops(Location[] locations, String piece) {
+        for(Location lcn: locations) {
+            int x = lcn.getKey();
+            int y = lcn.getValue();
+            Font font = new Font("Code2000", Font.PLAIN, 36);
+            JButton b = _chessBoardSquares[x][y];
+            b.setFont(font);
+            b.setText(piece);
+        }
+    }
+
+    private void drawKnights(Location[] locations, String piece) {
+        for(Location lcn: locations) {
+            int x = lcn.getKey();
+            int y = lcn.getValue();
+            Font font = new Font("Code2000", Font.PLAIN, 36);
+            JButton b = _chessBoardSquares[x][y];
+            b.setFont(font);
+            b.setText(piece);
+        }
+    }
+
+    private void drawRooks(Location[] locations, String string) {
+        for(Location lcn: locations) {
+            int x = lcn.getKey();
+            int y = lcn.getValue();
+            Font font = new Font("Code2000", Font.PLAIN, 36);
+            JButton b = _chessBoardSquares[x][y];
+            b.setFont(font);
+            b.setText(string);
+        }
+    }
+
+    private void drawPawns(Location[] locations, String piece) {
+        for(Location lcn: locations) {
+            int x = lcn.getKey();
+            int y = lcn.getValue();
+            Font font = new Font("Code2000", Font.PLAIN, 36);
+            JButton b = _chessBoardSquares[x][y];
+            b.setFont(font);
+            b.setText(piece);
+        }
+    }
+
+    public final Game getGame() {
+        return _game;
     }
 
     public final JComponent getGui() {
         return gui;
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game(8, 8, null, null);
+        Gui gui = new Gui(game);
+        SwingUtilities.invokeLater(gui.guiRunner);
     }
 }
