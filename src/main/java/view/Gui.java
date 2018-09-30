@@ -1,6 +1,7 @@
 package view;
 // TODO: place pieces on board
 // TODO: why can't board be of mismatched size?
+import control.Controller;
 import javafx.util.Pair;
 import model.game.Game;
 import model.game.Location;
@@ -24,6 +25,7 @@ public class Gui extends JPanel {
     private int _boardCols;
     private Game _game;
     private Gui _gui;
+    private Controller _controller;
 
     private int _top;
     private int _left;
@@ -73,7 +75,7 @@ public class Gui extends JPanel {
         // create the chess board squares
         for (int col = 0; col < _boardRows; col++) {
             for (int row = 0; row < _boardCols; row++) {
-                Square b = new Square(row, col);
+                Square b = new Square(row, col, _controller, _game);
 
                 // our chess pieces are 64x64 px in size, so we'll
                 // 'fill this in' using a transparent icon..
