@@ -39,12 +39,14 @@ public class Bishop extends Piece {
 
     /**
      *  Handles moving and attacking with bishops
-     *  @param xCoord: horizontal position where piece should be moved
-     *  @param yCoord: vertical position where piece should be moved
-     *  @param board: board that piece should be moved on
-     *  @return: the type of move performed
+     * @param xCoord: horizontal position where piece should be moved
+     * @param yCoord: vertical position where piece should be moved
+     * @param board: board that piece should be moved on
+     * @throws PieceCaptured
+     * @throws IllegalArgumentException
+     * @return: the type of move performed
      */
-    public MoveType move(int xCoord, int yCoord, Board board) {
+    public MoveType move(int xCoord, int yCoord, Board board) throws PieceCaptured, IllegalArgumentException{
         Location oldLocation = getLocation();
         checkCoordinates(xCoord, yCoord, board.getBoardWidth(), board.getBoardLength());
         boolean isAnAttack = checkValidMove(xCoord, yCoord, board.getField());

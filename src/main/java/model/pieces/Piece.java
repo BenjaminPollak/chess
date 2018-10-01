@@ -35,14 +35,15 @@ abstract public class Piece {
     public abstract boolean checkValidMove(int newX, int newY, Piece[][] field) throws IllegalArgumentException;
 
     /**
-     *  makes sure coordinates are "in-bounds"
-     *  @param xCoord: desired horizontal location of piece
-     *  @param yCoord: desired vertical location of piece
-     *  @param boardWidth: Horizontal size of board
-     *  @param boardLength: Vertical size of board
+     * makes sure coordinates are "in-bounds"
+     * @param xCoord: desired horizontal location of piece
+     * @param yCoord: desired vertical location of piece
+     * @param boardWidth: Horizontal size of board
+     * @param boardLength: Vertical size of board
+     * @throws IllegalArgumentException
      */
 
-    public void checkCoordinates(int xCoord, int yCoord, int boardWidth, int boardLength) {
+    public void checkCoordinates(int xCoord, int yCoord, int boardWidth, int boardLength) throws IllegalArgumentException{
         if((xCoord < 0) || (yCoord < 0)) {
             throw new IllegalArgumentException("OUT OF BOUNDS");
         }
