@@ -1,26 +1,32 @@
 package control;
 
 import model.game.Game;
+import model.game.Model;
 import model.game.PieceCaptured;
 import model.pieces.Color;
 import model.pieces.Piece;
-import view.Gui;
 import view.Square;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
-    private Game _game;
+    private Model _model;
     private int _numMoves = 0;
     private boolean _needToSelectPiece = true;
     private Piece _pieceToMove;
     private Square _originatingSq;
     private Square _targetSq;
+    private JLabel _currentTurn;
 
-    public Controller(Game game) {
-        _game = game;
+    public final String _whiteMove = "WHITE'S MOVE";
+    public final String _blackMove = "BLACK'S MOVE";
+
+    public Controller(Model model, JLabel currentTurn) {
+        _model = model;
+        _currentTurn = currentTurn;
     }
 
     @Override
@@ -28,10 +34,11 @@ public class Controller implements ActionListener {
         Square sq = (Square) e.getSource();
         int xCoord = sq.getXCoord();
         int yCoord = sq.getYCoord();
+        Game game = _model.getGame();
 
         if(_needToSelectPiece) {
             _originatingSq = sq;
-            _pieceToMove = _game.retrievePiece(xCoord, yCoord);
+            _pieceToMove = game.retrievePiece(xCoord, yCoord);
             if(_pieceToMove == null) return;
             else {
                 if((_numMoves % 2) == 0) {
@@ -47,7 +54,7 @@ public class Controller implements ActionListener {
         else {
             _targetSq = sq;
             try {
-                _pieceToMove.move(xCoord, yCoord, _game.getBoard());
+                _pieceToMove.move(xCoord, yCoord, game.getBoard());
             } catch (PieceCaptured pieceException) {
             } catch (IllegalArgumentException argException) {
                 _needToSelectPiece = true;
@@ -59,6 +66,9 @@ public class Controller implements ActionListener {
             _needToSelectPiece = true;
             ++_numMoves;
         }
+        System.out.println(_numMoves);
+        String display = (_numMoves % 2 == 0) ? _whiteMove : _blackMove;
+        _currentTurn.setText(display);
     }
 
     public boolean selectWhitePiece() {

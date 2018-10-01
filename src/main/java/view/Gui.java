@@ -4,6 +4,7 @@ import control.Controller;
 import javafx.util.Pair;
 import model.game.Game;
 import model.game.Location;
+import model.game.Model;
 import model.game.PieceSpec;
 import model.pieces.PieceType;
 
@@ -20,16 +21,18 @@ import java.awt.event.KeyEvent;
  * @author Benjamin Pollak
  */
 public class Gui extends JPanel {
+    private Model _model;
+    private JLabel _currentTurn = new JLabel();
     private final JPanel _gui = new JPanel();
     private JButton[][] _chessBoardSquares;
     private JPanel _titlePage;
+    private JPanel _headsUpDisplay;
     JPanel _chessView = new JPanel();
     private JPanel _chessBoard;
     private JPanel _whiteGameInfo;
     private JPanel _blackGameInfo;
     private int _boardRows;
     private int _boardCols;
-    private Game _game;
     private Controller _controller;
     private JMenuBar _menuBar;
 
@@ -41,10 +44,12 @@ public class Gui extends JPanel {
     private int _right;
     private int _bottom;
 
+    public final String _whiteMove = "WHITE'S MOVE";
+
     public Runnable guiRunner = new Runnable() {
             @Override
             public void run() {
-                Gui gui = new Gui(_game);
+                Gui gui = new Gui(8,8); // TODO: hardcoding...
 
                 JFrame f = new JFrame("Chess");
                 f.setJMenuBar(_menuBar);
@@ -57,17 +62,12 @@ public class Gui extends JPanel {
             }
         };
 
-    public Gui(Game game) {
-        _controller = new Controller(game);
-        int boardRows = game.getBoard().getBoardWidth();
-        int boardCols = game.getBoard().getBoardLength();
-        _game = game;
-        _chessBoardSquares = new JButton[boardRows][boardCols];
+    public Gui(int bRows, int bCols) {
+        _chessBoardSquares = new JButton[bRows][bCols];
         _top = 50; _bottom = 50; _left = 50; _right=  50;
-        _boardRows = boardRows; _boardCols = boardCols;
+        _boardRows = bRows; _boardCols = bCols;
         initializeGui(_boardRows, _boardCols);
     }
-
 
     private final void createMenus() {
         // TODO: implement forfeit, restart, and info
@@ -124,6 +124,8 @@ public class Gui extends JPanel {
                     _firstUser = firstName;
                 if(_secondUser != null)
                     _secondUser = secondName;
+                _model = new Model(firstName, secondName, _boardRows, _boardCols);
+                _controller = new Controller(_model, _currentTurn);
                 _titlePage.setVisible(false);
                 _gui.remove(_titlePage);
                 createChessView();
@@ -136,18 +138,27 @@ public class Gui extends JPanel {
         _gui.add(_titlePage);
     }
 
+    private void createHeadsUpDisplay() {
+        _headsUpDisplay = new JPanel();
+        _currentTurn.setText(_whiteMove);
+        _headsUpDisplay.add(_currentTurn);
+    }
+
     private final void createChessView() {
         _chessView = new JPanel();
         _chessView.setLayout(new BorderLayout());
         createChessBoard(_boardRows, _boardCols);
         createWhiteGameInfo();
         createBlackGameInfo();
+        createHeadsUpDisplay();
 
         _chessView.add(_chessBoard, BorderLayout.CENTER);
         _chessView.add(_whiteGameInfo, BorderLayout.LINE_START);
         _chessView.add(_blackGameInfo, BorderLayout.LINE_END);
+        _chessView.add(_headsUpDisplay, BorderLayout.SOUTH);
         _gui.add(_chessView);
     }
+
     private final void createBlackGameInfo() {
         _blackGameInfo = new JPanel(new GridLayout(4, 2));
         _blackGameInfo.setBorder(new LineBorder(java.awt.Color.BLACK));
@@ -175,12 +186,13 @@ public class Gui extends JPanel {
     }
 
     private final void createChessBoard(int boardRows, int boardCols) {
+        Game game = _model.getGame();
         _chessBoard = new JPanel(new GridLayout(boardRows, boardCols));
         _chessBoard.setBorder(new LineBorder(java.awt.Color.BLACK));
 
         for (int col = 0; col < _boardRows; col++) {
             for (int row = 0; row < _boardCols; row++) {
-                Square b = new Square(row, col, _game, _controller);
+                Square b = new Square(row, col, game, _controller);
 
                 Font font = new Font("Code2000", Font.PLAIN, 36);
                 b.setText("");
@@ -192,8 +204,8 @@ public class Gui extends JPanel {
                 _chessBoard.add(_chessBoardSquares[row][col]);
             }
         }
-        drawWhitePieces(_game.getWhitePieces());
-        drawBlackPieces(_game.getBlackPieces());
+        drawWhitePieces(game.getWhitePieces());
+        drawBlackPieces(game.getBlackPieces());
     }
 
     private final void initializeGui(int boardRows, int boardCols) {
@@ -326,17 +338,12 @@ public class Gui extends JPanel {
         }
     }
 
-    public final Game getGame() {
-        return _game;
-    }
-
     public final JComponent getGui() {
         return _gui;
     }
 
     public static void main(String[] args) {
-        Game game = new Game(8, 8, null, null);
-        Gui gui = new Gui(game);
+        Gui gui = new Gui(8, 8); // TODO: hard-coding...
         SwingUtilities.invokeLater(gui.guiRunner);
     }
 }
