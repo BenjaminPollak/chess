@@ -11,19 +11,30 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 /**
  * Handles view.Gui, class based on: https://stackoverflow.com/questions/21077322/create-a-chess-board-with-jpanel
  * @author Benjamin Pollak
  */
 public class Gui extends JPanel {
-    private final JPanel gui = new JPanel();
+    private final JPanel _gui = new JPanel();
     private JButton[][] _chessBoardSquares;
-    private JPanel chessBoard;
+    private JPanel _titlePage;
+    JPanel _chessView = new JPanel();
+    private JPanel _chessBoard;
+    private JPanel _whiteGameInfo;
+    private JPanel _blackGameInfo;
     private int _boardRows;
     private int _boardCols;
     private Game _game;
     private Controller _controller;
+    private JMenuBar _menuBar;
+
+    private String _firstUser = null;
+    private String _secondUser = null;
 
     private int _top;
     private int _left;
@@ -36,13 +47,11 @@ public class Gui extends JPanel {
                 Gui gui = new Gui(_game);
 
                 JFrame f = new JFrame("Chess");
+                f.setJMenuBar(_menuBar);
                 f.add(gui.getGui());
                 f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-                // ensures the frame is the minimum size it needs to be
-                // in order display the components within it
                 f.pack();
-                // ensures the minimum size is enforced.
                 f.setMinimumSize(f.getSize());
                 f.setVisible(true);
             }
@@ -57,19 +66,123 @@ public class Gui extends JPanel {
         _top = 50; _bottom = 50; _left = 50; _right=  50;
         _boardRows = boardRows; _boardCols = boardCols;
         initializeGui(_boardRows, _boardCols);
-        drawWhitePieces(game.getWhitePieces());
-        drawBlackPieces(game.getBlackPieces());
     }
 
-    public final void initializeGui(int boardRows, int boardCols) {
-        gui.setBorder(new EmptyBorder(_top, _left, _bottom, _right));
 
-        chessBoard = new JPanel(new GridLayout(boardRows, boardCols));
-        chessBoard.setBorder(new LineBorder(java.awt.Color.BLACK));
+    private final void createMenus() {
+        // TODO: implement forfeit, restart, and info
+        _menuBar = new JMenuBar();
 
-        gui.add(chessBoard);
+        JMenu whiteMenu = new JMenu("White Player Options");
+        JMenu blackMenu = new JMenu("Black Player Options");
 
-        // create the chess board squares
+        JMenuItem whiteDrawItem = new JMenuItem("Propose Draw", KeyEvent.VK_T);
+        JMenuItem whiteForfeitItem = new JMenuItem("Forfeit", KeyEvent.VK_T);
+        whiteForfeitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO: implement
+                System.out.println("forfeit");
+                _gui.remove(_chessView);
+                _chessView.setVisible(false);
+                _chessView = null;
+                _game = new Game(_boardRows, _boardCols, null, null);
+                initializeGui(_boardRows, _boardCols);
+            }
+        });
+        JMenuItem whiteStatsItem = new JMenuItem("Statistics", KeyEvent.VK_T);
+        JMenuItem blackDrawItem = new JMenuItem("Propose Draw", KeyEvent.VK_T);
+        JMenuItem blackForfeitItem = new JMenuItem("Forfeit", KeyEvent.VK_T);
+        JMenuItem blackStatsItem = new JMenuItem("Statistics", KeyEvent.VK_T);
+
+        whiteMenu.add(whiteDrawItem); whiteMenu.add(whiteForfeitItem); whiteMenu.add(whiteStatsItem);
+        blackMenu.add(blackDrawItem); blackMenu.add(blackForfeitItem); blackMenu.add(blackStatsItem);
+
+        _menuBar.add(whiteMenu);
+        _menuBar.add(blackMenu);
+    }
+
+    private final void createTitlePage() {
+        _titlePage = new JPanel(new GridLayout(3, 2));
+        JButton startButton = new JButton("Start a new game");
+        JLabel firstPlayerLabel = new JLabel("First player's name");
+        JTextField firstPlayerName = new JTextField(16);
+        JLabel secondPlayerLabel = new JLabel("Second player's name");
+        JTextField secondPlayerName = new JTextField(16);
+        JLabel errorLabel = new JLabel(); errorLabel.setText("EMPTY FIELD");
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String firstName = firstPlayerName.getText();
+                String secondName = secondPlayerName.getText();
+                if((firstName.equals("")) || (secondName.equals(""))) {
+                    errorLabel.setVisible(true);
+                    return;
+                }
+                else if (firstName.equals(secondName)) {
+                    errorLabel.setText("Names cannot be the same!");
+                    errorLabel.setVisible(true);
+                    return;
+                }
+                if(_firstUser != null)
+                    _firstUser = firstName;
+                if(_secondUser != null)
+                    _secondUser = secondName;
+                _titlePage.setVisible(false);
+                _gui.remove(_titlePage);
+                createChessView();
+            }
+        });
+        _titlePage.add(firstPlayerLabel); _titlePage.add(firstPlayerName);
+        _titlePage.add(secondPlayerLabel); _titlePage.add(secondPlayerName);
+        _titlePage.add(startButton);
+        _titlePage.add(errorLabel); errorLabel.setVisible(false);
+        _gui.add(_titlePage);
+    }
+
+    private final void createChessView() {
+        _chessView = new JPanel();
+        _chessView.setLayout(new BorderLayout());
+        createChessBoard(_boardRows, _boardCols);
+        createWhiteGameInfo();
+        createBlackGameInfo();
+
+        _chessView.add(_chessBoard, BorderLayout.CENTER);
+        _chessView.add(_whiteGameInfo, BorderLayout.LINE_START);
+        _chessView.add(_blackGameInfo, BorderLayout.LINE_END);
+        _gui.add(_chessView);
+    }
+    private final void createBlackGameInfo() {
+        _blackGameInfo = new JPanel(new GridLayout(4, 2));
+        _blackGameInfo.setBorder(new LineBorder(java.awt.Color.BLACK));
+        _blackGameInfo.add(new JTextArea("Black In Check:"));
+        _blackGameInfo.add(new JTextArea(""));
+        _blackGameInfo.add(new JTextArea("Black In Checkmate:"));
+        _blackGameInfo.add(new JTextArea(""));
+        _blackGameInfo.add(new JTextArea("Black In Stalemate"));
+        _blackGameInfo.add(new JTextArea(""));
+        _blackGameInfo.add(new JTextArea("Black Good Move:"));
+        _blackGameInfo.add(new JTextArea(""));
+    }
+
+    private final void createWhiteGameInfo() {
+        _whiteGameInfo = new JPanel(new GridLayout(4, 2));
+        _whiteGameInfo.setBorder(new LineBorder(java.awt.Color.BLACK));
+        _whiteGameInfo.add(new JTextArea("White In Check:"));
+        _whiteGameInfo.add(new JTextArea(""));
+        _whiteGameInfo.add(new JTextArea("White In Checkmate:"));
+        _whiteGameInfo.add(new JTextArea(""));
+        _whiteGameInfo.add(new JTextArea("White In Stalemate"));
+        _whiteGameInfo.add(new JTextArea(""));
+        _whiteGameInfo.add(new JTextArea("White Good Move:"));
+        _whiteGameInfo.add(new JTextArea(""));
+    }
+
+    private final void createChessBoard(int boardRows, int boardCols) {
+        _chessBoard = new JPanel(new GridLayout(boardRows, boardCols));
+        _chessBoard.setBorder(new LineBorder(java.awt.Color.BLACK));
+
         for (int col = 0; col < _boardRows; col++) {
             for (int row = 0; row < _boardCols; row++) {
                 Square b = new Square(row, col, _game, _controller);
@@ -81,9 +194,17 @@ public class Gui extends JPanel {
                 else
                     b.setBackground(java.awt.Color.WHITE);
                 _chessBoardSquares[row][col] = b;
-                chessBoard.add(_chessBoardSquares[row][col]);
+                _chessBoard.add(_chessBoardSquares[row][col]);
             }
         }
+        drawWhitePieces(_game.getWhitePieces());
+        drawBlackPieces(_game.getBlackPieces());
+    }
+
+    private final void initializeGui(int boardRows, int boardCols) {
+        _gui.setBorder(new EmptyBorder(_top, _left, _bottom, _right));
+        createTitlePage();
+        createMenus();
     }
 
     public void drawBlackPieces(PieceSpec pieces) {
@@ -215,7 +336,7 @@ public class Gui extends JPanel {
     }
 
     public final JComponent getGui() {
-        return gui;
+        return _gui;
     }
 
     public static void main(String[] args) {

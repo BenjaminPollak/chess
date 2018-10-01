@@ -35,18 +35,19 @@ public class Controller implements ActionListener {
             if(_pieceToMove == null) return;
             else {
                 if((_numMoves % 2) == 0) {
+                    if(_pieceToMove.getColor() != Color.WHITE) return;
                     _needToSelectPiece = selectWhitePiece();
                 }
                 else {
+                    if(_pieceToMove.getColor() != Color.BLACK) return;
                     _needToSelectPiece = selectBlackPiece();
                 }
             }
         }
         else {
             _targetSq = sq;
-            System.out.println("move");
             try {
-                _pieceToMove.move(xCoord, yCoord, _game.getBoard()); // TODO: exceptions?
+                _pieceToMove.move(xCoord, yCoord, _game.getBoard());
             } catch (PieceCaptured pieceException) {
             } catch (IllegalArgumentException argException) {
                 _needToSelectPiece = true;
@@ -61,14 +62,20 @@ public class Controller implements ActionListener {
     }
 
     public boolean selectWhitePiece() {
-        if(_pieceToMove.getColor() == Color.WHITE) {
+        if(_pieceToMove == null) {
+            return true;
+        }
+        else if(_pieceToMove.getColor() == Color.WHITE) {
             return false;
         }
         return true;
     }
 
     public boolean selectBlackPiece() {
-        if(_pieceToMove.getColor() == Color.BLACK) {
+        if(_pieceToMove == null) {
+            return true;
+        }
+        else if(_pieceToMove.getColor() == Color.BLACK) {
             return false;
         }
         return true;
