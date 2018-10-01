@@ -7,6 +7,7 @@ import model.pieces.Piece;
 import view.Gui;
 import view.Square;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -52,6 +53,7 @@ public class Controller implements ActionListener {
                 return;
             }
             _targetSq.setText(_originatingSq.getText());
+            _targetSq.setFont(new Font("Code2000", Font.PLAIN, 36));
             _originatingSq.setText("");
             _needToSelectPiece = true;
             ++_numMoves;
