@@ -3,6 +3,10 @@ package model.game;
 import model.game.Location;
 import model.pieces.Color;
 
+/**
+ * Runtime exception thrown indicating a piece was captured
+ * @author Benjamin Pollak
+ */
 public class PieceCaptured extends RuntimeException  {
     private Color _color; // color of piece captured
     private Location _location; // location where piece captured

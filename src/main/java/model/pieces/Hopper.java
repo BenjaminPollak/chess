@@ -8,6 +8,7 @@ import model.game.PieceCaptured;
 import static java.lang.Math.abs;
 
 /**
+ * Hopper Implementation
  * @author Benjamin Pollak
  */
 public class Hopper extends Piece {

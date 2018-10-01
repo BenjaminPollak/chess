@@ -6,7 +6,8 @@ import model.pieces.*;
 import java.util.HashMap;
 import java.util.Vector;
 
-/*
+/**
+ * Represents one game of chess
  * @author Benjamin Pollak
  */
 public class Game {
@@ -15,11 +16,6 @@ public class Game {
 
     private PieceSpec _whitePieces;
     private PieceSpec _blackPieces;
-
-    /** Main method. Starts a game of chess*/
-    public static void main(String[] args) {
-        Game game = new Game(8,8, null, null);
-    }
 
     /**
      * Constructor for starting a game
@@ -251,13 +247,13 @@ public class Game {
         if((direction == Direction.WEST) || (direction == Direction.EAST)) {
             int i;
             for(i = startX + 1; i <= endX; ++i) {
-                boolean moveExists = canMovePieceTo(i, kingLoc.getValue(),  board, defensePieces);
+                boolean moveExists = canMovePieceTo(i, kingLoc.getValue(),  board, (PieceCollection) defensePieces);
                 if(moveExists) return true;
             }
         }
         else if((direction == Direction.NORTH) || (direction == Direction.SOUTH)) {
             for(int i = startY; i < endY; ++i) {
-                boolean moveExists = canMovePieceTo(i, kingLoc.getValue(),  board, defensePieces);
+                boolean moveExists = canMovePieceTo(i, kingLoc.getValue(),  board, (PieceCollection) defensePieces);
                 if(moveExists) return true;
             }
         }
@@ -271,7 +267,7 @@ public class Game {
      * @param board: board on which to move piece
      * @param pieceSet: piece set to check over
      */
-    public static boolean canMovePieceTo(int xCoord, int yCoord, Board board, HashMap<PieceType, Vector<Piece>> pieceSet) {
+    public static boolean canMovePieceTo(int xCoord, int yCoord, Board board, PieceCollection pieceSet) {
         Vector<Piece> pawns = pieceSet.get(PieceType.PAWN);
         Vector<Piece> queens = pieceSet.get(PieceType.QUEEN);
         Vector<Piece> bishops = pieceSet.get(PieceType.BISHOP);

@@ -8,6 +8,7 @@ import model.game.PieceCaptured;
 import static java.lang.Math.abs;
 
 /**
+ * Queen implementation
  * @author Benjamin Pollak
  */
 public class Queen extends Piece{

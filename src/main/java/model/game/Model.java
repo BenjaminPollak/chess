@@ -1,16 +1,24 @@
 package model.game;
 
+import model.pieces.Piece;
+
+/**
+ * Represents the totality of the model (M in MVC)
+ * @author Benjamin Pollak
+ */
 public class Model {
     private int _numWhiteVictories = 0;
     private int _numBlackVictories = 0;
 
-    String _whitePlayer;
-    String _blackPlayer;
+    private String _whitePlayer;
+    private String _blackPlayer;
 
-    int _bRows;
-    int _bCols;
+    private int _bRows;
+    private int _bCols;
 
-    Game _game;
+    private Game _game;
+
+    private boolean kingInCheck = false;
 
     /**
      *
@@ -26,6 +34,25 @@ public class Model {
         startNewGame(false);
     }
 
+    /**
+     * Discovers if the opposing king is in check
+     * @param piece: piece that was moved
+     * @throws KingInCheck
+     */
+    public void discoverCheckState(Piece piece) throws KingInCheck{
+        try {
+            piece.findIfKingInCheck(_game.getBoard().getField());
+            kingInCheck = false;
+        } catch(KingInCheck e) {
+            kingInCheck = true;
+            throw new KingInCheck(null, null); // TODO
+        }
+    }
+
+    /**
+     * Starts a new game, with or without custom pieces
+     * @param useCustomPieces Indicates whether or not to use custom pieces
+     */
     public void startNewGame(boolean useCustomPieces) {
         _game = null;
         if(useCustomPieces) {
@@ -37,18 +64,34 @@ public class Model {
         }
     }
 
+    /**
+     * Gets _numWhiteVictories
+     * @return _numWhiteVictories
+     */
     public int getNumWhiteVictories() {
         return _numWhiteVictories;
     }
 
+    /**
+     * Gets _numBlackVictories
+     * @return _numBlackVictories
+     */
     public int getNumBlackVictories() {
         return _numBlackVictories;
     }
 
+    /**
+     * Gets name of white player
+     * @return _whitePlayer
+     */
     public String getNameWhitePlayer() {
         return _whitePlayer;
     }
 
+    /**
+     * Gets name of black player
+     * @return _blackPlayer
+     */
     public String getNameBlackPlayer() {
         return _blackPlayer;
     }

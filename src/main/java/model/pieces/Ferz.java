@@ -8,8 +8,8 @@ import model.game.PieceCaptured;
 import static java.lang.Math.abs;
 
 // TODO: disappearing from board?
-/*
- * like a bishop, but only goes one square
+/**
+ * Ferz implementation. Like a bishop, but only goes one square
  * @author Benjamin Pollak
  */
 public class Ferz extends Piece {

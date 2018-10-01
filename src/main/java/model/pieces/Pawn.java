@@ -8,6 +8,7 @@ import model.game.PieceCaptured;
 import static java.lang.Math.abs;
 
 /**
+ * Pawn implementation
  * @author Benjamin Pollak
  */
 public class Pawn extends Piece {

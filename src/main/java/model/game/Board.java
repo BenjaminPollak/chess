@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 /**
+ * Represents a chess board "under the hood"
  * @author Benjamin Pollak
  */
 
@@ -134,8 +135,7 @@ public class Board {
         return placedPieces;
     }
 
-    // TODO: test?*
-    /** 
+    /**
      * Returns the piece found at a given location, will return null if no piece found
      * @param loc: model.game.Location from which to retrieve the piece from _field
      * @return piece at the position given

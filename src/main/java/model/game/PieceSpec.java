@@ -6,6 +6,11 @@ import model.pieces.PieceType;
 
 import java.util.Vector;
 
+/**
+ * Data type used for initial instantiation of pieces
+ * @author Benjamin Pollak
+ */
+
 public class PieceSpec extends Vector<Pair<PieceType, Location[]>> {
     public PieceSpec() {
         super();

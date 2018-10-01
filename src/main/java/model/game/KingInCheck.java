@@ -2,9 +2,11 @@ package model.game;
 
 import model.pieces.Direction;
 
-/*
+/**
+ * KingInCheck runtime exception, for detecting a check situation
  * @author Benjamin Pollak
  */
+
 public class KingInCheck extends RuntimeException {
     private Location _kingPosition;
     private Location _attackerPosition;

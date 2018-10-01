@@ -8,6 +8,7 @@ import model.game.PieceCaptured;
 import static java.lang.Math.abs;
 
 /**
+ * King Implementation
  * @author Benjamin Pollak
  */
 public class King extends Piece {

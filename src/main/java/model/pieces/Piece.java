@@ -4,7 +4,8 @@ import model.game.Board;
 import model.game.KingInCheck;
 import model.game.Location;
 
-/*
+/**
+ * Abstract class from which all pieces are derived
  * @author Benjamin Pollak
  */
 abstract public class Piece {

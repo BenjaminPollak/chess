@@ -7,6 +7,7 @@ import model.game.PieceCaptured;
 import static java.lang.Math.abs;
 
 /**
+ * Bishop implementation
  * @author Benjamin Pollak
  */
 public class Bishop extends Piece {
@@ -20,7 +21,6 @@ public class Bishop extends Piece {
         super(pieceLocation,boardParameters, PieceType.BISHOP, color);
     }
 
-    // TODO
     /**
      * Finds if king is in check
      * @param field: field to look for check on
@@ -60,7 +60,9 @@ public class Bishop extends Piece {
             if(getColor() == Color.WHITE) throw new PieceCaptured(Color.BLACK, xCoord, yCoord);
             throw new PieceCaptured(Color.WHITE, xCoord, yCoord);
         }
-        else return MoveType.MOVE;
+        else {
+            return MoveType.MOVE;
+        }
     }
 
     /**

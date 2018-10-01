@@ -6,6 +6,7 @@ import model.game.Location;
 import model.game.PieceCaptured;
 
 /**
+ * Rook implementation
  * @author Benjamin Pollak
  */
 public class Rook extends Piece {
