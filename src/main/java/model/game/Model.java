@@ -7,6 +7,9 @@ public class Model {
     String _whitePlayer;
     String _blackPlayer;
 
+    int _bRows;
+    int _bCols;
+
     Game _game;
 
     /**
@@ -19,7 +22,19 @@ public class Model {
     public Model(String whitePlayer, String blackPlayer, int bRows, int bCols) {
         _whitePlayer = whitePlayer;
         _blackPlayer = blackPlayer;
-        _game = new Game(bRows, bCols, null, null);
+        _bRows = bRows; _bCols = bCols;
+        startNewGame(false);
+    }
+
+    public void startNewGame(boolean useCustomPieces) {
+        _game = null;
+        if(useCustomPieces) {
+            // TODO
+            _game = new Game(_bRows, _bCols, null, null);
+        }
+        else {
+            _game = new Game(_bRows, _bCols, null, null);
+        }
     }
 
     public int getNumWhiteVictories() {

@@ -83,11 +83,6 @@ public class Gui extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // TODO: implement
                 System.out.println("forfeit");
-                _gui.remove(_chessView);
-                _chessView.setVisible(false);
-                _chessView = null;
-                _game = new Game(_boardRows, _boardCols, null, null);
-                initializeGui(_boardRows, _boardCols);
             }
         });
         JMenuItem whiteStatsItem = new JMenuItem("Statistics", KeyEvent.VK_T);
@@ -162,7 +157,7 @@ public class Gui extends JPanel {
         _blackGameInfo.add(new JTextArea(""));
         _blackGameInfo.add(new JTextArea("Black In Stalemate"));
         _blackGameInfo.add(new JTextArea(""));
-        _blackGameInfo.add(new JTextArea("Black Good Move:"));
+        _blackGameInfo.add(new JTextArea("Black Valid Move:"));
         _blackGameInfo.add(new JTextArea(""));
     }
 
@@ -175,7 +170,7 @@ public class Gui extends JPanel {
         _whiteGameInfo.add(new JTextArea(""));
         _whiteGameInfo.add(new JTextArea("White In Stalemate"));
         _whiteGameInfo.add(new JTextArea(""));
-        _whiteGameInfo.add(new JTextArea("White Good Move:"));
+        _whiteGameInfo.add(new JTextArea("White Valid Move:"));
         _whiteGameInfo.add(new JTextArea(""));
     }
 
